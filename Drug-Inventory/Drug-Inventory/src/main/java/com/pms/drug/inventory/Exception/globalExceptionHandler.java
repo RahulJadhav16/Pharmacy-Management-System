@@ -52,5 +52,46 @@ public class globalExceptionHandler {
 	}
 	
 	
+	
+
+	@ExceptionHandler(DrugNotFoundByExpiryDate.class)
+	public ResponseEntity<ApiResponse>handelDrugNotFoundByExpiryDateException(DrugNotFoundByExpiryDate e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@ExceptionHandler(DrugNotFoundByBatchId.class)
+	public ResponseEntity<ApiResponse>handelDrugNotFoundByBatchIdException(DrugNotFoundByBatchId e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.NOT_FOUND);
+		
+	}
+	
+	@ExceptionHandler(InvalidexpireDate.class)
+	public ResponseEntity<ApiResponse>handelInvalidexpireDateException(InvalidexpireDate e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
 
 }

@@ -14,6 +14,27 @@ public class DrugsStock {
 	private String batchId;
 	private Double price;
 	private LocalDate expireDate;
+	private String status;
+	
+	
+	public DrugsStock(String id, String supplierEmailId, String drugName, int quantity, String batchId, Double price,
+			LocalDate expireDate, String status) {
+		super();
+		this.id = id;
+		this.supplierEmailId = supplierEmailId;
+		this.drugName = drugName;
+		this.quantity = quantity;
+		this.batchId = batchId;
+		this.price = price;
+		this.expireDate = expireDate;
+		this.status = status;
+	}
+	
+	public DrugsStock() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -56,21 +77,14 @@ public class DrugsStock {
 	public void setExpireDate(LocalDate expireDate) {
 		this.expireDate = expireDate;
 	}
-	public DrugsStock(String id, String supplierEmailId, String drugName, int quantity, String batchId, Double price,
-			LocalDate expireDate) {
-		super();
-		this.id = id;
-		this.supplierEmailId = supplierEmailId;
-		this.drugName = drugName;
-		this.quantity = quantity;
-		this.batchId = batchId;
-		this.price = price;
-		this.expireDate = expireDate;
+	public String getStatus() {
+		return status;
 	}
-	public DrugsStock() {
-		super();
-		// TODO Auto-generated constructor stub
+	public void setStatus(String status) {
+		this.status = status;
 	}
+	
+	
 	
 	
 
