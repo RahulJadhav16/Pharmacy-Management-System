@@ -3,12 +3,14 @@ package com.pms.doctor.service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Repository.doctorRepository;
 import com.pms.doctor.service.Service.doctorService;
 
+@Service
 public class doctorServiceImpl implements doctorService {
 	
 	@Autowired
