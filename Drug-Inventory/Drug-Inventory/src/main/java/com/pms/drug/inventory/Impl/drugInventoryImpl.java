@@ -33,7 +33,7 @@ public class drugInventoryImpl implements DrugService{
 
 	@Override
 	public List<Drug> getDrugsByName(String name) {
-		 List<Drug> drugs = repo.findByName(name);
+		 List<Drug> drugs = repo.findByNameIgnoreCase(name);
 		    
 		    if (drugs.isEmpty()) {
 		        throw new DrugNotFoundByname("Drug Not Found By Given Name !");

@@ -11,7 +11,7 @@ public interface doctorService {
 	List<Drug> viewAllDrugs();
 	
 	//This will use to view single drug
-	Drug drugByName(String name);
+	List<Drug> drugByName(String name);
 	
 	//This will use to Drug by id
 	Drug drugById(String id);

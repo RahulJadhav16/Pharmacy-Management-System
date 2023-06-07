@@ -3,7 +3,7 @@ package com.pms.doctor.service.Models;
 import org.springframework.data.annotation.Id;
 
 public class Drug {
-	@Id
+	
 	private String id;
 	private String name;
 	private int price;

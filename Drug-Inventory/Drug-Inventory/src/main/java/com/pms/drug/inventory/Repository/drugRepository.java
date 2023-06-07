@@ -10,6 +10,6 @@ import com.pms.drug.inventory.Model.Drug;
 @Repository
 public interface drugRepository extends MongoRepository<Drug, String> {
 	
-	List<Drug> findByName(String name);
+	List<Drug> findByNameIgnoreCase(String name);
 
 }

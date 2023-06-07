@@ -34,7 +34,7 @@ public class doctorController {
 	
 	//To get the drug by  name
 	@GetMapping("/drugByName/{name}")
-	ResponseEntity<Drug> drugByName(@PathVariable String name)
+	ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugByName(name));
 	}
