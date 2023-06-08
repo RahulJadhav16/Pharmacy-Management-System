@@ -27,6 +27,19 @@ public class globalExceptionHandler {
 		
 	}
 	
+	@ExceptionHandler(OrderNotVerifiedException.class)
+	public ResponseEntity<ApiResponse>handelOrderNotVerifiedException(OrderNotVerifiedException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
 	
 	
 	

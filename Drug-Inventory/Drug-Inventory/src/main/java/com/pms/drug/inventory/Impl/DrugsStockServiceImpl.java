@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.pms.drug.inventory.Exception.DrugNotFoundByExpiryDate;
 import com.pms.drug.inventory.Exception.InvalidexpireDate;
 import com.pms.drug.inventory.Exception.DrugNotFoundById;
+import com.pms.drug.inventory.Exception.DrugAlreadyAddedException;
 import com.pms.drug.inventory.Exception.DrugNotFoundByBatchId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -127,26 +128,39 @@ public class DrugsStockServiceImpl implements DrugsStockService{
 	@Override
 	public DrugsStock createDrugsStock(DrugsStock drugsStock) {
 		
-		
-		LocalDate today = LocalDate.now();
-		LocalDate expireDate=drugsStock.getExpireDate();
-		if (expireDate.isBefore(today)) {
-			throw new InvalidexpireDate("Expire date should be greater than todays date !");
+		//Here i am making sure that duplicate drugs not be added
+		String drugName = drugsStock.getDrugName();
+	    List<DrugsStock> drugs = drugsRepo.findAll();
+	    boolean flag = false;
+	    
+	    for (DrugsStock e : drugs) {
+	        if (drugName.equals(e.getDrugName())) {
+	            flag = true;
+	            break;  // Optional: exit the loop since a match is found
+	        }
+	    }
+	    
+	    if (flag) {
+	        throw new DrugAlreadyAddedException("Drug Is Already added with the same name!");
+	    } else {
+	    	
+	    	LocalDate today = LocalDate.now();
+			LocalDate expireDate=drugsStock.getExpireDate();
+			if (expireDate.isBefore(today)) {
+				throw new InvalidexpireDate("Expire date should be greater than todays date !");
+				
+	        } else if (expireDate.isEqual(today)) {
+	        	drugsStock.setStatus("Expiring today");
+	        	drugsRepo.save(drugsStock);
+	        	return drugsStock;
+	        } else {
+	        	drugsStock.setStatus("Not expired");
+	        	drugsRepo.save(drugsStock);
+	        	return drugsStock;
+	        }
+	        
+	    }
 			
-        } else if (expireDate.isEqual(today)) {
-        	drugsStock.setStatus("Expiring today");
-        	drugsRepo.save(drugsStock);
-        	return drugsStock;
-        } else {
-        	drugsStock.setStatus("Not expired");
-        	drugsRepo.save(drugsStock);
-        	return drugsStock;
-        }
-		
-		
-        
-		
-		
 	}
 
 	@Override
