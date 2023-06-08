@@ -47,10 +47,10 @@ public class doctorController {
 	}
 	
 	//To view all Orders
-	@GetMapping("/viewAllOrders")
-	ResponseEntity<List<Order>>viewAllOrders()
+	@GetMapping("/viewAllOrders/{doctorId}")
+	ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
 	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders());
+		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders(doctorId));
 	}
 	
 	//To place order

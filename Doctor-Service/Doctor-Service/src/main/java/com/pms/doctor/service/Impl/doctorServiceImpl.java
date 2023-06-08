@@ -12,16 +12,26 @@ import org.springframework.web.client.RestTemplate;
 
 import com.pms.doctor.service.Exception.DrugNotFoundById;
 import com.pms.doctor.service.Exception.DrugNotFoundByname;
+import com.pms.doctor.service.Exception.UserNotFoundByIDException;
+import com.pms.doctor.service.Models.DoctorPersonalDetails;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Repository.doctorRepository;
 import com.pms.doctor.service.Service.doctorService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.HttpEntity;
+
 
 @Service
 public class doctorServiceImpl implements doctorService {
 	
 	@Autowired
 	private doctorRepository repo;
+	
+	@Autowired
+	private DoctorPersonalDetailsImpl checkID;
 	
 	@Autowired
 	private RestTemplate restTemplate;
@@ -70,15 +80,40 @@ public class doctorServiceImpl implements doctorService {
 	}
 
 	@Override
-	public List<Order> viewAllOrders() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Order> viewAllOrders(String doctorId) {
+		
+		// Here i am getting  the user orders info
+	    try {
+		String url = "http://ORDER-SERVICE/orderService/showOrder/"+doctorId;
+		ArrayList<Order> orderList=restTemplate.getForObject(url, ArrayList.class);
+		return orderList;
+	    }
+	    
+	    catch (HttpClientErrorException.NotFound exception) {
+	        
+	        logger.error("User not found: {}", exception.getMessage());
+	        throw new UserNotFoundByIDException("User not found By Given Id !");
+	    }
+	    
 	}
 
 	@Override
 	public Order addOrder(Order orderObj) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		DoctorPersonalDetails doctordetails=new DoctorPersonalDetails();
+		String doctorid=orderObj.getDoctorId();
+		doctordetails=checkID.getDetails(doctorid);
+		orderObj.setDoctorName(doctordetails.getName());
+		logger.info("{}",orderObj);
+		
+		//Here i am making post request to ORDER-SERVICE 
+		String url = "http://ORDER-SERVICE/orderService/addOrder"; 
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		
+		HttpEntity<Order> requestEntity = new HttpEntity<>(orderObj, headers);
+		Order response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Order.class).getBody();
+		return response;
 	}
 
 }

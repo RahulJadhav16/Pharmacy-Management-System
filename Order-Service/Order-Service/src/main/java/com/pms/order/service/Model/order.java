@@ -1,20 +1,28 @@
-package com.pms.doctor.service.Models;
+package com.pms.order.service.Model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class Order {
-	
-	
-	private String DoctorId;
+@Document("order")
+public class order {
+	@Id
+	private String orderId;
+	private String doctorId;
 	private String doctorName;
 	private String drugName;
 	private int quantity;
 	private boolean status;
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
 	public String getDoctorId() {
-		return DoctorId;
+		return doctorId;
 	}
 	public void setDoctorId(String doctorId) {
-		DoctorId = doctorId;
+		this.doctorId = doctorId;
 	}
 	public String getDoctorName() {
 		return doctorName;
@@ -37,31 +45,22 @@ public class Order {
 	public boolean isStatus() {
 		return status;
 	}
-	
-	public Order(String doctorId, String doctorName, String drugName, int quantity) {
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+	public order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status) {
 		super();
-		DoctorId = doctorId;
+		this.orderId = orderId;
+		this.doctorId = doctorId;
 		this.doctorName = doctorName;
 		this.drugName = drugName;
 		this.quantity = quantity;
-		
+		this.status = status;
 	}
-	public Order() {
+	public order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Order [DoctorId=" + DoctorId + ", doctorName=" + doctorName + ", drugName=" + drugName + ", quantity="
-				+ quantity + ", status=" + status + "]";
-	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

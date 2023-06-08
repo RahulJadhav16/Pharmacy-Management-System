@@ -16,8 +16,8 @@ public interface doctorService {
 	//This will use to Drug by id
 	Drug drugById(String id);
 	
-	//View all orders
-	List<Order>viewAllOrders();
+	//View all orders by doctor id
+	List<Order>viewAllOrders(String doctorId);
 	
 	//Add the order 
 	Order addOrder(Order orderObj);
