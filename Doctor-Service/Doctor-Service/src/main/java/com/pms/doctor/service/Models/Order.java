@@ -4,12 +4,18 @@ import org.springframework.data.annotation.Id;
 
 public class Order {
 	
-	
+	private String orderId;
 	private String DoctorId;
 	private String doctorName;
 	private String drugName;
 	private int quantity;
 	private boolean status;
+	public String getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
 	public String getDoctorId() {
 		return DoctorId;
 	}
@@ -37,24 +43,26 @@ public class Order {
 	public boolean isStatus() {
 		return status;
 	}
-	
-	public Order(String doctorId, String doctorName, String drugName, int quantity) {
+	public Order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status) {
 		super();
+		this.orderId = orderId;
 		DoctorId = doctorId;
 		this.doctorName = doctorName;
 		this.drugName = drugName;
 		this.quantity = quantity;
-		
 	}
+	
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
-		return "Order [DoctorId=" + DoctorId + ", doctorName=" + doctorName + ", drugName=" + drugName + ", quantity="
-				+ quantity + ", status=" + status + "]";
+		return "Order [orderId=" + orderId + ", DoctorId=" + DoctorId + ", doctorName=" + doctorName + ", drugName="
+				+ drugName + ", quantity=" + quantity + ", status=" + status + "]";
 	}
+	
+	
 	
 	
 	

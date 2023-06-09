@@ -13,5 +13,7 @@ public class allConfig {
 	{
 		return new RestTemplate();
 	}
+	
+	
 
 }

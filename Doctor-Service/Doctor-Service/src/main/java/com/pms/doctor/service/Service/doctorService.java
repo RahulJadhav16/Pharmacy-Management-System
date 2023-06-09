@@ -23,6 +23,10 @@ public interface doctorService {
 	Order addOrder(Order orderObj);
 	
 	
+	//Delete Order
+	String deleteOrder(String orderId);
+	
+	
 	
 
 }

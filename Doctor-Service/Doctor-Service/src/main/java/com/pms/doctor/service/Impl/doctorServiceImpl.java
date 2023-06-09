@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.pms.doctor.service.Exception.DrugNotFoundById;
 import com.pms.doctor.service.Exception.DrugNotFoundByname;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
+import com.pms.doctor.service.Exception.VerifyedOrderNotChangeException;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
@@ -79,6 +80,7 @@ public class doctorServiceImpl implements doctorService {
 		
 	}
 
+	//Form here order service starting 
 	@Override
 	public List<Order> viewAllOrders(String doctorId) {
 		
@@ -115,5 +117,34 @@ public class doctorServiceImpl implements doctorService {
 		Order response = restTemplate.exchange(url, HttpMethod.POST, requestEntity, Order.class).getBody();
 		return response;
 	}
+
+
+
+	@Override
+	public String deleteOrder(String orderId) {
+		String url = "http://ORDER-SERVICE/orderService/getOrderByOrderId/"+orderId;
+	    Order orderList=restTemplate.getForObject(url, Order.class);
+	    if(orderList.isStatus())
+	    { 
+	    	throw new VerifyedOrderNotChangeException("Order is verified it canot be changed now!");
+	    }
+	    else
+	    {
+	    	
+	    	//Here i am making Put request to ORDER-SERVICE 
+			String urlUpdate = "http://ORDER-SERVICE/orderService/deleteOrder/"+orderId; 
+			HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			
+			HttpEntity<String> requestEntity = new HttpEntity<>(orderId, headers);
+			restTemplate.exchange(urlUpdate, HttpMethod.DELETE, requestEntity, String.class).getBody();
+			return "Order has been deleted!";
+	    	
+	    	
+	    }	
+	}
+	
+	
+	
 
 }

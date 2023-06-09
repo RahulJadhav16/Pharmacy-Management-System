@@ -30,6 +30,25 @@ public class orderServiceImpl implements orderService{
 	    return orders;		
 	}
 
+	@Override
+	public order updateOrder(order orderObject) {
+		// TODO Auto-generated method stub
+		return orderRepo.save(orderObject);
+	}
+
+	@Override
+	public String deleteOrder(String orderId) {
+		// TODO Auto-generated method stub
+		 orderRepo.deleteById(orderId);
+		 return "Order has been deleted!";
+	}
+
+	@Override
+	public order getOrderByOrderId(String orderId) {
+		// TODO Auto-generated method stub
+		return orderRepo.findById(orderId).orElseThrow(()->new ordersNotFoundException("Order not found with given id!"));
+	}
+
 	
 
 }

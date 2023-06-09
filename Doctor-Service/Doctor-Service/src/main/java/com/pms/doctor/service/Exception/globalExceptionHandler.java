@@ -51,5 +51,18 @@ public class globalExceptionHandler {
 	
 	
 	
+	@ExceptionHandler(VerifyedOrderNotChangeException.class)
+	public ResponseEntity<ApiResponse>handelVerifyedOrderNotChangeException(VerifyedOrderNotChangeException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
 
 }
