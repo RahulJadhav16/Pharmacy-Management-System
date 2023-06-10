@@ -50,5 +50,14 @@ public class OrderServiceAdminController {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.updateOrderStatus(obj));
 	}
+	
+	
+	
+	
+	@GetMapping("/addToPickup")
+	ResponseEntity<String> addToPickup()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(orderService.addToPickup());
+	}
 
 }

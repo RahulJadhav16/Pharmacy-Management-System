@@ -2,6 +2,7 @@ package com.pms.order.service.Impl;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,6 +21,7 @@ import com.pms.order.service.Exception.OrderNotVerifiedException;
 import com.pms.order.service.Exception.ordersNotFoundException;
 import com.pms.order.service.Model.DoctorPersonalDetails;
 import com.pms.order.service.Model.DrugsStock;
+import com.pms.order.service.Model.Pickup;
 import com.pms.order.service.Model.order;
 
 import com.pms.order.service.Repository.OrderRepository;
@@ -107,6 +109,35 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                obj.setStatus(true);
 	                orderObj = orderRepo.save(obj);
 	                
+	                //Setting the verification date //on basis of this date we add multiple orders inside pickup
+	                orderObj.setOrderDate(todaysDate);
+	                
+	                //Adding order to pickup
+	                //Calling pickup_service to add order automatically
+	                Pickup pickupObj=new Pickup();
+	                ArrayList<order> orderlist = new ArrayList<>();
+					  orderlist.add(orderObj);
+					  pickupObj.setorders(orderlist);
+					  String PickupUrl = "http://PICKUP-SERVICE/pickupAdmin/addSingleOrder";
+					  
+	                
+					  HttpHeaders headers2 = new HttpHeaders();
+		              headers2.setContentType(MediaType.APPLICATION_JSON);
+		              HttpEntity<Pickup> requestEntity2 = new HttpEntity<>(pickupObj, headers2);
+		                
+		              Pickup pickupOrder  = restTemplate.exchange(PickupUrl, HttpMethod.POST, requestEntity2, Pickup.class).getBody();
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
+	                
 	                //Here order is verified now i fetch the email address and send email
 	                //I am fetching the email from doctor microservice 
 	                String urlForEmail="http://DOCTOR-SERVICE/registerDoctor/getDetails/"+obj.getDoctorId();
@@ -120,7 +151,7 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                	    + "We hope this email finds you well. We are reaching out to inform you that your recent order has been successfully verified and added to our pickup section.\r\n"
 	                	    + "\r\n"
 	                	    + "Please find below the details of your order for your reference:\r\n"
-	                	    + "Order Number: " + obj.getOrderId() + "\r\n"
+	                	    + "Order verification ID: " + obj.getOrderId() + "\r\n"
 	                	    + "Item Ordered: " + stock.getDrugName() +" With quantity "+obj.getQuantity()+ "\r\n"
 	                	    + "Total Amount: ₹" + totalAmount + "\r\n"
 	                	    + "\r\n"
@@ -131,9 +162,10 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                	    + "Thank you for choosing our services!";
 
 
-	                String emailTitle="Order Verification and Payment Reminder for order ID: "+obj.getOrderId();
+	                String emailTitle="Order Verification and Payment Reminder for order verification ID: "+obj.getOrderId();
 	                
 	                email.someMethod(details.getEmail(),emailTitle,emailBody);
+	           
 	                
 	            } else {
 	                obj.setStatus(false);
@@ -151,7 +183,7 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                	    + "We hope this email finds you well. We are reaching out to inform you that we regretfully cannot verify your recent order at the moment due to insufficient stock.\r\n"
 	                	    + "\r\n"
 	                	    + "Please find below the details of your order for your reference:\r\n"
-	                	    + "Order Number: " + obj.getOrderId() + "\r\n"
+	                	    + "Order verification ID: " + obj.getOrderId() + "\r\n"
 	                	    + "Item Ordered: " + stock.getDrugName() + " with quantity " + obj.getQuantity() + "\r\n"
 	                	    + "Total Amount: ₹" + totalAmount + "\r\n"
 	                	    + "\r\n"
@@ -161,7 +193,7 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                	    + "\r\n"
 	                	    + "Thank you for your understanding and patience!\r\n";
 	                
-	                String emailTitle = "Order Update: Insufficient Stock for Order ID " + obj.getOrderId();
+	                String emailTitle = "Order Update: Insufficient Stock for Order verification ID " + obj.getOrderId();
 	                email.someMethod(details.getEmail(),emailTitle,emailBody);
 
 	                throw new OrderNotVerifiedException("Order not verified either stock is not available or stock is expired!");
@@ -174,6 +206,35 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	    }
 	    
 	    return orderObj;
+	}
+
+	@Override
+	public String addToPickup() {
+		// TODO Auto-generated method stub
+		List<order> allorders=orderRepo.findAll();
+		for(order e:allorders)
+		{
+			if(e.isStatus())
+			{
+				  Pickup pickupObj=new Pickup();
+				  ArrayList<order> orderlist=new ArrayList<order>();
+				  orderlist.add(e);
+				  pickupObj.setorders(orderlist);
+				  
+				  String updateUrl = "http://PICKUP-SERVICE/pickupAdmin/addSingleOrder";
+	              HttpHeaders headers = new HttpHeaders();
+	              headers.setContentType(MediaType.APPLICATION_JSON);
+	              HttpEntity<Pickup> requestEntity = new HttpEntity<>(pickupObj, headers);
+	                
+	              Pickup updatedStock = restTemplate.exchange(updateUrl, HttpMethod.POST, requestEntity, Pickup.class).getBody();
+	              logger.info("{}", updatedStock);
+				
+			}
+		}
+		
+				
+		
+		return "All verified orders added to pickup section!!";
 	}
 
 

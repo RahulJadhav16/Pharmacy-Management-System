@@ -18,6 +18,10 @@ public interface orderServiceAdmin {
 	//Update the order status
 	order updateOrderStatus(order obj);
 	
+	//Adding order to pickup
+	String addToPickup();
+	
+	
 
 
 }

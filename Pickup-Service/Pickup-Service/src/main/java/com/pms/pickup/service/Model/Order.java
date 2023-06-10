@@ -1,18 +1,19 @@
-package com.pms.doctor.service.Models;
+package com.pms.pickup.service.Model;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-
 public class Order {
-	
 	private String orderId;
-	private String DoctorId;
+	private String doctorId;
 	private String doctorName;
 	private String drugName;
 	private int quantity;
 	private boolean status;
 	private LocalDate orderDate;
+	
+	
+
+	
 	public String getOrderId() {
 		return orderId;
 	}
@@ -20,10 +21,10 @@ public class Order {
 		this.orderId = orderId;
 	}
 	public String getDoctorId() {
-		return DoctorId;
+		return doctorId;
 	}
 	public void setDoctorId(String doctorId) {
-		DoctorId = doctorId;
+		this.doctorId = doctorId;
 	}
 	public String getDoctorName() {
 		return doctorName;
@@ -46,7 +47,9 @@ public class Order {
 	public boolean isStatus() {
 		return status;
 	}
-	
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
 	public LocalDate getOrderDate() {
 		return orderDate;
 	}
@@ -57,11 +60,11 @@ public class Order {
 			LocalDate orderDate) {
 		super();
 		this.orderId = orderId;
-		DoctorId = doctorId;
+		this.doctorId = doctorId;
 		this.doctorName = doctorName;
 		this.drugName = drugName;
 		this.quantity = quantity;
-		
+		this.status = status;
 		this.orderDate = orderDate;
 	}
 	public Order() {
@@ -70,22 +73,9 @@ public class Order {
 	}
 	@Override
 	public String toString() {
-		return "Order [orderId=" + orderId + ", DoctorId=" + DoctorId + ", doctorName=" + doctorName + ", drugName="
+		return "Order [orderId=" + orderId + ", doctorId=" + doctorId + ", doctorName=" + doctorName + ", drugName="
 				+ drugName + ", quantity=" + quantity + ", status=" + status + ", orderDate=" + orderDate + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 

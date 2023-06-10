@@ -1,5 +1,7 @@
 package com.pms.order.service.Model;
 
+import java.time.LocalDate;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,6 +14,7 @@ public class order {
 	private String drugName;
 	private int quantity;
 	private boolean status;
+	private LocalDate orderDate;
 	public String getOrderId() {
 		return orderId;
 	}
@@ -48,6 +51,25 @@ public class order {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+	
+	public order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status,
+			LocalDate orderDate) {
+		super();
+		this.orderId = orderId;
+		this.doctorId = doctorId;
+		this.doctorName = doctorName;
+		this.drugName = drugName;
+		this.quantity = quantity;
+		this.status = status;
+		this.orderDate = orderDate;
+	}
 	public order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status) {
 		super();
 		this.orderId = orderId;
@@ -60,6 +82,11 @@ public class order {
 	public order() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "order [orderId=" + orderId + ", doctorId=" + doctorId + ", doctorName=" + doctorName + ", drugName="
+				+ drugName + ", quantity=" + quantity + ", status=" + status + ", orderDate=" + orderDate + "]";
 	}
 	
 	

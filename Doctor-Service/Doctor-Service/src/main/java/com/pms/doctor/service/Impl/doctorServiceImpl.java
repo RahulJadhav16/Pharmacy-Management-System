@@ -1,5 +1,6 @@
 package com.pms.doctor.service.Impl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,13 +102,13 @@ public class doctorServiceImpl implements doctorService {
 
 	@Override
 	public Order addOrder(Order orderObj) {
-		
+		LocalDate todaysDate=LocalDate.now();
 		DoctorPersonalDetails doctordetails=new DoctorPersonalDetails();
 		String doctorid=orderObj.getDoctorId();
 		doctordetails=checkID.getDetails(doctorid);
 		orderObj.setDoctorName(doctordetails.getName());
 		logger.info("{}",orderObj);
-		
+		orderObj.setOrderDate(todaysDate);
 		//Here i am making post request to ORDER-SERVICE 
 		String url = "http://ORDER-SERVICE/orderService/addOrder"; 
 		HttpHeaders headers = new HttpHeaders();

@@ -8,11 +8,11 @@
 		<version>3.0.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pms.doctor.service</groupId>
-	<artifactId>Doctor-Service</artifactId>
+	<groupId>com.pms.pickup.service</groupId>
+	<artifactId>Pickup-Service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Doctor-Service</name>
-	<description>This is Doctor Service</description>
+	<name>Pickup-Service</name>
+	<description>This is pickup service </description>
 	<properties>
 		<spring-cloud.version>2022.0.3</spring-cloud.version>
 		<java.version>17</java.version>
@@ -43,7 +43,10 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		
-			
+			<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
