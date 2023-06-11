@@ -18,6 +18,7 @@ import com.pms.doctor.service.Exception.VerifyedOrderNotChangeException;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
+import com.pms.doctor.service.Models.Pickup;
 import com.pms.doctor.service.Repository.doctorRepository;
 import com.pms.doctor.service.Service.doctorService;
 import org.springframework.http.HttpHeaders;
@@ -143,6 +144,24 @@ public class doctorServiceImpl implements doctorService {
 	    	
 	    	
 	    }	
+	}
+
+	@Override
+	public List<Pickup> viewAllPickups(String id) {
+		String url="http://PICKUP-SERVICE/pickupDoctor/getAllPickups/"+id;
+		
+		return restTemplate.getForObject(url, ArrayList.class);
+	}
+
+	@Override
+	public Pickup makePayment(Pickup pickup) {
+		
+		String url="http://PICKUP-SERVICE/pickupDoctor/makePayment";
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<Pickup> requestEntity = new HttpEntity<>(pickup, headers);
+		
+		return restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Pickup.class).getBody();
 	}
 	
 	

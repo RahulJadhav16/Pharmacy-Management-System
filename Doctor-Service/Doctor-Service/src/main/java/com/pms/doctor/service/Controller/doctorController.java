@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
+import com.pms.doctor.service.Models.Pickup;
 
 @RestController
 @RequestMapping("/doctor")
@@ -48,6 +50,7 @@ public class doctorController {
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugById(Id));
 	}
 	
+	/////////////////// Orders Section /////////////////////////////////
 	//To view all Orders
 	@GetMapping("/viewAllOrders/{doctorId}")
 	ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
@@ -69,6 +72,21 @@ public class doctorController {
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.deleteOrder(id));
 	}
 	
+	///////////////// pickup section ///////////////////////////////////
+	
+	//viewAllPickups
+	@GetMapping("/viewAllPickups/{id}")
+	ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllPickups(id));
+	}
+	
+	//Make payment 
+	@PutMapping("/makePayment")
+	ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(doctorService.makePayment(obj));
+	}
 	
 
 

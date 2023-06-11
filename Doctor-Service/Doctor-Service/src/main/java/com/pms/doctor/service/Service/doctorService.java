@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
+import com.pms.doctor.service.Models.Pickup;
 
 public interface doctorService {
 	
@@ -26,6 +27,12 @@ public interface doctorService {
 	//Delete Order
 	String deleteOrder(String orderId);
 	
+	
+	//See all pickups 
+	List<Pickup> viewAllPickups(String id);
+	
+	//Make payment from pickup
+	Pickup makePayment(Pickup pickup);
 	
 	
 
