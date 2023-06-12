@@ -32,8 +32,25 @@ public class pickupServiceImpl implements pickupService{
 
 	@Override
 	public List<Pickup> getByDoctorId(String doctorId) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		List<Pickup> allPickupsList=pickupRepo.findAll();
+		List<Pickup> pickupOfDoctors=new ArrayList<>();
+		if(allPickupsList.isEmpty())
+		{
+			return allPickupsList;
+		}
+		else
+		{
+			for(Pickup e:allPickupsList)
+			{
+				if(e.getOrders().get(0).getDoctorId().equals(doctorId))
+				{
+					pickupOfDoctors.add(e);
+				}
+			}
+			return pickupOfDoctors;
+		}
+		
 	}
 
 	@Override
@@ -104,6 +121,52 @@ public class pickupServiceImpl implements pickupService{
 		//MAking payment status false now because after doctor payment it will change 
 		pickupObj.setPaymentStatus(false);
 		return pickupRepo.save(pickupObj);
+	}
+
+	@Override
+	public List<Pickup> getPickupPaymentDone() {
+		List<Pickup> allPickupsList=pickupRepo.findAll();
+		List<Pickup> pickupOfPaymentDone=new ArrayList<>();
+		if(allPickupsList.isEmpty())
+		{
+			return allPickupsList;
+		}
+		else
+		{
+			for(Pickup e:allPickupsList)
+			{
+				if(e.isPaymentStatus())
+				{
+					pickupOfPaymentDone.add(e);
+				}
+			}
+			return pickupOfPaymentDone;
+			
+		}
+		
+		
+	}
+
+	@Override
+	public List<Pickup> getPickupPaymentNotDone() {
+		// TODO Auto-generated method stub
+		List<Pickup> allPickupsList=pickupRepo.findAll();
+		List<Pickup> pickupOfPaymentNotDone=new ArrayList<>();
+		if(allPickupsList.isEmpty())
+		{
+			return allPickupsList;
+		}
+		else {
+			for(Pickup e:allPickupsList)
+			{
+				if(e.isPaymentStatus()==false)
+				{
+					pickupOfPaymentNotDone.add(e);
+				}
+			}
+			
+		}
+		return pickupOfPaymentNotDone;
 	}
 
 	

@@ -95,5 +95,35 @@ public class globalExceptionHandler {
 		
 	}
 	
+	
+	@ExceptionHandler(ordersNotFoundException.class)
+	public ResponseEntity<ApiResponse>handelordersNotFoundException(ordersNotFoundException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
+	
+	
+	@ExceptionHandler(OrderNotVerifiedException.class)
+	public ResponseEntity<ApiResponse>handelOrderNotVerifiedException(OrderNotVerifiedException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
+	
 
 }

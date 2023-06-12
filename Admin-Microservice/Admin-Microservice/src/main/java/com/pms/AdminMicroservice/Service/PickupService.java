@@ -1,11 +1,12 @@
-package com.pms.pickup.service.Service;
+package com.pms.AdminMicroservice.Service;
 
 import java.util.List;
 
-import com.pms.pickup.service.Model.Order;
-import com.pms.pickup.service.Model.Pickup;
+import com.pms.AdminMicroservice.Model.Pickup;
 
-public interface pickupService {
+
+
+public interface PickupService {
 	
 	//getAll
 	List<Pickup> getAll();
@@ -21,13 +22,5 @@ public interface pickupService {
 	
 	//get by payment done
 	List<Pickup> getPickupPaymentNotDone();
-	
-	
-	//post for pickup creation
-	Pickup createSinglePickup(Pickup pickupObj);
-	
-	
-	
-	
 
 }
