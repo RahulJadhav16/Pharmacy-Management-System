@@ -1,11 +1,14 @@
 package com.pms.AdminMicroservice.Repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+
+
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.pms.AdminMicroservice.Model.AdminDetails;
 
 @Repository
-public interface AdminDetailsRepository extends MongoRepository<AdminDetails, String>{
+public interface AdminDetailsRepository extends JpaRepository<AdminDetails, Long>{
 
 }
