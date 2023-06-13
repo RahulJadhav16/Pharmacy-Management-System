@@ -29,7 +29,7 @@ public class doctorController {
 	
 	//To view all the drugs
 	@GetMapping("/viewAllDrugs")
-	ResponseEntity<List<Drug>>viewAllDrugs()
+	public ResponseEntity<List<Drug>>viewAllDrugs()
 	{
 		List<Drug> allDrugsList=doctorService.viewAllDrugs();
 		
@@ -38,14 +38,14 @@ public class doctorController {
 	
 	//To get the drug by  name
 	@GetMapping("/drugByName/{name}")
-	ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
+	public ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugByName(name));
 	}
 	
 	//To get the drug by  Id
 	@GetMapping("/drugById/{Id}")
-	ResponseEntity<Drug> drugById(@PathVariable String Id)
+	public ResponseEntity<Drug> drugById(@PathVariable String Id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugById(Id));
 	}
@@ -53,20 +53,20 @@ public class doctorController {
 	/////////////////// Orders Section /////////////////////////////////
 	//To view all Orders
 	@GetMapping("/viewAllOrders/{doctorId}")
-	ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
+	public ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders(doctorId));
 	}
 	
 	//To place order
 	@PostMapping("/addOrder")
-	ResponseEntity<Order> addOrder(@RequestBody Order orderObj)
+	public ResponseEntity<Order> addOrder(@RequestBody Order orderObj)
 	{
 		return ResponseEntity.status(HttpStatus.CREATED).body(doctorService.addOrder(orderObj));
 	}
 	
 	//Delete order
-	@DeleteMapping("/deleteOrder/{id}")
+	public @DeleteMapping("/deleteOrder/{id}")
 	ResponseEntity<String> deleteOrder(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.deleteOrder(id));
@@ -75,7 +75,7 @@ public class doctorController {
 	///////////////// pickup section ///////////////////////////////////
 	
 	//viewAllPickups
-	@GetMapping("/viewAllPickups/{id}")
+	public @GetMapping("/viewAllPickups/{id}")
 	ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllPickups(id));
@@ -83,7 +83,7 @@ public class doctorController {
 	
 	//Make payment 
 	@PutMapping("/makePayment")
-	ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
+	public ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(doctorService.makePayment(obj));
 	}
