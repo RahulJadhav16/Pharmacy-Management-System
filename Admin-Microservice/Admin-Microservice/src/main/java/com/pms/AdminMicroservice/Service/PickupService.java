@@ -9,7 +9,7 @@ import com.pms.AdminMicroservice.Model.Pickup;
 public interface PickupService {
 	
 	//getAll
-	List<Pickup> getAll();
+	List<Pickup> getAllPickups();
 	
 	//getByDoctorid
 	List<Pickup> getByDoctorId(String doctorId);

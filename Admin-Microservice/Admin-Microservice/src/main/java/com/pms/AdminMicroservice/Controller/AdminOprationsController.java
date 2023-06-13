@@ -159,10 +159,10 @@ public class AdminOprationsController {
 	//////////////////////////////These endpoints are for pickupService /////////////////////
 	
 	
-	@GetMapping("/getAll")
-	ResponseEntity<List<Pickup>>getAll()
+	@GetMapping("/getAllPickups")
+	ResponseEntity<List<Pickup>>getAllPickups()
 	{
-		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getAll());
+		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getAllPickups());
 	}
 	
 	@GetMapping("/getByDoctorId/{id}")

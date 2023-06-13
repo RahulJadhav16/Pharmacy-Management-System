@@ -17,7 +17,7 @@ public class PickupServiceImpl implements PickupService{
 	private RestTemplate restTemplate;
 
 	@Override
-	public List<Pickup> getAll() {
+	public List<Pickup> getAllPickups() {
 		String url="http://PICKUP-SERVICE/pickupAdmin/getAllPickups";
 		List<Pickup> response =restTemplate.getForObject(url, ArrayList.class);
 		return response;
