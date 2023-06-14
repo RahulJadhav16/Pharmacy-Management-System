@@ -54,6 +54,12 @@ public class Drug {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "Drug [id=" + id + ", name=" + name + ", price=" + price + ", type=" + type + ", category=" + category
+				+ "]";
+	}
+	
 	
 
 }

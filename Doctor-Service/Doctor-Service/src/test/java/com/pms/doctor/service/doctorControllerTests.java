@@ -3,15 +3,16 @@ import com.pms.doctor.service.Controller.doctorController;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
+import com.pms.doctor.service.Exception.DrugNotFoundByname;
+import com.pms.doctor.service.Exception.DrugNotFoundById;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -21,10 +22,11 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 
-class doctorControllerTests {
+public class doctorControllerTests {
 
     @Mock
     private doctorServiceImpl doctorService;
@@ -34,11 +36,12 @@ class doctorControllerTests {
 
     @BeforeEach
     void setUp() {
+    	
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    void testViewAllDrugs() {
+    public void testViewAllDrugs() {
         // Prepare test data
         List<Drug> drugs = new ArrayList<>();
         drugs.add(new Drug("123","Aspirin",50,"Tablet","Pain reliever"));
@@ -59,7 +62,7 @@ class doctorControllerTests {
     }
     
     @Test
-    void testDrugByName_ValidName() {
+    public void testDrugByName_ValidName() {
         // Prepare test data
         String drugName = "Aspirin";
         List<Drug> drugs = new ArrayList<>();
@@ -80,27 +83,34 @@ class doctorControllerTests {
         verify(doctorService).drugByName(drugName);
     }
     
+    //this meant to fail
     @Test
-    void testDrugByName_NoMatch() {
+    public void testDrugByName_NoMatch() {
         // Prepare test data
         String drugName = "NonexistentDrug";
 
         // Mock the doctorService's behavior
         when(doctorService.drugByName(drugName)).thenReturn(Collections.emptyList());
 
-        // Call the API endpoint
-        ResponseEntity<List<Drug>> response = doctorController.drugByName(drugName);
-
-        // Verify the response
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(Collections.emptyList(), response.getBody());
+        // Call the API endpoint and assert that an exception is thrown
+        assertThrows(DrugNotFoundByname.class, () -> {
+            doctorController.drugByName(drugName);
+        });
 
         // Verify that the doctorService's method was called
         verify(doctorService).drugByName(drugName);
     }
     
+
+
+
+
+
+
+
+    
     @Test
-    void testDrugById_ValidId() {
+    public void testDrugById_ValidId() {
         // Prepare test data
         String drugId = "1";
         Drug drug = new Drug("1", "Aspirin", 10, "Type1", "Category1");
@@ -121,31 +131,30 @@ class doctorControllerTests {
 
 
 
-    
+    //this meant to fail
     @Test
-    void testDrugById_NoMatch() {
+    public void testDrugById_NoMatch() {
         // Prepare test data
         String drugId = "999";
 
         // Mock the doctorService's behavior
         when(doctorService.drugById(drugId)).thenReturn(null);
 
-        // Call the API endpoint
-        ResponseEntity<Drug> response = doctorController.drugById(drugId);
-
-        // Verify the response
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        Assertions.assertNull(response.getBody());
+        // Call the API endpoint and assert that the exception is thrown
+        assertThrows(DrugNotFoundById.class, () -> {
+            doctorController.drugById(drugId);
+        });
 
         // Verify that the doctorService's method was called
         verify(doctorService).drugById(drugId);
     }
+
     
     
     //////////////////////// Test cases for Order ////////////////////////
     
     @Test
-    void testViewAllOrders() {
+    public void testViewAllOrders() {
         // Prepare test data
         String doctorId = "1";
         List<Order> expectedOrders = new ArrayList<>();
@@ -170,7 +179,7 @@ class doctorControllerTests {
     }
     
     @Test
-    void testAddOrder() {
+    public void testAddOrder() {
         // Prepare test data
         Order orderObj = new Order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
         
@@ -190,7 +199,7 @@ class doctorControllerTests {
     }
     
     @Test
-    void testDeleteOrder() {
+    public void testDeleteOrder() {
         // Prepare test data
         String orderId = "1";
 
@@ -211,7 +220,7 @@ class doctorControllerTests {
          ///////////////// pickup section ///////////////////////////////////
     
     @Test
-    void testViewAllPickups() {
+    public void testViewAllPickups() {
         // Prepare test data
         String id = "1";
         List<Pickup> expectedPickups = new ArrayList<>();
@@ -250,7 +259,7 @@ class doctorControllerTests {
     
     
     @Test
-    void testMakePayment() {
+    public void testMakePayment() {
         // Prepare test data
         Pickup pickupObj = new Pickup();
         // Set the necessary properties of the pickupObj

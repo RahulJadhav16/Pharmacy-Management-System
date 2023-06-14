@@ -27,7 +27,7 @@ public class OrderServiceAdminController {
 	
 	
 	@GetMapping("/allOrders")
-	ResponseEntity<List<order>> getAllOrders()
+	public ResponseEntity<List<order>> getAllOrders()
 	{
 		
 		
@@ -35,18 +35,18 @@ public class OrderServiceAdminController {
 	}
 	
 	@GetMapping("/getOrderById/{id}")
-	ResponseEntity<order> getOrderById(@PathVariable String id)
+	public ResponseEntity<order> getOrderById(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrderById(id));
 	}
 	@GetMapping("/getOrderByDoctorId/{id}")
-	ResponseEntity<List<order>> getOrderByDoctorId(@PathVariable String id)
+	public ResponseEntity<List<order>> getOrderByDoctorId(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.getOrderByDoctorId(id));
 	}
 	
 	@PutMapping("/verifyOrder")
-	ResponseEntity<order>updateOrderStatus(@RequestBody order obj)
+	public ResponseEntity<order>updateOrderStatus(@RequestBody order obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.updateOrderStatus(obj));
 	}
@@ -55,7 +55,7 @@ public class OrderServiceAdminController {
 	
 	
 	@GetMapping("/addToPickup")
-	ResponseEntity<String> addToPickup()
+	public ResponseEntity<String> addToPickup()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.addToPickup());
 	}
