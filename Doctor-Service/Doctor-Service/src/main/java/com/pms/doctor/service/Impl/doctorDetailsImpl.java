@@ -3,8 +3,10 @@ package com.pms.doctor.service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.pms.doctor.service.Exception.EmailIdAlreadyExistsException;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
 import com.pms.doctor.service.Models.Doctor;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
@@ -21,25 +23,70 @@ public class doctorDetailsImpl implements doctorDetailsService{
 	
 	@Autowired
 	private DoctorPersonalDetailsRepository doctorPersonalDetailsRepository;
+	
+	@Autowired 
+	private PasswordEncoder passwordEncoder;
     
 	DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails();
 	@Override
 	public Doctor addDetails(Doctor doctorobj) {
 		// TODO Auto-generated method stub
-	
-		Doctor obj= doctorRepo.save(doctorobj);
-		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(obj.getDoctorid(),obj.getName(),obj.getContact(),obj.getEmail());
+		boolean Emailcheck=false;	
+		List<Doctor> doctorList=doctorRepo.findAll();
+		for(Doctor e:doctorList)
+		{
+			if (e.getEmail().toLowerCase().equals(doctorobj.getEmail().toLowerCase()))
+			{
+				Emailcheck=true;
+				break;
+			}
+		}
+		
+		if(Emailcheck)
+		{
+			throw new EmailIdAlreadyExistsException("The given Email Id already Exists!");
+		}
+		else {
+	    
+		//Hashing the password
+		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));
+		doctorRepo.save(doctorobj);
+		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(doctorobj.getDoctorId(),doctorobj.getName(),doctorobj.getContact(),doctorobj.getEmail(),doctorobj.getAddress());
 		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
-		return obj;
+		return doctorobj;
+		}
 	}
-
 	@Override
 	public Doctor updateDetails(Doctor doctorobj) {
-		Doctor obj= doctorRepo.save(doctorobj);
-		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(obj.getDoctorid(),obj.getName(),obj.getContact(),obj.getEmail());
+		
+//		//HAshing updated password
+		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));	
+		
+		
+		doctorRepo.save(doctorobj);
+		
+		//Updating data in userPersonalInfo
+		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(doctorobj.getDoctorId(),doctorobj.getName(),doctorobj.getContact(),doctorobj.getEmail(),doctorobj.getAddress());
 		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
-		return obj;
+		return doctorobj;
 	}
+
+//	@Override
+//	public Doctor updateDetails(Doctor doctorobj) {
+//		
+//		
+//		
+//		//HAshing updated password
+//		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));	
+//		doctorobj.setDoctorid(doctorobj.getDoctorid());
+//		System.out.println(doctorobj.getDoctorid());
+//		Doctor obj= doctorRepo.save(doctorobj);
+//		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(obj.getDoctorid(),obj.getName(),obj.getContact(),obj.getEmail(),obj.getAddress());
+//		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
+//		return obj;
+//		
+//		
+//	}
 
 	
 	

@@ -10,6 +10,7 @@ public class DoctorPersonalDetails {
 	private String name;
 	private String contact;
 	private String email;
+	private String address;
 	public String getId() {
 		return id;
 	}
@@ -34,17 +35,25 @@ public class DoctorPersonalDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public DoctorPersonalDetails(String id, String name, String contact, String email) {
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public DoctorPersonalDetails(String id, String name, String contact, String email, String address) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.contact = contact;
 		this.email = email;
+		this.address = address;
 	}
 	public DoctorPersonalDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 	
 	

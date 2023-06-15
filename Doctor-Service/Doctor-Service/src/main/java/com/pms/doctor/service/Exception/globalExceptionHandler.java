@@ -64,5 +64,18 @@ public class globalExceptionHandler {
 		
 	}
 	
+	
+	@ExceptionHandler(EmailIdAlreadyExistsException.class)
+	public ResponseEntity<ApiResponse>handelEmailIdAlreadyExistsException(EmailIdAlreadyExistsException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
 
 }

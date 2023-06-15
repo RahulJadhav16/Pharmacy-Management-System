@@ -2,12 +2,21 @@ package com.pms.doctor.service.Controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,78 +25,142 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pms.doctor.service.Config.JwtHelper;
+import com.pms.doctor.service.Config.JwtRequest;
+import com.pms.doctor.service.Config.JwtResponse;
+import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
 
-@RestController
-@RequestMapping("/doctor")
+//@RestController
+//@RequestMapping("/doctor")
 public class doctorController {
-	@Autowired
-	private doctorServiceImpl doctorService;
-	
-	//To view all the drugs
-	@GetMapping("/viewAllDrugs")
-	public ResponseEntity<List<Drug>>viewAllDrugs()
-	{
-		List<Drug> allDrugsList=doctorService.viewAllDrugs();
-		
-		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
-	}
-	
-	//To get the drug by  name
-	@GetMapping("/drugByName/{name}")
-	public ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugByName(name));
-	}
-	
-	//To get the drug by  Id
-	@GetMapping("/drugById/{Id}")
-	public ResponseEntity<Drug> drugById(@PathVariable String Id)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugById(Id));
-	}
-	
-	/////////////////// Orders Section /////////////////////////////////
-	//To view all Orders
-	@GetMapping("/viewAllOrders/{doctorId}")
-	public ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders(doctorId));
-	}
-	
-	//To place order
-	@PostMapping("/addOrder")
-	public ResponseEntity<Order> addOrder(@RequestBody Order orderObj)
-	{
-		return ResponseEntity.status(HttpStatus.CREATED).body(doctorService.addOrder(orderObj));
-	}
-	
-	//Delete order
-	public @DeleteMapping("/deleteOrder/{id}")
-	ResponseEntity<String> deleteOrder(@PathVariable String id)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.deleteOrder(id));
-	}
-	
-	///////////////// pickup section ///////////////////////////////////
-	
-	//viewAllPickups
-	public @GetMapping("/viewAllPickups/{id}")
-	ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllPickups(id));
-	}
-	
-	//Make payment 
-	@PutMapping("/makePayment")
-	public ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
-	{
-		return ResponseEntity.status(HttpStatus.OK).body(doctorService.makePayment(obj));
-	}
-	
+//	@Autowired
+//	private doctorServiceImpl doctorService;
+//	
+//	@Autowired
+//	private DoctorPersonalDetailsImpl doctorPersonalDetailsImpl;
+//	
+//	@Autowired
+//    private UserDetailsService userDetailsService;
+//
+//    @Autowired
+//    private AuthenticationManager manager;
+//
+//
+//    @Autowired
+//    private JwtHelper helper;
+//
+//    private Logger logger = LoggerFactory.getLogger(doctorDetailsController.class);
+//    
+//    
+//	//To view all the drugs
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@GetMapping("/viewAllDrugs")
+//	public ResponseEntity<List<Drug>>viewAllDrugs()
+//	{
+//		List<Drug> allDrugsList=doctorService.viewAllDrugs();
+//		
+//		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
+//	}
+//	
+//	//To get the drug by  name
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@GetMapping("/drugByName/{name}")
+//	public ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugByName(name));
+//	}
+//	
+//	//To get the drug by  Id
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@GetMapping("/drugById/{Id}")
+//	public ResponseEntity<Drug> drugById(@PathVariable String Id)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugById(Id));
+//	}
+//	
+//	/////////////////// Orders Section /////////////////////////////////
+//	//To view all Orders
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@GetMapping("/viewAllOrders/{doctorId}")
+//	public ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders(doctorId));
+//	}
+//	
+//	//To place order
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@PostMapping("/addOrder")
+//	public ResponseEntity<Order> addOrder(@RequestBody Order orderObj)
+//	{
+//		return ResponseEntity.status(HttpStatus.CREATED).body(doctorService.addOrder(orderObj));
+//	}
+//	
+//	//Delete order
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	public @DeleteMapping("/deleteOrder/{id}")
+//	ResponseEntity<String> deleteOrder(@PathVariable String id)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.deleteOrder(id));
+//	}
+//	
+//	///////////////// pickup section ///////////////////////////////////
+//	
+//	//viewAllPickups
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	public @GetMapping("/viewAllPickups/{id}")
+//	ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllPickups(id));
+//	}
+//	
+//	//Make payment 
+//	@PreAuthorize("hasRole('DOCTOR')")
+//	@PutMapping("/makePayment")
+//	public ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
+//	{
+//		return ResponseEntity.status(HttpStatus.OK).body(doctorService.makePayment(obj));
+//	}
+//	
+//	
+//	//////////////////////////For login //////////////////////////////////////////
+//	
+//	
+//	@PostMapping("/auth/login")
+//	public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
+//
+//        this.doAuthenticate(request.getEmail(), request.getPassword());
+//
+//
+//        UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
+//        String token = this.helper.generateToken(userDetails);
+//
+//        JwtResponse response = JwtResponse.builder()
+//                .jwtToken(token)
+//                .username(userDetails.getUsername()).build();
+//        return new ResponseEntity<>(response, HttpStatus.OK);
+//    }
+//	
+//	private void doAuthenticate(String email, String password) {
+//
+//        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, password);
+//        try {
+//            manager.authenticate(authentication);
+//
+//
+//        } catch (BadCredentialsException e) {
+//            throw new BadCredentialsException(" Invalid Username or Password  !!");
+//        }
+//
+//    }
+//	
+//	 @ExceptionHandler(BadCredentialsException.class)
+//	    public String exceptionHandler() {
+//	        return "Credentials Invalid !!";
+//	    }
 
 
 }

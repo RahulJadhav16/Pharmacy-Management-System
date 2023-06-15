@@ -10,5 +10,6 @@ import com.pms.doctor.service.Models.Doctor;
 @Repository
 public interface doctorRepository extends MongoRepository<Doctor,String>{
 	
+	Doctor findByEmail(String email);
 
 }
