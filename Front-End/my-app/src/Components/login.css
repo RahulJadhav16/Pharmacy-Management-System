@@ -1,0 +1,39 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald:400,300,700");
+.admin{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: inset 0 0 0 0 orchid;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .6s ease-in-out, box-shadow .6s ease-in-out;
+
+}
+.admin:hover{
+    box-shadow: inset 1000px 0 0 0 orange;
+    font-weight: bold
+
+
+}
+
+.doctor{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .6s ease-in-out, box-shadow .6s ease-in-out;
+
+}
+.doctor:hover{
+    box-shadow: inset 1000px 0 0 0 #54b3d6;
+    font-weight: bold
+
+}
+.back{
+    height: 82vh;
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.role{
+    font-family: 'Oswald', sans-serif !important;
+}
+
