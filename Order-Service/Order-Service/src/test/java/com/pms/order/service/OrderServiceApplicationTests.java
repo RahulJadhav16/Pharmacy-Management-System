@@ -44,7 +44,7 @@ public class OrderServiceApplicationTests {
     @Test
     void testCreateOrder() {
         // Prepare test data
-    	order order1 = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
+    	order order1 = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
 
         // Mock the orderService's behavior
         when(orderService.createOrder(order1)).thenReturn(order1);
@@ -67,8 +67,8 @@ public class OrderServiceApplicationTests {
        
         List<order> expectedOrders = new ArrayList<>();
         // Add some orders to the expected list
-        order order1 = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
-        order order2 = new order("2", "D001", "Dr. John Doe", "Drug2", 3, true, LocalDate.now());
+        order order1 = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
+        order order2 = new order("2", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
         expectedOrders.add(order1);
         expectedOrders.add(order2);
 
@@ -90,7 +90,7 @@ public class OrderServiceApplicationTests {
     void testGetOrderByOrderId() {
         // Prepare test data
         String orderId = "123";
-        order expectedOrder = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
+        order expectedOrder = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
 
         // Mock the orderService's behavior
         when(orderService.getOrderByOrderId(orderId)).thenReturn(expectedOrder);
@@ -109,7 +109,7 @@ public class OrderServiceApplicationTests {
     @Test
     void testUpdateOrder() {
         // Prepare test data
-        order order1 = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
+        order order1 = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
 
         // Mock the orderService's behavior
         when(orderService.updateOrder(order1)).thenReturn(order1);
@@ -152,8 +152,8 @@ public class OrderServiceApplicationTests {
         // Prepare test data
     	List<order> expectedOrders = new ArrayList<>();
         // Add some orders to the expected list
-        order order1 = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
-        order order2 = new order("2", "D001", "Dr. John Doe", "Drug2", 3, true, LocalDate.now());
+        order order1 = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
+        order order2 = new order("2", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
         expectedOrders.add(order1);
         expectedOrders.add(order2);
         
@@ -176,7 +176,7 @@ public class OrderServiceApplicationTests {
     void testGetOrderById() {
         // Prepare test data
         String id = "1";
-        order expectedOrder = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
+        order expectedOrder = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
 
         // Mock the orderService's behavior
         when(orderServiceadminImpl.getOrderById(id)).thenReturn(expectedOrder);
@@ -198,8 +198,8 @@ public class OrderServiceApplicationTests {
         String doctorId = "D001";
         List<order> expectedOrders = new ArrayList<>();
         // Add some orders to the expected list
-        order order1 = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
-        order order2 = new order("2", "D001", "Dr. John Doe", "Drug2", 3, true, LocalDate.now());
+        order order1 = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
+        order order2 = new order("2", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
         expectedOrders.add(order1);
         expectedOrders.add(order2);
         
@@ -221,7 +221,7 @@ public class OrderServiceApplicationTests {
     @Test
     void testUpdateOrderStatus() {
         // Prepare test data
-        order orderObj = new order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
+        order orderObj = new order("1", "D001", "Dr. John Doe","abc@exmple.com","mg.road", "Drug1", 5, true, LocalDate.now());
 
         // Mock the orderService's behavior
         when(orderServiceadminImpl.updateOrderStatus(orderObj)).thenReturn(orderObj);

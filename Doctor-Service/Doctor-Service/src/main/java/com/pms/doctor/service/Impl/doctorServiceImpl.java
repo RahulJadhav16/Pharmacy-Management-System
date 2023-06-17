@@ -108,6 +108,8 @@ public class doctorServiceImpl implements doctorService {
 		String doctorid=orderObj.getDoctorId();
 		doctordetails=checkID.getDetails(doctorid);
 		orderObj.setDoctorName(doctordetails.getName());
+		orderObj.setEmail(doctordetails.getEmail());
+		orderObj.setAddress(doctordetails.getAddress());
 		logger.info("{}",orderObj);
 		orderObj.setOrderDate(todaysDate);
 		//Here i am making post request to ORDER-SERVICE 

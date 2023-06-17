@@ -105,12 +105,13 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                
 	                DrugsStock updatedStock = restTemplate.exchange(updateUrl, HttpMethod.PUT, requestEntity, DrugsStock.class).getBody();
 	                logger.info("{}", updatedStock);
+	              //Setting the verification date //on basis of this date we add multiple orders inside pickup
+	                orderObj.setOrderDate(todaysDate);
 	                
 	                obj.setStatus(true);
 	                orderObj = orderRepo.save(obj);
 	                
-	                //Setting the verification date //on basis of this date we add multiple orders inside pickup
-	                orderObj.setOrderDate(todaysDate);
+	                
 	                
 	                //Adding order to pickup
 	                //Calling pickup_service to add order automatically
@@ -138,16 +139,13 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 	                
 	                
 	                
-	                //Here order is verified now i fetch the email address and send email
-	                //I am fetching the email from doctor microservice 
-	                String urlForEmail="http://DOCTOR-SERVICE/registerDoctor/getDetails/"+obj.getDoctorId();
-	                DoctorPersonalDetails details=restTemplate.getForObject(urlForEmail, DoctorPersonalDetails.class);
+	                
 	                
 	                //Adding mail title and and sending mail
 	                double calculateAmount=stock.getPrice()*obj.getQuantity();
 	                String totalAmount=Double.toString(calculateAmount)	;
 	                
-	                String emailBody = "Dear Dr." + details.getName() + ",\r\n"
+	                String emailBody = "Dear Dr." + obj.getDoctorName() + ",\r\n"
 	                	    + "We hope this email finds you well. We are reaching out to inform you that your recent order has been successfully verified and added to our pickup section.\r\n"
 	                	    + "\r\n"
 	                	    + "Please find below the details of your order for your reference:\r\n"
@@ -164,7 +162,7 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 
 	                String emailTitle="Order Verification and Payment Reminder for order verification ID: "+obj.getOrderId();
 	                
-	                email.someMethod(details.getEmail(),emailTitle,emailBody);
+	                email.someMethod(obj.getEmail(),emailTitle,emailBody);
 	           
 	                
 	            } else {

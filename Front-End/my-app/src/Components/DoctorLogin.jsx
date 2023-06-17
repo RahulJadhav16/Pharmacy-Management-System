@@ -1,10 +1,10 @@
 import React from "react";
 import "./CSS/doctorlogin.css";
 import { Link } from "react-router-dom";
-
 export default function DoctorLogin() {
   return (
     <div className="back d-flex justify-content-center">
+      
       <img src={require("../Assets/login.jpg")} width="600px" height="530px" />
       <div className="card my-4 logincard" style={{ width: "20rem" }}>
         <div className="d-flex justify-content-center my-5">

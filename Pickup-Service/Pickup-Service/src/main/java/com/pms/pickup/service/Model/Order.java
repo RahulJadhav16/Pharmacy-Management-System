@@ -6,6 +6,8 @@ public class Order {
 	private String orderId;
 	private String doctorId;
 	private String doctorName;
+	private String email;
+	private String address;
 	private String drugName;
 	private int quantity;
 	private boolean status;
@@ -14,6 +16,31 @@ public class Order {
 	
 
 	
+	public Order(String orderId, String doctorId, String doctorName, String email, String address, String drugName,
+			int quantity, boolean status, LocalDate orderDate) {
+		super();
+		this.orderId = orderId;
+		this.doctorId = doctorId;
+		this.doctorName = doctorName;
+		this.email = email;
+		this.address = address;
+		this.drugName = drugName;
+		this.quantity = quantity;
+		this.status = status;
+		this.orderDate = orderDate;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public String getOrderId() {
 		return orderId;
 	}

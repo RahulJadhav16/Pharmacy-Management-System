@@ -11,10 +11,38 @@ public class order {
 	private String orderId;
 	private String doctorId;
 	private String doctorName;
+	private String email;
+	private String address;
 	private String drugName;
 	private int quantity;
 	private boolean status;
 	private LocalDate orderDate;
+	
+	public order(String orderId, String doctorId, String doctorName, String email, String address, String drugName,
+			int quantity, boolean status, LocalDate orderDate) {
+		super();
+		this.orderId = orderId;
+		this.doctorId = doctorId;
+		this.doctorName = doctorName;
+		this.email = email;
+		this.address = address;
+		this.drugName = drugName;
+		this.quantity = quantity;
+		this.status = status;
+		this.orderDate = orderDate;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
 	public String getOrderId() {
 		return orderId;
 	}
@@ -59,26 +87,7 @@ public class order {
 		this.orderDate = orderDate;
 	}
 	
-	public order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status,
-			LocalDate orderDate) {
-		super();
-		this.orderId = orderId;
-		this.doctorId = doctorId;
-		this.doctorName = doctorName;
-		this.drugName = drugName;
-		this.quantity = quantity;
-		this.status = status;
-		this.orderDate = orderDate;
-	}
-	public order(String orderId, String doctorId, String doctorName, String drugName, int quantity, boolean status) {
-		super();
-		this.orderId = orderId;
-		this.doctorId = doctorId;
-		this.doctorName = doctorName;
-		this.drugName = drugName;
-		this.quantity = quantity;
-		this.status = status;
-	}
+	
 	public order() {
 		super();
 		// TODO Auto-generated constructor stub

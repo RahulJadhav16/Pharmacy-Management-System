@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +39,7 @@ import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/doctor")
 public class doctorController {
