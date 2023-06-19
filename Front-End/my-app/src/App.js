@@ -1,15 +1,14 @@
-// import logo from './logo.svg';
-// import './App.css';
+import MainPage from "./Components/MainPage";
 
 
-import Landingpage from "./Components/landingpage";
-import Login from "./Components/Login";
-import NavBarL from "./Components/NavBarL";
 function App() {
   
   return (
     <div >
-      <Landingpage/>
+      <MainPage/>
+
+    
+      
     </div>
   );
 }

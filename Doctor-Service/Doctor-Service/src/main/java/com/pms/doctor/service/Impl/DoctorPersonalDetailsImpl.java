@@ -23,4 +23,7 @@ public class DoctorPersonalDetailsImpl implements doctorPersonalDetailsService{
 		
 	}
 
+	
+	
+
 }

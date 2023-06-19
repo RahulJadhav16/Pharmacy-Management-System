@@ -1,6 +1,11 @@
-import React from 'react'
+import { data } from 'jquery';
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
-export default function NavBarL() {
+
+export default function NavBarL(props) {
+
+
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
@@ -49,12 +54,15 @@ export default function NavBarL() {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item mx-5 navbar-brand ">
-                <Link className="nav-link txt" to="/login"><span className="sr-only">👤</span>Login</Link>
+                <Link className="nav-link txt" to={props.name.path?'/login':'/doctorDashboard'}><span className="sr-only">👤</span>
+                 {props.name.name?'Login':props.name.obj.doctorName}
+                </Link>
              
             </li>
           </ul>
         </div>
       </nav>
+     
     </div>
   )
 }

@@ -58,7 +58,7 @@ export default function DoctorSignup() {
     }
 
     axios
-      .post('http://localhost:8081/doctor/create', {
+      .post('http://localhost:9091/doctor/create', {
         name: doctorName,
         contact: doctorContact,
         email: doctorEmail,
@@ -86,8 +86,8 @@ export default function DoctorSignup() {
   return (
     <div className="back d-flex justify-content-center">
      <NotificationContainer/>
-      <img src={require("../Assets/login.jpg")} width="600px" height="530px" alt=''/>
-      <div className="card my-4 logincard" style={{ width: "20rem" }}>
+      <img src={require("../Assets/signupDoctor.png")} width="600px" height="530px" alt=''/>
+      <div className="card my-4 logincard" style={{ width: "20rem",height:"540px" }}>
         
         <div className="card-body d-flex flex-column align-items-center">
           <h4>Signup</h4>

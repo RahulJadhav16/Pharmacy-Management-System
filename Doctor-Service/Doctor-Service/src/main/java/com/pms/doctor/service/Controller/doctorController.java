@@ -140,11 +140,18 @@ public class doctorController {
 	@GetMapping("/getDetails/{doctorId}")
 	public ResponseEntity<DoctorPersonalDetails> getDetails(@PathVariable String doctorId)
 	{
-		return ResponseEntity.status(HttpStatus.CREATED).body(doctorPersonalDetailsImpl.getDetails(doctorId));
+		return ResponseEntity.status(HttpStatus.OK).body(doctorPersonalDetailsImpl.getDetails(doctorId));
 	}
 	
 	
 	//////////////////////////////////  For login and Registration ///////////////////////////////////////////////
+	
+	
+	@GetMapping("/getDoctorId/{id}")
+	public String getDoctoridBymail(@PathVariable String id)
+	{
+		return doctorDetailsService.getDoctoridBymail(id);
+	}
 	
 	
 	@PostMapping("/create")

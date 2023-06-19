@@ -14,6 +14,9 @@ public interface doctorDetailsService {
 	//Update details
 	Doctor updateDetails(Doctor doctorobj);
 	
+	//get doctor id by mail
+	String getDoctoridBymail(String email);
+	
 	
 
 }

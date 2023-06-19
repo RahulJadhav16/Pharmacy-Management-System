@@ -8,5 +8,7 @@ public interface doctorPersonalDetailsService {
 	//get info
 	DoctorPersonalDetails getDetails(String id);
 	
+	
+	
 
 }

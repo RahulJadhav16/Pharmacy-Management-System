@@ -70,23 +70,15 @@ public class doctorDetailsImpl implements doctorDetailsService{
 		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
 		return doctorobj;
 	}
+	@Override
+	public String getDoctoridBymail(String email) {
+		// TODO Auto-generated method stub
+		
+		Doctor obj= doctorRepo.findByEmail(email);
+		return obj.getDoctorId();
+	}
 
-//	@Override
-//	public Doctor updateDetails(Doctor doctorobj) {
-//		
-//		
-//		
-//		//HAshing updated password
-//		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));	
-//		doctorobj.setDoctorid(doctorobj.getDoctorid());
-//		System.out.println(doctorobj.getDoctorid());
-//		Doctor obj= doctorRepo.save(doctorobj);
-//		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(obj.getDoctorid(),obj.getName(),obj.getContact(),obj.getEmail(),obj.getAddress());
-//		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
-//		return obj;
-//		
-//		
-//	}
+
 
 	
 	

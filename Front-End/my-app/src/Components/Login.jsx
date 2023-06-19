@@ -3,8 +3,10 @@ import React from 'react'
 import './login.css';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+
 export default function Login() {
   return (
+    <div>
     <div className='back'>
         <div className='role d-flex justify-content-center'>
         <h1>Choose your role</h1>
@@ -28,6 +30,7 @@ export default function Login() {
 </div>
 </div>
 
+    </div>
     </div>
   )
 }

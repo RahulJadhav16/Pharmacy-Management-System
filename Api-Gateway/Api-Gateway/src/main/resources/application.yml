@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+      routes:
+        - id: ADMIN-SERVICE
+          uri: lb://ADMIN-SERVICE
+          predicates:
+            - Path=/adminOprations/**
+
+        - id: DOCTOR-SERVICE
+          uri: lb://DOCTOR-SERVICE
+          predicates:
+            - Path=/doctor/**,/registerDoctor/**
+
+        - id: PICKUP-SERVICE
+          uri: lb://PICKUP-SERVICE
+          predicates:
+            - Path=/pickupAdmin/**,/pickupDoctor/**
+
+        - id: ORDER-SERVICE
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/verifyOrder/**,/orderService/**
+
+        - id: DRUG-INVENTORY
+          uri: lb://DRUG-INVENTORY
+          predicates:
+            - Path=/drugs/**,/stock/**
