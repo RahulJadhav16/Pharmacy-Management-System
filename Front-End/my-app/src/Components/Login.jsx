@@ -3,8 +3,23 @@ import React from 'react'
 import './login.css';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
+import { useEffect,useState } from 'react'
 
+import { useNavigate } from 'react-router-dom';
 export default function Login() {
+  const navigate = useNavigate();
+  
+
+  useEffect(() =>{
+    if(localStorage?.getItem('JwtToken'))
+    {
+      navigate('/doctorDashboard')
+    }
+
+
+  },[])
+
+
   return (
     <div>
     <div className='back'>

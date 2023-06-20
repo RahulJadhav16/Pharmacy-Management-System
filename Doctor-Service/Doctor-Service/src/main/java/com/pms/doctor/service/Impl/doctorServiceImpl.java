@@ -82,7 +82,7 @@ public class doctorServiceImpl implements doctorService {
 		
 	}
 
-	//Form here order service starting 
+	//From here order service starting 
 	@Override
 	public List<Order> viewAllOrders(String doctorId) {
 		

@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./CSS/doctorlogin.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { isEmail } from 'validator';
 import axios from 'axios';
 import NavBarL from "./NavBarL";
+
 export default function DoctorLogin({ onDataReceived }) {
+  
   const navigate = useNavigate();
+  useEffect(() =>{
+    if(localStorage?.getItem('JwtToken'))
+    {
+      navigate('/doctorDashboard')
+    }
+
+
+  },[])
+
+
+
+
+
+
   let[Doctoremail,setEmail]=useState("");
   let[Doctorpassword,setPassword]=useState("");
   let[msg,setMsg]=useState("");
@@ -57,7 +73,7 @@ export default function DoctorLogin({ onDataReceived }) {
           path:'/doctorDashboard',
           doctorName:Doctorname
         }
-          
+        console.log(Doctorname);
         onDataReceived({obj});
 
         

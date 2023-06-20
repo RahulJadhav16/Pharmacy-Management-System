@@ -1,34 +1,67 @@
-import React from 'react'
+import React, { useEffect,useState } from 'react'
 import './CSS/doctorDashboard.css';
+import SideBarDoctor from './SideBarDoctor';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Footer from './Footer';
+import { Link } from 'react-router-dom';
+export default function DoctorDashBoard({onDataReceived}) { 
+  
+  const navigate = useNavigate();
+  useEffect(() => {
+    //Runs only on the first render
+    if(localStorage.getItem('UserEmailId') ===null || localStorage.getItem('UserEmailId') ==='' || localStorage.getItem('UserEmailId') ===undefined)
+    {
+      navigate('/login');
+    }
+  }, []);
 
-export default function DoctorDashBoard() {
+  
+ const handleDataReceived=() => {
+  const obj={
+    path:'/login',
+    name:"Login"
+  }
+  onDataReceived({obj});
+ }
+
+ const handelViewDrugs=() => {
+  navigate('/viewDrugs');
+ }
+
+  
     
   return (
-    <div className="d-flex justify-content-around my-4 ">
-    <div className="cookieCard cookieCard-1">
-      <p className="cookieHeading">💊 View Drugs</p>
-      <p className="cookieDescription">explore and access the complete list of Drugs.</p>
+    <div>
+    
+
+
+
+    <div className="d-flex justify-content-around my-5 ">
+    <SideBarDoctor onDataReceived={handleDataReceived}/>
+
+    <div className="cookieCard cookieCard-1" onClick={handelViewDrugs}>
+      <h1 className="cookieHeading">💊 View Drugs</h1>
+      <h2 className="cookieDescription">Explore and access the complete list of Drugs.</h2>
       
     </div>
   
     <div className="cookieCard cookieCard-2">
-      <p className="cookieHeading">Cookies.</p>
-      <p className="cookieDescription">By using this website you automatically accept that we use cookies. <a href="#">What for?</a></p>
+      
+      <h1 className="cookieHeading">📦 View Orders</h1>
+      <h2 className="cookieDescription">View all orders you made and check verification status</h2>
       
     </div>
   
     <div className="cookieCard cookieCard-3">
-      <p className="cookieHeading">Cookies.</p>
-      <p className="cookieDescription">By using this website you automatically accept that we use cookies. <a href="#">What for?</a></p>
+      <h1 className="cookieHeading">🚚 Pickup</h1>
+      <h2 className="cookieDescription">View orders in pickup section and make payment </h2>
       
     </div>
   
-    <div className="cookieCard cookieCard-4">
-      <p className="cookieHeading">Cookies.</p>
-      <p className="cookieDescription">By using this website you automatically accept that we use cookies. <a href="#">What for?</a></p>
-      
-    </div>
+    
   </div>
   
+  </div>
   )
 }
