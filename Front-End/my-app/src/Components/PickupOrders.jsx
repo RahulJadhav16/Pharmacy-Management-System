@@ -1,14 +1,8 @@
-import React, { useState } from 'react'
-import SideBarDoctor from './SideBarDoctor'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { NotificationManager} from 'react-notifications';
-import { NotificationContainer} from 'react-notifications';
-import "./CSS/doctorlogin.css";
-export default function ViewOrders() {
-
-  const token = localStorage.getItem("JwtToken");
+import axios  from 'axios';
+export default function PickupOrders() {
+    const token = localStorage.getItem("JwtToken");
 
     
     const axiosInstance = axios.create({
@@ -16,63 +10,14 @@ export default function ViewOrders() {
         Authorization: `Bearer ${token}`,
       },
     });
-
-  const[data,setData]=useState([]);
-
-  const handleOrderDeleteClick = (item) => () => {
-    if (item.status) {
-      NotificationManager.error('', 'Verified order cannot be deleted!', 4000);
-      return;
-    }
-  
-    axiosInstance
-      .delete("http://localhost:9091/doctor/deleteOrder/" + item.orderId)
-      .then(function (response) {
-        NotificationManager.success('Order deleted successfully!');
-        console.log(response.data);
-        // Return the response data for the next .then() block
-        return response.data;
-      })
-      .then(function (data) {
-        console.log(data);
-        // Make the get request after the delete request is successful
-        return axiosInstance.get("http://localhost:9091/doctor/viewAllOrders/" + localStorage.getItem("Doctorid"));
-      })
-      .then(function (response) {
-        console.log(response);
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-  
-
-  useEffect(() => {
-    
-
-    axiosInstance
-      .get("http://localhost:9091/doctor/viewAllOrders/"+localStorage.getItem("Doctorid"))
-      .then(function (response) {
-        console.log(response.data);
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    const storedData = localStorage.getItem("userData");
+    const parsedData = JSON.parse(storedData);
 
 
-  },[])
-
-
-  const storedData = localStorage.getItem("userData");
-  const parsedData = JSON.parse(storedData);
   return (
     <div>
-      <NotificationContainer/>
-        {/* Side bar */}
-        <div className="my-5 mx-4 d-flex">
-        <div>
+       <div className="my-5 mx-4 d-flex">
+       <div>
           <div
             className="d-flex flex-column flex-shrink-0 p-3 bg-light"
             style={{ width: "280px" }}
@@ -189,33 +134,10 @@ export default function ViewOrders() {
             <hr />
           </div>
         </div>
-        <div className="d-flex flex-wrap justify-content-around">
-        {data.map((item) => (
-            <div className="card mx-4 my-2 order-card" style={{width: "25rem" }}>
-            <div className="card-body">
-              <h5 className="card-title">🆔 Order Id:{item.orderId}</h5>
-              <hr/>
-              <h6 className="card-subtitle mb-2 text-muted">💊Order Details: {item.drugName+" with Quantity "+item.quantity}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">📅Order Date: {item.orderDate}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">✅Verification status:{item.status?" Verified":" Pending..."}</h6>
-              
-
-              <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
-              
-              <p className="card-text">{item.address}</p>
-              <button type="button" className="btn btn-danger" onClick={handleOrderDeleteClick(item)}>🗑️ Delete</button>
-            </div>
-          </div>
-          ))}
-          
-          
 
 
 
-        </div>
-
-    </div>
-     
+       </div>
     </div>
   )
 }

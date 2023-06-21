@@ -2,16 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 .txt {
     box-shadow: inset 0 0 0 0 #54b3d6;
-    color: #54b3d6;
+    color: #203035;
     margin: 0 -.25rem;
     padding: 0 .25rem;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
   }
+  
   .txt:hover {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     box-shadow: inset 300px 0 0 0 #54b3d6;
-    color: white;
-   
+    color: #fff; /* Specify the desired color here */
+    transition: color .6s ease-in-out, box-shadow .6s ease-in-out;
+  }
+  
+  .order-card:hover{
+    border: solid black 1px;
+
   }
   
 
@@ -44,12 +50,13 @@
     box-shadow: inset 0 0 0 0 orchid;
     margin: 0 -.25rem;
     padding: 0 .25rem;
-    transition: color .6s ease-in-out, box-shadow .6s ease-in-out;
+    transition: color .9s ease-in-out, box-shadow .9s ease-in-out;
     
 }
 .first-card:hover{
     box-shadow: inset 15px 0 0 0 orange;
     font-weight: bold;
+    /* transition: color .9s ease-in-out, box-shadow .9s ease-in-out; */
 }
 
 

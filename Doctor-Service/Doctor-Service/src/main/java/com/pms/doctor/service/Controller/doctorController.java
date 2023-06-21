@@ -67,7 +67,7 @@ public class doctorController {
     private Logger logger = LoggerFactory.getLogger(doctorController.class);
 	
     
-  //To view all the drugs
+     //To view all the drugs
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/viewAllDrugs")
   	public ResponseEntity<List<Drug>>viewAllDrugs()

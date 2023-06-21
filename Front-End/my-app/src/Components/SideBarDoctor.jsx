@@ -80,7 +80,7 @@ export default function SideBarDoctor({ onDataReceived }) {
 
 <li className='sidebar'>
   <Link
-    to={"/doctorDashboard"}
+    to={"/viewOrders"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -99,7 +99,7 @@ export default function SideBarDoctor({ onDataReceived }) {
 
 <li className='sidebar'>
   <Link
-    to={"/doctorDashboard"}
+    to={"/viewDrugs"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -113,6 +113,25 @@ export default function SideBarDoctor({ onDataReceived }) {
     }}
   >
     Drugs
+  </Link>
+</li>
+
+<li className='sidebar'>
+  <Link
+    to={"/pickupOrder"}
+    className="nav-link link-dark"
+    style={{
+      backgroundColor: 'initial',
+      transition: 'background-color 0.3s',
+    }}
+    onMouseOver={(e) => {
+      e.target.style.backgroundColor = 'orchid';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.backgroundColor = 'initial';
+    }}
+  >
+    Pickup
   </Link>
 </li>
 

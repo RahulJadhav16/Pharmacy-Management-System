@@ -13,6 +13,7 @@ import SideBarDoctor from "./SideBarDoctor";
 import PrivateRoute from "./ProtectedRotes/PrivateRoute";
 import ViewOrders from "./ViewOrders";
 import ViewDrugs from "./ViewDrugs";
+import PickupOrders from "./PickupOrders";
 
 export default function MainPage() {
 
@@ -51,11 +52,14 @@ export default function MainPage() {
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/doctor" element={<DoctorLogin onDataReceived={handleDataReceived}/>}/>
       <Route exact path="/signup" element={<DoctorSignup/>}/>
+
       <Route element={<PrivateRoute id={jwtKey}/>}>
       
       <Route exact path="/doctorDashboard" element={<DoctorDashBoard onDataReceived={handleDataReceived}/>}/>
-      <Route exact path="/ViewOrders" element={<ViewOrders/>}/>
+      <Route exact path="/viewOrders" element={<ViewOrders/>}/>
       <Route exact path="/viewDrugs" element={<ViewDrugs/>}/>
+      <Route exact path="/pickupOrder" element={<PickupOrders/>}/>
+      
       </Route>
 
       </Routes>

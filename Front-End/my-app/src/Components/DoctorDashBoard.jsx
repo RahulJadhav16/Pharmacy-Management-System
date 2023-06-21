@@ -29,6 +29,10 @@ export default function DoctorDashBoard({onDataReceived}) {
   navigate('/viewDrugs');
  }
 
+ const handelViewOrders=() => {
+  navigate('/viewOrders');
+ }
+
   
     
   return (
@@ -46,9 +50,9 @@ export default function DoctorDashBoard({onDataReceived}) {
       
     </div>
   
-    <div className="cookieCard cookieCard-2">
+    <div className="cookieCard cookieCard-2" onClick={handelViewOrders}>
       
-      <h1 className="cookieHeading">📦 View Orders</h1>
+      <h1 className="cookieHeading">📦 View Orders </h1>
       <h2 className="cookieDescription">View all orders you made and check verification status</h2>
       
     </div>

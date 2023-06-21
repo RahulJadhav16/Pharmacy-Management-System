@@ -9,10 +9,12 @@
 }
 .admin:hover{
     box-shadow: inset 1000px 0 0 0 orange;
-    font-weight: bold
-
-
+    font-weight: bold;
+   
 }
+
+
+
 
 .doctor{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

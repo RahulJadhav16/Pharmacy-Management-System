@@ -112,6 +112,7 @@ public class doctorServiceImpl implements doctorService {
 		orderObj.setAddress(doctordetails.getAddress());
 		logger.info("{}",orderObj);
 		orderObj.setOrderDate(todaysDate);
+		
 		//Here i am making post request to ORDER-SERVICE 
 		String url = "http://ORDER-SERVICE/orderService/addOrder"; 
 		HttpHeaders headers = new HttpHeaders();
