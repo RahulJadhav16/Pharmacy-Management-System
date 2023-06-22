@@ -25,7 +25,7 @@ spring:
         - id: PICKUP-SERVICE
           uri: lb://PICKUP-SERVICE
           predicates:
-            - Path=/pickupAdmin/**,/pickupDoctor/**
+            - Path=/pickupAdmin/**,/pickupDoctor/**,/payment/**
 
         - id: ORDER-SERVICE
           uri: lb://ORDER-SERVICE

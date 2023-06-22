@@ -1,54 +1,14 @@
-import React, { useState,useEffect } from 'react'
-import { Link } from 'react-router-dom';
-import axios  from 'axios';
-import { useNavigate } from 'react-router-dom';
-export default function PickupOrders() {
-   const navigate = useNavigate();
-    const token = localStorage.getItem("JwtToken");
-    const[data,setData]=useState([]);
-    let date = new Date().toJSON();
+import React from "react";
+import StripeButton from "./StripeButton";
 
-    
-    const axiosInstance = axios.create({
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+import { Link } from "react-router-dom";
+
+const Checkout = () => {
     const storedData = localStorage.getItem("userData");
     const parsedData = JSON.parse(storedData);
-    const expire="bg-danger text-light";
-
-    useEffect(() => { 
-
-      
-
-      axiosInstance
-      .get("http://localhost:9091/doctor/viewAllPickups/"+localStorage.getItem("Doctorid"))
-      .then(function (response) {
-        console.log(response.data);
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-
-
-     },[])
-
-     const handelPayNow=(item)=>()=>{
-      console.log(item);
-      
-      navigate("/checkout")
-
-
-     }
-
-
   return (
-    <div>
-       <div className="my-5 mx-4 d-flex">
-       <div>
+    <div className="my-5 mx-4 d-flex">
+        <div>
           <div
             className="d-flex flex-column flex-shrink-0 p-3 bg-light"
             style={{ width: "280px" }}
@@ -61,7 +21,7 @@ export default function PickupOrders() {
                 className="bi me-2"
                 width="40"
                 height="32"
-                src={require("../Assets/menu.png")}
+                src={require("./Asset/menu.png")}
               ></img>
               <span className="fs-4">Hii, Dr {parsedData.name}</span>
             </Link>
@@ -165,54 +125,32 @@ export default function PickupOrders() {
             <hr />
           </div>
         </div>
-        {
-           data.length?data.map((item) => (
-            <div className={`card mx-4 my-2 order-card ${item.pickupdate<date?expire:""}`} style={{width: "25rem" }}>
-            <div className="card-body">
-              <h5 className="card-title">🆔 Order Id:{item.pickupId}</h5>
-              <hr/>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💰Total Bill: {item.totalBill}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💰Bill Paid: {item.moneyPaid}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">📅Last Date for payment: {item.pickupdate}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">📅Order verification date: {item.orders[0].orderDate}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">✅Payment Status:{item.paymentStatus?" Paid":" Pending..."}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💊 Order Details: </h6>
-              <div className='my-1 mx-2'>
-              {item.orders.map((e)=>{
-                return (
-                  <li className="card-subtitle mb-2 text-muted">{e.drugName + " with Quantity " + e.quantity}</li>
-                );
-                
-                 
-               })}
-               </div>
 
-              <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
-               <p className="card-text">{item.orders[0].address}</p>
-               <hr />
-               <button type="button" class="btn btn-success" disabled={item.pickupdate<date} onClick={handelPayNow(item)}>Pay Now</button>
+        <img src={require("./Asset/money.jpg")} alt="" width="500px" height="500px"/>
 
-
-
-
-    
-              
-              
-            </div>
-          </div>
-          )):
-          <div style={{marginLeft:"450px"}}> 
-            <img src={require("../Assets/empty-box.png")} alt="no data found" height="200px" width="200px" />
-            <h5 style={{marginLeft:"30px"}}> No data found!</h5>
-            
-          </div>
-        }
-
-
-
-
-
-       </div>
+    <div className="card " style={{width: "18rem", height:"200px",marginLeft:"",marginRight:""}}>
+  <div className="card-body d-flex justify-content-center">
+  <div className="checkout">
+      <div className="header">
+        <div className="header-block">
+          <h1>Checkout</h1>
+        </div>
+      </div>
+      <div className="item-details-container">
+        
+        
+      </div>
+      <div className="total mx-5">TOTAL :₹ 648</div>
+      <div className="mx-5">
+      <StripeButton price="648"/>
+      </div>
     </div>
-  )
-}
+  </div>
+</div>
+
+   
+    </div>
+  );
+};
+
+export default Checkout;

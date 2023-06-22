@@ -18,7 +18,7 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 	
 	@Override
 	public Pickup makePayment(Pickup obj) {
-		// TODO Auto-generated method stub
+		
 		
 		return repo.save(obj);
 	}

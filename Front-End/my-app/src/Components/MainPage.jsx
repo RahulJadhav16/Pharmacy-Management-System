@@ -15,6 +15,7 @@ import ViewOrders from "./ViewOrders";
 import ViewDrugs from "./ViewDrugs";
 import PickupOrders from "./PickupOrders";
 import NotFound from "./Errors/NotFound";
+import Checkout from "./Stripe/Checkout";
 
 export default function MainPage() {
 
@@ -60,6 +61,7 @@ export default function MainPage() {
       <Route exact path="/viewOrders" element={<ViewOrders/>}/>
       <Route exact path="/viewDrugs" element={<ViewDrugs/>}/>
       <Route exact path="/pickupOrder" element={<PickupOrders/>}/>
+      <Route exact path="/checkout" element={<Checkout/>}/>
       
       </Route>
 
