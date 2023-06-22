@@ -23,7 +23,7 @@ public class globalExceptionHandler {
 				.status(HttpStatus.OK)
 				.build();
 		
-		return new ResponseEntity<ApiResponse>(response,HttpStatus.NOT_FOUND);
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.OK);
 		
 	}
 	

@@ -14,6 +14,7 @@ import PrivateRoute from "./ProtectedRotes/PrivateRoute";
 import ViewOrders from "./ViewOrders";
 import ViewDrugs from "./ViewDrugs";
 import PickupOrders from "./PickupOrders";
+import NotFound from "./Errors/NotFound";
 
 export default function MainPage() {
 
@@ -61,6 +62,8 @@ export default function MainPage() {
       <Route exact path="/pickupOrder" element={<PickupOrders/>}/>
       
       </Route>
+
+      <Route path="*" element={<NotFound />} />
 
       </Routes>
       

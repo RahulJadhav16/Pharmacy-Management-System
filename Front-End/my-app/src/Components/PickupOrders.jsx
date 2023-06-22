@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios  from 'axios';
 export default function PickupOrders() {
     const token = localStorage.getItem("JwtToken");
+    const[data,setData]=useState([]);
+    let date = new Date().toJSON();
 
     
     const axiosInstance = axios.create({
@@ -12,6 +14,22 @@ export default function PickupOrders() {
     });
     const storedData = localStorage.getItem("userData");
     const parsedData = JSON.parse(storedData);
+
+    useEffect(() => { 
+
+      axiosInstance
+      .get("http://localhost:9091/doctor/viewAllPickups/"+localStorage.getItem("Doctorid"))
+      .then(function (response) {
+        console.log(response.data);
+        setData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+
+
+     },[])
 
 
   return (
@@ -134,6 +152,50 @@ export default function PickupOrders() {
             <hr />
           </div>
         </div>
+        {
+           data.length?data.map((item) => (
+            <div className="card mx-4 my-2 order-card" style={{width: "25rem" }}>
+            <div className="card-body">
+              <h5 className="card-title">🆔 Order Id:{item.pickupId}</h5>
+              <hr/>
+              <h6 className="card-subtitle mb-2 text-muted my-1">💰Total Bill: {item.totalBill}</h6>
+              <h6 className="card-subtitle mb-2 text-muted my-1">💰Bill Paid: {item.moneyPaid}</h6>
+              <h6 className="card-subtitle mb-2 text-muted my-1">📅Last Date for payment: {item.pickupdate}</h6>
+              <h6 className="card-subtitle mb-2 text-muted my-1">📅Order verification date: {item.orders[0].orderDate}</h6>
+              <h6 className="card-subtitle mb-2 text-muted my-1">✅Payment Status:{item.paymentStatus?" Paid":" Pending..."}</h6>
+              <h6 className="card-subtitle mb-2 text-muted my-1">💊 Order Details: </h6>
+              <div className='my-1 mx-2'>
+              {item.orders.map((e)=>{
+                return (
+                  <li className="card-subtitle mb-2 text-muted">{e.drugName + " with Quantity " + e.quantity}</li>
+                );
+                
+                 
+               })}
+               </div>
+
+              <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
+               <p className="card-text">{item.orders[0].address}</p>
+               <hr />
+               <button type="button" class="btn btn-success" disabled={item.pickupdate<date}>Pay Now</button>
+
+
+
+
+    
+              
+              
+            </div>
+          </div>
+          )):
+          <div style={{marginLeft:"450px"}}> 
+            <img src={require("../Assets/empty-box.png")} alt="no data found" height="200px" width="200px" />
+            <h5 style={{marginLeft:"30px"}}> No data found!</h5>
+            
+          </div>
+        }
+
+
 
 
 

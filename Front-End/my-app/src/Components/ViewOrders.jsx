@@ -1,12 +1,18 @@
-import React, { useState } from 'react'
-import SideBarDoctor from './SideBarDoctor'
+import React, { useState, useEffect } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import { NotificationManager, NotificationContainer } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import SideBarDoctor from './SideBarDoctor';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
-import { NotificationManager} from 'react-notifications';
-import { NotificationContainer} from 'react-notifications';
-import "./CSS/doctorlogin.css";
+import './CSS/doctorlogin.css';
+
 export default function ViewOrders() {
+  const navigate = useNavigate();
+  const storedData = localStorage.getItem("userData");
+  const parsedData = JSON.parse(storedData);
 
   const token = localStorage.getItem("JwtToken");
 
@@ -18,34 +24,64 @@ export default function ViewOrders() {
     });
 
   const[data,setData]=useState([]);
+  
 
   const handleOrderDeleteClick = (item) => () => {
     if (item.status) {
       NotificationManager.error('', 'Verified order cannot be deleted!', 4000);
       return;
     }
+
+    confirmAlert({
+      title: "Confirm Delete Order",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () =>{
+            axiosInstance
+            .delete("http://localhost:9091/doctor/deleteOrder/" + item.orderId)
+            .then(function (response) {
+              NotificationManager.success('Order deleted successfully!');
+              console.log(response.data);
+              // Return the response data for the next .then() block
+              return response.data;
+            })
+            .then(function (data) {
+              console.log(data);
+              // Make the get request after the delete request is successful
+              return axiosInstance.get("http://localhost:9091/doctor/viewAllOrders/" + localStorage.getItem("Doctorid"));
+            })
+            .then(function (response) {
+             
+              if(response.data.length > 0) {
+              setData(response.data);
+              }
+              else{
+                setData([]);
+              }
+              
+              
+            })
+            .catch(function (error) {
+              
+              console.log(error);
+              
+            });
+
+          }
+        },
+        {
+          label: "No"
+          
+        }
+      ]
+    });
   
-    axiosInstance
-      .delete("http://localhost:9091/doctor/deleteOrder/" + item.orderId)
-      .then(function (response) {
-        NotificationManager.success('Order deleted successfully!');
-        console.log(response.data);
-        // Return the response data for the next .then() block
-        return response.data;
-      })
-      .then(function (data) {
-        console.log(data);
-        // Make the get request after the delete request is successful
-        return axiosInstance.get("http://localhost:9091/doctor/viewAllOrders/" + localStorage.getItem("Doctorid"));
-      })
-      .then(function (response) {
-        console.log(response);
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+   
   };
+
+  
   
 
   useEffect(() => {
@@ -61,12 +97,10 @@ export default function ViewOrders() {
         console.log(error);
       });
 
-
   },[])
 
 
-  const storedData = localStorage.getItem("userData");
-  const parsedData = JSON.parse(storedData);
+  
   return (
     <div>
       <NotificationContainer/>
@@ -190,7 +224,7 @@ export default function ViewOrders() {
           </div>
         </div>
         <div className="d-flex flex-wrap justify-content-around">
-        {data.map((item) => (
+        {data.length?data.map((item) => (
             <div className="card mx-4 my-2 order-card" style={{width: "25rem" }}>
             <div className="card-body">
               <h5 className="card-title">🆔 Order Id:{item.orderId}</h5>
@@ -206,7 +240,12 @@ export default function ViewOrders() {
               <button type="button" className="btn btn-danger" onClick={handleOrderDeleteClick(item)}>🗑️ Delete</button>
             </div>
           </div>
-          ))}
+          )):
+          <div style={{marginLeft:"450px"}}> 
+            <img src={require("../Assets/empty-box.png")} alt="no data found" height="200px" width="200px" />
+            <h5 style={{marginLeft:"30px"}}> No data found!</h5>
+            
+          </div>}
           
           
 
