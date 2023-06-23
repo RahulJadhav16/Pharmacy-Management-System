@@ -45,7 +45,7 @@ export default function DoctorDashBoard({onDataReceived}) {
 
 
 
-    <div className="d-flex justify-content-around my-5 ">
+    <div className="d-flex flex-wrap justify-content-around my-5 ">
     <SideBarDoctor onDataReceived={handleDataReceived}/>
 
     <div className="cookieCard cookieCard-1" onClick={handelViewDrugs}>
@@ -66,6 +66,12 @@ export default function DoctorDashBoard({onDataReceived}) {
       <h2 className="cookieDescription">View orders in pickup section and make payment </h2>
       
     </div>
+
+    <div style={{marginLeft:"350px"}}>
+    <iframe src="https://embed.lottiefiles.com/animation/15420"></iframe>
+    </div>
+
+    
   
     
   </div>

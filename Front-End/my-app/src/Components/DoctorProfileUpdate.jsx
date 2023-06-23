@@ -1,58 +1,14 @@
-import React, { useState,useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import axios  from 'axios';
-import { useNavigate } from 'react-router-dom';
-export default function PickupOrders({onDataReceived}) {
-   const navigate = useNavigate();
-    const token = localStorage.getItem("JwtToken");
-    const[data,setData]=useState([]);
-    let date = new Date().toJSON();
-
-    
-    const axiosInstance = axios.create({
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+export default function DoctorProfileUpdate() {
     const storedData = localStorage.getItem("userData");
-    const parsedData = JSON.parse(storedData);
-    const expire="bg-danger text-light";
-
-    useEffect(() => { 
-
-      
-
-      axiosInstance
-      .get("http://localhost:9091/doctor/viewAllPickups/"+localStorage.getItem("Doctorid"))
-      .then(function (response) {
-        console.log(response.data);
-        setData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-
-
-     },[])
-
-     const handelPayNow=(item)=>()=>{
-      
-      onDataReceived( item );
-      
-      navigate("/checkout")
-
-
-     }
-
-
+  const parsedData = JSON.parse(storedData);
   return (
     <div>
-       <div className="my-5 mx-4 d-flex">
-       <div>
-          <div
+      <div className="my-5 mx-4 d-flex">
+      <div
             className="d-flex flex-column flex-shrink-0 p-3 bg-light"
-            style={{ width: "280px" }}
+            style={{ width: "280px" , height:"350px"}}
           >
             <Link
               to={"/doctorDashboard"}
@@ -165,56 +121,42 @@ export default function PickupOrders({onDataReceived}) {
             </ul>
             <hr />
           </div>
-        </div>
-        {
-           data.length?data.map((item) => (
-            <div className={`card mx-4 my-2 order-card ${item.pickupdate<date?expire:""}`} style={{width: "25rem" }}>
-            <div className="card-body">
-              <h5 className="card-title">🆔 Order Id:{item.pickupId}</h5>
-              <hr/>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💰Total Bill: {item.totalBill}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💰Bill Paid: {item.moneyPaid}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">📅Last Date for payment: {item.pickupdate}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">📅Order verification date: {item.orders[0].orderDate}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">✅Payment Status:{item.paymentStatus?" Paid":" Pending..."}</h6>
-              <h6 className="card-subtitle mb-2 text-muted my-1">💊 Order Details: </h6>
-              <div className='my-1 mx-2'>
-              {item.orders.map((e)=>{
-                return (
-                  <li className="card-subtitle mb-2 text-muted">{e.drugName + " with Quantity " + e.quantity}</li>
-                );
-                
-                 
-               })}
-               </div>
+          
+          <iframe src="https://embed.lottiefiles.com/animation/90060" className='mx-5'></iframe>
+          
 
-              <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
-               <p className="card-text">{item.orders[0].address}</p>
-               <hr />
-               <button type="button" class="btn btn-success" disabled={(item.pickupdate<date) || (item.totalBill-item.moneyPaid===0)} onClick={handelPayNow(item)}>Pay Now</button>
+          <div className="card mx-1" style={{width: "18rem", backgroundColor:"#D9F7F6"}}>
+  <div className="card-body ">
+    <h5 className="card-title mx-5">Update Profile</h5>
+    <hr />
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1 my-2">Email address</label>
+    <input type="email" class="form-control my-2"  aria-describedby="emailHelp" value={localStorage.getItem("UserEmailId")} disabled/>
+    <label >Full Name</label>
+    <input type="text" class="form-control my-2"  aria-describedby="emailHelp" value={parsedData.name} />
+    <label >Password</label>
+    <input type="password" class="form-control my-2"  aria-describedby="emailHelp" />
+    <label for="exampleFormControlTextarea1">Address</label>
+    <textarea className="form-control" id="exampleFormControlTextarea1" rows="3" value={parsedData.address}></textarea>
 
-
+    <button type="submit" class="btn btn-primary">Submit</button>
 
 
     
-              
-              
-            </div>
-          </div>
-          )):
-          <div style={{marginLeft:"450px"}}> 
-            <img src={require("../Assets/empty-box.png")} alt="no data found" height="200px" width="200px" />
-            <h5 style={{marginLeft:"30px"}}> No data found!</h5>
-            
-          </div>
+  </div>
+  </form>
+    
+  </div>
+</div>
+
+
           
-        }
 
 
 
 
-
-       </div>
+      </div>
     </div>
   )
 }

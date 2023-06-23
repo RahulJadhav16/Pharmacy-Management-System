@@ -163,7 +163,7 @@ export default function SideBarDoctor({ onDataReceived }) {
       </Link>
       <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
         
-        <li><Link className="dropdown-item" to='/'>Update Profile</Link></li>
+        <li><Link className="dropdown-item" to='/updateProfile'>Update Profile</Link></li>
         <li><hr className="dropdown-divider"/></li>
         <li><button className="dropdown-item"  onClick={handelSignout}>Sign out</button></li>
       </ul>
