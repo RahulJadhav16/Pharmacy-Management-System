@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import StripeButton from "./StripeButton";
 
 import { Link } from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = (props) => {
     const storedData = localStorage.getItem("userData");
     const parsedData = JSON.parse(storedData);
+
+    const money=props.itemDeatils.totalBill-props.itemDeatils.moneyPaid;
+    
+  
+    
   return (
     <div className="my-5 mx-4 d-flex">
         <div>
@@ -140,9 +145,9 @@ const Checkout = () => {
         
         
       </div>
-      <div className="total mx-5">TOTAL :₹ 648</div>
+      <div className="total mx-5">TOTAL :₹ {money}</div>
       <div className="mx-5">
-      <StripeButton price="648"/>
+      <StripeButton price={props}/>
       </div>
     </div>
   </div>

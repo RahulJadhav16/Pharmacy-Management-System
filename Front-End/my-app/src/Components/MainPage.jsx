@@ -26,6 +26,7 @@ export default function MainPage() {
       }
       
       let [childData, setChildData] = useState(obj);
+      const[item, setItem]=useState('');
 
     
      
@@ -42,6 +43,13 @@ export default function MainPage() {
             console.log(data)
             }
           };
+
+          const handelPaymentDetails=(item)=>{
+            console.log("I am here on main page---------- ")
+            setItem(item)
+
+
+          }
         
     
 
@@ -60,8 +68,8 @@ export default function MainPage() {
       <Route exact path="/doctorDashboard" element={<DoctorDashBoard onDataReceived={handleDataReceived}/>}/>
       <Route exact path="/viewOrders" element={<ViewOrders/>}/>
       <Route exact path="/viewDrugs" element={<ViewDrugs/>}/>
-      <Route exact path="/pickupOrder" element={<PickupOrders/>}/>
-      <Route exact path="/checkout" element={<Checkout/>}/>
+      <Route exact path="/pickupOrder" element={<PickupOrders onDataReceived={handelPaymentDetails}/>}/>
+      <Route exact path="/checkout" element={<Checkout itemDeatils={item}/>}/>
       
       </Route>
 

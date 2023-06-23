@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
-export default function PickupOrders() {
+export default function PickupOrders({onDataReceived}) {
    const navigate = useNavigate();
     const token = localStorage.getItem("JwtToken");
     const[data,setData]=useState([]);
@@ -37,7 +37,8 @@ export default function PickupOrders() {
      },[])
 
      const handelPayNow=(item)=>()=>{
-      console.log(item);
+      
+      onDataReceived( item );
       
       navigate("/checkout")
 
@@ -190,7 +191,7 @@ export default function PickupOrders() {
               <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
                <p className="card-text">{item.orders[0].address}</p>
                <hr />
-               <button type="button" class="btn btn-success" disabled={item.pickupdate<date} onClick={handelPayNow(item)}>Pay Now</button>
+               <button type="button" class="btn btn-success" disabled={(item.pickupdate<date) || (item.totalBill-item.moneyPaid===0)} onClick={handelPayNow(item)}>Pay Now</button>
 
 
 

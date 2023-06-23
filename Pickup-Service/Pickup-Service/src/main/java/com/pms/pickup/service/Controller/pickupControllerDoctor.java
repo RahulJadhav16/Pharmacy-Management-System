@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pms.pickup.service.Model.PaymentDetails;
 import com.pms.pickup.service.Model.Pickup;
 import com.pms.pickup.service.Service.pickupServiceDoctor;
 
@@ -36,6 +37,12 @@ public class pickupControllerDoctor {
 	public ResponseEntity<Pickup> makePayment(@RequestBody Pickup obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(service.makePayment(obj));
+	}
+	
+	@PostMapping("/addPaymentDetails")
+	public ResponseEntity<PaymentDetails>addPaymentDetails(@RequestBody PaymentDetails obj)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(service.addPaymentDetails(obj));
 	}
 	
 	
