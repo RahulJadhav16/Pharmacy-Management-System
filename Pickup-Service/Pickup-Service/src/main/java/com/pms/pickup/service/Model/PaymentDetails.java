@@ -64,6 +64,11 @@ public class PaymentDetails {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	@Override
+	public String toString() {
+		return "PaymentDetails [paymentId=" + paymentId + ", orderId=" + orderId + ", amountPaid=" + amountPaid
+				+ ", paymentDate=" + paymentDate + ", doctorMail=" + doctorMail + "]";
+	}
 	
 	
 	

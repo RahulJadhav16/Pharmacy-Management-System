@@ -49,6 +49,34 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 			}
 		}
 		
+		//If money paid one by one then 
+		
+		double money =0;		
+		for(Pickup e:pickupBydoctor)
+		{
+			try {
+			List<PaymentDetails> paymentDetails=paymentRepo.findByOrderId(e.getPickupId());
+
+			for(PaymentDetails p:paymentDetails)
+			{
+				
+				money= money+p.getAmountPaid();
+				e.setMoneyPaid(money);
+				
+			}
+			
+			
+			}
+			catch (Exception exce) {
+				
+				System.out.println(exce);
+				
+				
+				
+			}
+		}
+		
+		
 		return pickupBydoctor;
 	}
     
@@ -61,6 +89,8 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 		obj.setPaymentDate(dateToday);
 		//Sending mail to user 
 		PaymentDetails paymentInfo=paymentRepo.save(obj);
+		
+		
 		String emailTitle="Payment Confirmation and Delivery Update - Thank You for Choosing MedWise";
 		
 		String emailBody="We hope this email finds you in good health.We are writing to inform you that we have received your payment for the recent purchase you made with MedWise. \r\n"

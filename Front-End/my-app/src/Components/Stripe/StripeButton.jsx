@@ -40,7 +40,23 @@ const StripeButton = ({ price }) => {
       
      
         //Updateing the payment status
-      axiosInstance
+      
+      
+      //Adding payment details to the database
+      console.log("Adding details --------------------------------")
+      axios
+      .post("http://localhost:9091/pickupDoctor/addPaymentDetails",{
+        orderId:price.itemDeatils.pickupId,
+        amountPaid:price.itemDeatils.totalBill-price.itemDeatils.moneyPaid,
+        paymentDate:"",
+        doctorMail:localStorage.getItem("UserEmailId")
+
+      })
+      .then((response) => {
+        
+        console.log(response.data);
+        navigate("/pickupOrder")
+        axiosInstance
       .put("http://localhost:9091/doctor/makePayment",{
         pickupId:price.itemDeatils.pickupId,
         totalBill:price.itemDeatils.totalBill,
@@ -59,22 +75,7 @@ const StripeButton = ({ price }) => {
       .catch((error) => {
         console.log(error);
        
-      });
-      
-      //Adding payment details to the database
-      console.log("Adding details --------------------------------")
-      axios
-      .post("http://localhost:9091/pickupDoctor/addPaymentDetails",{
-        orderId:price.itemDeatils.pickupId,
-        amountPaid:price.itemDeatils.totalBill-price.itemDeatils.moneyPaid,
-        paymentDate:"",
-        doctorMail:localStorage.getItem("UserEmailId")
-
-      })
-      .then((response) => {
-        
-        console.log(response.data);
-        navigate("/pickupOrder")
+      }); 
 
         
       })
