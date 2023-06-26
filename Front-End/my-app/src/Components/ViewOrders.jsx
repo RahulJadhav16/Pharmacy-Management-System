@@ -13,7 +13,7 @@ export default function ViewOrders() {
   const navigate = useNavigate();
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
-
+ 
   const token = localStorage.getItem("JwtToken");
 
     
@@ -55,6 +55,7 @@ export default function ViewOrders() {
             .then(function (response) {
              
               if(response.data.length > 0) {
+                
               setData(response.data);
               }
               else{
@@ -223,10 +224,18 @@ export default function ViewOrders() {
             <hr />
           </div>
         </div>
-        <div className="d-flex flex-wrap justify-content-around">
-        {data.length?data.map((item) => (
-            <div className="card mx-4 my-2 order-card" style={{width: "25rem" }}>
-            <div className="card-body">
+        <div className="d-flex flex-wrap justify-content-around ">
+        {data.length
+  ? data.map((item, index) => (
+      <div
+        className="card mx-4 my-2 order-card"
+        style={{
+          width: "25rem",
+          backgroundColor: `${item.status ? "#AAF4B0" : "#F8F8F8"}`,
+        }}
+        key={index}
+      >
+        <div className="card-body">
               <h5 className="card-title">🆔 Order Id:{item.orderId}</h5>
               <hr/>
               <h6 className="card-subtitle mb-2 text-muted">💊Order Details: {item.drugName+" with Quantity "+item.quantity}</h6>
@@ -237,15 +246,22 @@ export default function ViewOrders() {
               <h6 className="card-subtitle mb-2 text-muted my-1">🏠Delivery address:</h6>
               
               <p className="card-text">{item.address}</p>
+              
               <button type="button" className="btn btn-danger" onClick={handleOrderDeleteClick(item)}>🗑️ Delete</button>
             </div>
-          </div>
-          )):
-          <div style={{marginLeft:"450px"}}> 
-            <img src={require("../Assets/empty-box.png")} alt="no data found" height="200px" width="200px" />
-            <h5 style={{marginLeft:"30px"}}> No data found!</h5>
-            
-          </div>}
+      </div>
+    )).reverse()
+  : <div style={{ marginLeft: "450px" }}>
+      <img
+        src={require("../Assets/empty-box.png")}
+        alt="no data found"
+        height="200px"
+        width="200px"
+      />
+      <h5 style={{ marginLeft: "30px" }}> No data found!</h5>
+    </div>
+}
+
           
           
 

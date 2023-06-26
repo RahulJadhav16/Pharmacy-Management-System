@@ -63,13 +63,13 @@ public class doctorControllerTests {
     
     @Test
     public void testDrugByName_ValidName() {
-        // Prepare test data
+       
         String drugName = "Aspirin";
         List<Drug> drugs = new ArrayList<>();
         drugs.add(new Drug("1", "Aspirin", 10, "Type1", "Category1"));
         drugs.add(new Drug("2", "Aspirin", 20, "Type2", "Category2"));
 
-        // Mock the doctorService's behavior
+       
         when(doctorService.drugByName(drugName)).thenReturn(drugs);
 
         // Call the API endpoint
@@ -111,7 +111,7 @@ public class doctorControllerTests {
     
     @Test
     public void testDrugById_ValidId() {
-        // Prepare test data
+        
         String drugId = "1";
         Drug drug = new Drug("1", "Aspirin", 10, "Type1", "Category1");
 
@@ -121,7 +121,7 @@ public class doctorControllerTests {
         // Call the API endpoint
         ResponseEntity<Drug> response = doctorController.drugById(drugId);
 
-        // Verify the response
+       
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(drug, response.getBody());
 
@@ -155,7 +155,7 @@ public class doctorControllerTests {
     
     @Test
     public void testViewAllOrders() {
-        // Prepare test data
+        
         String doctorId = "1";
         List<Order> expectedOrders = new ArrayList<>();
         // Add some orders to the expected list
@@ -180,11 +180,11 @@ public class doctorControllerTests {
     
     @Test
     public void testAddOrder() {
-        // Prepare test data
+       
         Order orderObj = new Order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
         
 
-        // Mock the doctorService's behavior
+       
         when(doctorService.addOrder(orderObj)).thenReturn(orderObj);
 
         // Call the API endpoint
@@ -200,7 +200,7 @@ public class doctorControllerTests {
     
     @Test
     public void testDeleteOrder() {
-        // Prepare test data
+       
         String orderId = "1";
 
         // Mock the doctorService's behavior

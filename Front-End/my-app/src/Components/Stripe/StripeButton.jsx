@@ -43,7 +43,7 @@ const StripeButton = ({ price }) => {
       
       
       //Adding payment details to the database
-      console.log("Adding details --------------------------------")
+      
       axios
       .post("http://localhost:9091/pickupDoctor/addPaymentDetails",{
         orderId:price.itemDeatils.pickupId,
@@ -53,9 +53,10 @@ const StripeButton = ({ price }) => {
 
       })
       .then((response) => {
-        
+        localStorage.setItem("paymentId", response.data.paymentId);
         console.log(response.data);
-        navigate("/pickupOrder")
+        
+       
         axiosInstance
       .put("http://localhost:9091/doctor/makePayment",{
         pickupId:price.itemDeatils.pickupId,
@@ -68,6 +69,8 @@ const StripeButton = ({ price }) => {
       })
       .then((response) => {
         console.log(response.data);
+        localStorage.setItem("pickupId", response.data.pickupId);
+        navigate("/receipt")
 
         
       })

@@ -17,6 +17,7 @@ import PickupOrders from "./PickupOrders";
 import NotFound from "./Errors/NotFound";
 import Checkout from "./Stripe/Checkout";
 import DoctorProfileUpdate from "./DoctorProfileUpdate";
+import Receipt from "./Stripe/Receipt";
 
 export default function MainPage() {
 
@@ -48,6 +49,8 @@ export default function MainPage() {
           const handelPaymentDetails=(item)=>{
             
             setItem(item)
+            console.log("I am on the main page ")
+            console.log(item);
 
 
           }
@@ -72,6 +75,7 @@ export default function MainPage() {
       <Route exact path="/pickupOrder" element={<PickupOrders onDataReceived={handelPaymentDetails}/>}/>
       <Route exact path="/checkout" element={<Checkout itemDeatils={item}/>}/>
       <Route exact path="/updateProfile" element={<DoctorProfileUpdate/>}/>
+      <Route exact path="/receipt" element={<Receipt itemDeatils={item}/>}/>
       
       </Route>
 

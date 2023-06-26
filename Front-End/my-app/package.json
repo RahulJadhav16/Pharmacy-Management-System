@@ -17,6 +17,7 @@
     "react-router-dom": "^6.13.0",
     "react-scripts": "5.0.1",
     "react-stripe-checkout": "^2.6.3",
+    "react-to-print": "^2.14.13",
     "reactjs-popup": "^2.0.5",
     "stripe": "^12.9.0",
     "validator": "^13.9.0",
