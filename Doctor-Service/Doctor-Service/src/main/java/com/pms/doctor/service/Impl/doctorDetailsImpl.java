@@ -48,6 +48,7 @@ public class doctorDetailsImpl implements doctorDetailsService{
 		}
 		else {
 	    
+		
 		//Hashing the password
 		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));
 		doctorRepo.save(doctorobj);

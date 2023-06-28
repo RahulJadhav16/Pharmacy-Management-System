@@ -1,5 +1,6 @@
 package com.pms.doctor.service.Controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -24,7 +25,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 import com.pms.doctor.service.Config.JwtHelper;
@@ -32,9 +35,11 @@ import com.pms.doctor.service.Config.JwtRequest;
 import com.pms.doctor.service.Config.JwtResponse;
 import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
 import com.pms.doctor.service.Impl.doctorDetailsImpl;
+import com.pms.doctor.service.Impl.doctorProfileImgImpl;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
 import com.pms.doctor.service.Models.Doctor;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
+import com.pms.doctor.service.Models.DoctorProfileImg;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
@@ -43,14 +48,18 @@ import com.pms.doctor.service.Models.Pickup;
 @RestController
 @RequestMapping("/doctor")
 public class doctorController {
+	
+	@Autowired
+	private doctorProfileImgImpl doctorProfileImgImpl;
+	
+	
+	
 	@Autowired
 	private doctorDetailsImpl doctorDetailsService;
 	
 	@Autowired
 	private doctorServiceImpl doctorService;
-	
-	
-	
+
 	@Autowired
 	private DoctorPersonalDetailsImpl doctorPersonalDetailsImpl;
 	
@@ -146,6 +155,23 @@ public class doctorController {
 	
 	//////////////////////////////////  For login and Registration ///////////////////////////////////////////////
 	
+    //////////////////////////For profile img Upload ///////////////////
+	@PostMapping("/uploadProfileImg")
+	public ResponseEntity<DoctorProfileImg> uploadImg(@RequestParam("id") String id,@RequestParam("file") MultipartFile file)
+	{
+
+	return ResponseEntity.status(HttpStatus.CREATED).body(doctorProfileImgImpl.uploadImg(id, file));
+
+	}
+	
+	
+	@GetMapping("/getProfileImg/{id}")
+	public ResponseEntity<DoctorProfileImg>getProfileImg(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(doctorProfileImgImpl.getProfileImg(id));
+	}
+
+	
 	
 	@GetMapping("/getDoctorId/{id}")
 	public String getDoctoridBymail(@PathVariable String id)
@@ -201,6 +227,8 @@ public class doctorController {
 	    public String exceptionHandler() {
 	        return "Credentials Invalid !!";
 	    }
+	 
+	 
 	
 
 }

@@ -15,8 +15,13 @@ public class Doctor {
     private String password;
     private String address;
     private String role = "DOCTOR";
+    
+    
 
-    public String getRole() {
+   
+	
+
+	public String getRole() {
         return role;
     }
 
@@ -67,17 +72,22 @@ public class Doctor {
     public void setAddress(String address) {
         this.address = address;
     }
+    
 
-    public Doctor(String doctorId, String name, String contact, String email, String password, String address) {
-        this.doctorId = doctorId;
-        this.name = name;
-        this.contact = contact;
-        this.email = email;
-        this.password = password;
-        this.address = address;
-    }
+   
+    
 
-    public Doctor() {
+	public Doctor(String doctorId, String name, String contact, String email, String password, String address) {
+		super();
+		this.doctorId = doctorId;
+		this.name = name;
+		this.contact = contact;
+		this.email = email;
+		this.password = password;
+		this.address = address;
+	}
+
+	public Doctor() {
         // Default constructor
     }
 }

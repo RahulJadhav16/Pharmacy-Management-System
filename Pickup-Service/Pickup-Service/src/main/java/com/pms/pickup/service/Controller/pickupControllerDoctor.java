@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+
 
 import com.pms.pickup.service.Model.PaymentDetails;
 import com.pms.pickup.service.Model.Pickup;
@@ -20,6 +24,9 @@ import com.pms.pickup.service.Service.pickupServiceDoctor;
 @RestController
 @RequestMapping("/pickupDoctor")
 public class pickupControllerDoctor {
+	
+	
+	
 	
 	
 	@Autowired
@@ -44,6 +51,10 @@ public class pickupControllerDoctor {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(service.addPaymentDetails(obj));
 	}
+	
+	
+	
+
 	
 	
 
