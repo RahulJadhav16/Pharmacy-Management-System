@@ -15,8 +15,8 @@ export default function Receipt(props) {
     const handelDownload=useReactToPrint({
        
         content:()=>conponentPDF.current,
-        documentTitle:"Order_receipt",
-        onAfterPrint:()=>alert("Pdf Downloaded")
+        documentTitle:"Order_receipt"
+        
 
     });
 

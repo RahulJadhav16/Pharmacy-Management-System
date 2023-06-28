@@ -18,10 +18,16 @@ import NotFound from "./Errors/NotFound";
 import Checkout from "./Stripe/Checkout";
 import DoctorProfileUpdate from "./DoctorProfileUpdate";
 import Receipt from "./Stripe/Receipt";
+import AdminLogin from "./Admin/AdminLogin";
+import AdminDashboard from "./Admin/AdminDashboard";
+import AdminRoute from "./ProtectedRotes/AdminRoute";
 
 export default function MainPage() {
 
    const jwtKey=localStorage?.getItem('JwtToken')
+   const userData=localStorage?.getItem('UserEmailId')
+   
+   
     const obj={
         path:'/login',
         name:"Login"
@@ -67,6 +73,10 @@ export default function MainPage() {
       <Route exact path="/doctor" element={<DoctorLogin onDataReceived={handleDataReceived}/>}/>
       <Route exact path="/signup" element={<DoctorSignup/>}/>
 
+      <Route exact path="/admin" element={<AdminLogin onDataReceived={handleDataReceived}/>}/>
+
+
+
       <Route element={<PrivateRoute id={jwtKey}/>}>
       
       <Route exact path="/doctorDashboard" element={<DoctorDashBoard onDataReceived={handleDataReceived}/>}/>
@@ -78,6 +88,12 @@ export default function MainPage() {
       <Route exact path="/receipt" element={<Receipt itemDeatils={item}/>}/>
       
       </Route>
+
+      <Route element={<AdminRoute id={userData}/>}>
+
+      <Route exact path="/adminDashboard" element={<AdminDashboard onDataReceived={handleDataReceived} />}/>
+      </Route>
+      
 
       <Route path="*" element={<NotFound />} />
 

@@ -10,5 +10,9 @@ import com.pms.AdminMicroservice.Model.AdminDetails;
 
 @Repository
 public interface AdminDetailsRepository extends JpaRepository<AdminDetails, Long>{
+	
+	AdminDetails findByEmail(String email);
+	
+	
 
 }

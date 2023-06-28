@@ -29,7 +29,8 @@ export default function Login() {
        
         <div className='d-flex justify-content-around my-5 mx-5 '>
       <div className="card admin" style={{width: "18rem", height:"350px"}}>
-  <img className="card-img-top" src={require("../Assets/admin.jpg")} />
+        <Link to="/admin"><img className="card-img-top" src={require("../Assets/admin.jpg")} /></Link>
+  
   <div className="card-body d-flex justify-content-center">
     <h5 className="card-title ">Admin</h5>
   </div>

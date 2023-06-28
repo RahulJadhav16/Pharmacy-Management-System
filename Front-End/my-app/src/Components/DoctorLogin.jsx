@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { isEmail } from 'validator';
 import axios from 'axios';
-import NavBarL from "./NavBarL";
+
 
 export default function DoctorLogin({ onDataReceived }) {
   

@@ -125,5 +125,19 @@ public class globalExceptionHandler {
 	}
 	
 	
+	@ExceptionHandler(UserEmailIdAlreadyPresentException.class)
+	public ResponseEntity<ApiResponse>handelUserEmailIdAlreadyPresentException(UserEmailIdAlreadyPresentException e){
+		String msg=e.getMessage();
+		ApiResponse response=ApiResponse.builder()
+				.msg(msg)
+				.success(true)
+				.status(HttpStatus.OK)
+				.build();
+		
+		return new ResponseEntity<ApiResponse>(response,HttpStatus.CONFLICT);
+		
+	}
+	
+	
 
 }

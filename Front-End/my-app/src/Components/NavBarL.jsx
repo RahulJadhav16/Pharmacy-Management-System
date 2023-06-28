@@ -51,7 +51,7 @@ export default function NavBarL(props) {
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item mx-5 navbar-brand ">
-                <Link className="nav-link txt" to={localStorage.getItem("UserEmailId")?'/doctorDashboard':'/login'} onMouseEnter={console.log(props)}><span className="sr-only" disabled>👤</span>
+                <Link className="nav-link txt" to={localStorage.getItem("UserEmailId")?'/doctorDashboard':'/login'} onMouseEnter={console.log(props)}><span className="sr-only" >👤</span>
 
                 {localStorage.getItem("UserEmailId")?localStorage.getItem("UserEmailId"):'Login'}
                 </Link>

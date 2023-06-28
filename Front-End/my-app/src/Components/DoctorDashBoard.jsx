@@ -6,10 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import Footer from './Footer';
 import { Link } from 'react-router-dom';
 export default function DoctorDashBoard({onDataReceived}) { 
-  
+  const storedData = localStorage.getItem("userData");
+  const parsedData = JSON.parse(storedData);
   const navigate = useNavigate();
   useEffect(() => {
     //Runs only on the first render
+    if(parsedData?.role==="ADMIN")
+    {
+      navigate('/adminDashboard');
+    }
     if(localStorage.getItem('UserEmailId') ===null || localStorage.getItem('UserEmailId') ==='' || localStorage.getItem('UserEmailId') ===undefined)
     {
       navigate('/login');
