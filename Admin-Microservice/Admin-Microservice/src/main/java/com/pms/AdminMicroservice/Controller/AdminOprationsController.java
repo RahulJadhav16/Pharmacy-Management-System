@@ -22,17 +22,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pms.AdminMicroservice.Config.JwtHelper;
 import com.pms.AdminMicroservice.Config.JwtRequest;
 import com.pms.AdminMicroservice.Config.JwtResponse;
+import com.pms.AdminMicroservice.Impl.AdminProfileImgImpl;
 import com.pms.AdminMicroservice.Impl.AdminProfileImpl;
 import com.pms.AdminMicroservice.Impl.DrugCatalogueServiceImpl;
 import com.pms.AdminMicroservice.Impl.DrugStockServiceImpl;
 import com.pms.AdminMicroservice.Impl.PickupServiceImpl;
 import com.pms.AdminMicroservice.Impl.VerifyOrderServiceImpl;
 import com.pms.AdminMicroservice.Model.AdminDetails;
+import com.pms.AdminMicroservice.Model.AdminProfileImg;
 import com.pms.AdminMicroservice.Model.Drug;
 import com.pms.AdminMicroservice.Model.DrugsStock;
 import com.pms.AdminMicroservice.Model.Order;
@@ -43,11 +47,16 @@ import com.pms.AdminMicroservice.Model.Pickup;
 @RequestMapping("/adminOprations")
 public class AdminOprationsController {
 	
+	
+	
 	@Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
     private AuthenticationManager manager;
+    
+    @Autowired
+    private AdminProfileImgImpl adminProfileImgImpl;
 
 
     @Autowired
@@ -81,6 +90,14 @@ public class AdminOprationsController {
 	{
 		return ResponseEntity.status(HttpStatus.CREATED).body(adminProfileImpl.createAdmin(obj));
 	}
+	
+	@PutMapping("/updateAdmin")
+	public ResponseEntity<AdminDetails>updateAdmin(@RequestBody AdminDetails obj)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(adminProfileImpl.updateAdmin(obj));
+	}
+	
+	
 	
 	@PostMapping("/auth/login")
 	public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest request) {
@@ -121,7 +138,20 @@ public class AdminOprationsController {
 	    public String exceptionHandler() {
 	        return "Credentials Invalid !!";
 	    }
-	
+   
+	 ////////////////////////////This end point is for upload the img for admin profile ////////
+	 
+	 @PostMapping("/addAdminProfileImg")
+	 public ResponseEntity<AdminProfileImg> addAdminProfileImg(@RequestParam("id") String id,@RequestParam("file") MultipartFile file)
+	 {
+		 return ResponseEntity.status(HttpStatus.CREATED).body(adminProfileImgImpl.addAdminProfileImg(id, file));
+	 }
+	 
+	 @GetMapping("/getAdminProfileImg/{id}")
+	 public ResponseEntity<AdminProfileImg> addAdminProfileImg(@PathVariable String id)
+	 {
+		 return ResponseEntity.status(HttpStatus.OK).body(adminProfileImgImpl.getAdminProfileImg(id));
+	 }
 	
 	
 	

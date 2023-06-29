@@ -27,8 +27,10 @@ export default function AdminDashboard({onDataReceived}) {
        }
   return (
     <div>
+      <div className="d-flex flex-wrap justify-content-around my-5 ">
         <SideBarAdmin onDataReceived={handleDataReceived}/>
-      this is admin
+        </div>
+      
     </div>
   )
 }

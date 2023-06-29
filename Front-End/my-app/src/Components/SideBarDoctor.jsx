@@ -90,7 +90,7 @@ export default function SideBarDoctor({ onDataReceived }) {
   return (
     <div>
       <div
-        className="d-flex flex-column flex-shrink-0 p-3 bg-light"
+        className="d-flex flex-column flex-shrink-0 p-3 bg-light "
         style={{ width: "280px" }}
       >
         <Link

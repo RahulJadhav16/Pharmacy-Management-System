@@ -13,9 +13,12 @@ export default function ViewDrugs() {
   const parsedData = JSON.parse(storedData);
 
   const [data, setData] = useState([]);
+  const [filterImg, setFilterImg] = useState("");
+  const [imgPath,setImgPath]=useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [quantityIp, setquantity] = useState('');
+
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -25,6 +28,11 @@ export default function ViewDrugs() {
   const handelQuantityChange=(e)=>{
     setquantity(e.target.value);
     
+  }
+
+  const handelBuy=()=>{
+    console.log(imgPath);
+    console.log(data);
   }
   
   /////////////////// Placing the Order calling order microservice
@@ -79,15 +87,52 @@ export default function ViewDrugs() {
       .then(function (response) {
         console.log(response.data);
         setData(response.data);
+        
       })
       .catch(function (error) {
         console.log(error);
+      });
+
+      axios
+      .get("http://localhost:9091/drugs/getAllDrugImg")
+      .then(function (response) {
+        const imgPathArray=[];
+       
+       
+
+        response.data.map((item) => {
+          const base64Image = item.image;
+        const byteCharacters = atob(base64Image);
+        const byteNumbers = new Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        const blob = new Blob([byteArray], { type: "image/jpeg" });
+        const imageUrl = URL.createObjectURL(blob);
+        imgPathArray.push(imageUrl);
+       
+        
+        
+
+
+
+
+        });
+
+        setImgPath(imgPathArray);
+         
+
+      })
+      .catch(function (error) {
+        console.log(error);
+
       });
   }, []);
 
   const handleBackspace = (e) => {
     if (e.key === 'Backspace') {
-      setFilteredPosts(data);
+      setFilteredPosts([]);
     }
   };
 
@@ -107,6 +152,28 @@ export default function ViewDrugs() {
       .then(function (response) {
         console.log(response.data);
         setFilteredPosts(response.data);
+      
+        
+        axios.get("http://localhost:9091/drugs/getDrugImg/"+response.data[0].id)
+        .then(function (response) {
+          const base64Image = response.data.image;
+          const byteCharacters = atob(base64Image);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: "image/jpeg" });
+          const imageUrl = URL.createObjectURL(blob);
+          setFilterImg(imageUrl);
+
+
+        })
+        .catch(function (error){
+          console.log(error);
+
+        })
+
         
       })
       .catch(function (error) {
@@ -265,21 +332,17 @@ export default function ViewDrugs() {
         <div className="d-flex flex-wrap justify-content-around">
           {filteredPosts.length
             ? filteredPosts.map((item) => {
+              
                 
                 return (
-                  <div
-                    className="card mx-5 my-2 mycard "
-                    style={{ background: "#6b64f3", borderRadius: "25px" }}
-                  >
-                    <div className="card-border-top"></div>
-                    <div className="img d-flex justify-content-center">
-                      <h3>{item.name}</h3>
-                    </div>
-                    <span>Price: ₹{item.price}</span>
-                    <span>Type: {item.type}</span>
-                    <p className="job">Category: {item.category}</p>
-      
-                    <Popup trigger=
+                  <div className="card my-2 mx-1" style={{width: "18rem"}}>
+                 <img className="card-img-top" src={filterImg} alt="Card image cap" style={{height:"250px"}}/> 
+                <div className="card-body">
+               <h5 className="card-title">{item.name}</h5>
+               <p><b>Price: ₹</b>{item.price}</p>
+               <p><b>Type:</b> {item.type}</p>
+               <p className="card-text"><b>Category:</b> {item.category}</p>
+               <Popup trigger=
                     {<button>📦 Buy</button>}
                   position="right center">
                     <div className="d-flex justify-content-center">
@@ -287,24 +350,23 @@ export default function ViewDrugs() {
                    <button type="button" class="btn btn-warning" onClick={handelOrderClick(item)}>Place Order</button>
                    </div>
                  </Popup>
-                  </div>
+                 </div>
+                     </div>
                 );
               })
-            : data.map((item) => {
+            : data.map((item,index) => {
+              return(
               
-                return (
-                  <div
-                    className="card mx-5 my-2 mycard"
-                    style={{ background: "#6b64f3", borderRadius: "25px" }}
-                  >
-                    <div className="card-border-top"></div>
-                    <div className="img d-flex justify-content-center">
-                      <h3>{item.name}</h3>
-                    </div>
-                    <span>Price: ₹{item.price}</span>
-                    <span>Type: {item.type}</span>
-                    <p className="job">Category: {item.category}</p>
-                    <Popup trigger=
+                
+                  <div className="card my-2 mx-1 border border-dark" style={{width: "18rem"}}>
+                    
+                   <img className="card-img-top" src={imgPath[index]} alt="Card image cap" style={{height:"250px"}}/> 
+                 <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <p><b>Price: ₹</b>{item.price}</p>
+                <p><b>Type:</b> {item.type}</p>
+                <p className="card-text"><b>Category:</b> {item.category}</p>
+                <Popup trigger=
                     {<button>📦 Buy</button>}
                   position="right center">
                     <div className="d-flex justify-content-center">
@@ -313,8 +375,15 @@ export default function ViewDrugs() {
                    </div>
                  </Popup>
                   </div>
-                );
-              })}
+                      </div>
+                
+                
+               
+
+
+                
+                   
+              )})}
 
 
 

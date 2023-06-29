@@ -9,13 +9,9 @@ public interface doctorProfileImg {
 	//Get the profile img 
 	DoctorProfileImg getProfileImg(String id);
 	
-	//Add profile img
+	//Add profile img and update
 	DoctorProfileImg uploadImg(String id, MultipartFile file);
 	
-	//update the img 
-	DoctorProfileImg updateImg(String id, MultipartFile file);
 	
-	//delete the img 
-	DoctorProfileImg deleteImg(String id);
 
 }

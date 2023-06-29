@@ -50,7 +50,7 @@ public class AdminProfileImpl implements AdminProfile{
 			return repo.save(obj);
 			
 		}
-		
+
 		
 		
 	}
@@ -64,6 +64,15 @@ public class AdminProfileImpl implements AdminProfile{
 		obj.setPassword(null);
 		
 		return obj;
+	}
+
+
+	@Override
+	public AdminDetails updateAdmin(AdminDetails obj) {
+		
+		obj.setPassword(passwordEncoder.encode(obj.getPassword()));
+		
+		return repo.save(obj);
 	}
 
 

@@ -6,6 +6,8 @@ public interface AdminProfile {
 	
 	AdminDetails createAdmin (AdminDetails obj);
 	
+	AdminDetails updateAdmin(AdminDetails obj);
+	
 	AdminDetails getAdminDetails(String email);
 
 }

@@ -1,0 +1,11 @@
+package com.pms.AdminMicroservice.Repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.pms.AdminMicroservice.Model.AdminProfileImg;
+
+@Repository
+public interface AdminProfileImgRepository extends JpaRepository<AdminProfileImg, String> {
+
+}

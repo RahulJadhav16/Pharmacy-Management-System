@@ -32,18 +32,7 @@ public class doctorProfileImgImpl implements doctorProfileImg{
 		return doctor;
 	}
 
-	@Override
-	public DoctorProfileImg updateImg(String id, MultipartFile file) {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
-
-	@Override
-	public DoctorProfileImg deleteImg(String id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	//Get profile img
 	@Override

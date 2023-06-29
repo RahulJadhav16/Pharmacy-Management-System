@@ -21,6 +21,7 @@ import Receipt from "./Stripe/Receipt";
 import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
 import AdminRoute from "./ProtectedRotes/AdminRoute";
+import AdminProfileUpdate from "./Admin/AdminProfileUpdate";
 
 export default function MainPage() {
 
@@ -92,6 +93,8 @@ export default function MainPage() {
       <Route element={<AdminRoute id={userData}/>}>
 
       <Route exact path="/adminDashboard" element={<AdminDashboard onDataReceived={handleDataReceived} />}/>
+      
+      <Route exact path="/updateAdminProfile" element={<AdminProfileUpdate />}/>
       </Route>
       
 

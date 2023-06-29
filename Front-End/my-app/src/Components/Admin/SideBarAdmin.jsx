@@ -5,6 +5,8 @@ import axios from 'axios';
 export default function SideBarAdmin({onDataReceived}) {
     const navigate = useNavigate();
     const [adminData, setadminData] = useState('');
+    //Setting the profile img for the first time 
+    const [profileImg, setprofileImg] = useState("");
     
     useEffect(() => {
       // Set the token value
@@ -24,6 +26,31 @@ export default function SideBarAdmin({onDataReceived}) {
             localStorage.setItem('userData', JSON.stringify(response.data));
             setadminData(response.data);
             console.log(adminData)
+            axiosInstance
+           .get(
+          "http://localhost:9091/adminOprations/getAdminProfileImg/"+localStorage.getItem("UserEmailId"))
+         
+          .then(function (response) {
+            console.log("Profile picture loaded");
+
+            console.log(response.data);
+    
+            const base64Image = response.data.image;
+            const byteCharacters = atob(base64Image);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+              byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: "image/jpeg" });
+            const imageUrl = URL.createObjectURL(blob);
+            setprofileImg(imageUrl);
+            localStorage.setItem('profilePath', imageUrl);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        
         })
         
         .catch(function (error) {
@@ -158,12 +185,17 @@ export default function SideBarAdmin({onDataReceived}) {
     <hr/>
     <div className="dropdown">
       <Link href="#" className="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src={require('./Assets/profile.png')} alt="prfile picture" height="32px" width="32px"/>
+      <img
+              src={profileImg?profileImg:require("./Assets/profile.png")}
+              alt="prfile picture"
+              height="64px"
+              width="64px"
+            />
         <strong className='mx-2'>Profile</strong>
       </Link>
       <ul className="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
         
-        <li><Link className="dropdown-item" to='/updateProfile'>Update Profile</Link></li>
+        <li><Link className="dropdown-item" to='/updateAdminProfile'>Update Profile</Link></li>
         <li><hr className="dropdown-divider"/></li>
         <li><button className="dropdown-item"  onClick={handelSignout}>Sign out</button></li>
       </ul>

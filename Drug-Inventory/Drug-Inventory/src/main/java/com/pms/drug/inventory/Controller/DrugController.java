@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.pms.drug.inventory.Impl.drugImagesImpl;
 import com.pms.drug.inventory.Impl.drugInventoryImpl;
 import com.pms.drug.inventory.Model.Drug;
+import com.pms.drug.inventory.Model.DrugImges;
 
 
 @RestController
@@ -26,6 +30,40 @@ public class DrugController {
 	@Autowired
 	private drugInventoryImpl drugImpl;
 	
+	@Autowired
+	private  drugImagesImpl drugImagesImpl;
+	
+	
+	/////////////////////////To add drugs images and get drug images ///////////////////////
+	
+	@PostMapping("/addDrugImg")
+	public ResponseEntity<DrugImges>addDrugImg(@RequestParam("id") String id,@RequestParam("file") MultipartFile file)
+	{
+		return ResponseEntity.status(HttpStatus.CREATED).body(drugImagesImpl.addDrugImg(id, file));
+	}
+	
+	@GetMapping("/getDrugImg/{id}")
+	public ResponseEntity<DrugImges>getDrugImg(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(drugImagesImpl.getDrugImg(id));
+	}
+	
+	@GetMapping("/getAllDrugImg")
+	public ResponseEntity<List<DrugImges>>getAllDrugImg()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(drugImagesImpl.getAllDrugImg());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////////////////
 	@GetMapping("/getalldrugs")
 	public ResponseEntity<List<Drug>>getAll()
 	{
