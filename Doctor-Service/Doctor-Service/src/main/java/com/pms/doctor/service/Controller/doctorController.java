@@ -1,6 +1,7 @@
 package com.pms.doctor.service.Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -44,6 +45,8 @@ import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/doctor")
@@ -79,6 +82,7 @@ public class doctorController {
      //To view all the drugs
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/viewAllDrugs")
+  	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "viewAllDrugsFallback")
   	public ResponseEntity<List<Drug>>viewAllDrugs()
   	{
   		List<Drug> allDrugsList=doctorService.viewAllDrugs();
@@ -89,6 +93,7 @@ public class doctorController {
   	//To get the drug by  name
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/drugByName/{name}")
+  	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "drugByNameFallback")
   	public ResponseEntity<List<Drug>> drugByName(@PathVariable String name)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugByName(name));
@@ -97,6 +102,7 @@ public class doctorController {
   	//To get the drug by  Id
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/drugById/{Id}")
+  	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "drugByIdFallback")
   	public ResponseEntity<Drug> drugById(@PathVariable String Id)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.drugById(Id));
@@ -106,6 +112,7 @@ public class doctorController {
   	//To view all Orders
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/viewAllOrders/{doctorId}")
+  	@CircuitBreaker(name="orderServiceBreaker", fallbackMethod = "viewAllOrdersFallback")
   	public ResponseEntity<List<Order>>viewAllOrders(@PathVariable String doctorId)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllOrders(doctorId));
@@ -114,6 +121,7 @@ public class doctorController {
   	//To place order
   	@PreAuthorize("hasRole('DOCTOR')")
   	@PostMapping("/addOrder")
+  	@CircuitBreaker(name="orderServiceBreaker", fallbackMethod = "addOrderFallback")
   	public ResponseEntity<Order> addOrder(@RequestBody Order orderObj)
   	{
   		return ResponseEntity.status(HttpStatus.CREATED).body(doctorService.addOrder(orderObj));
@@ -121,8 +129,9 @@ public class doctorController {
   	
   	//Delete order
   	@PreAuthorize("hasRole('DOCTOR')")
-  	public @DeleteMapping("/deleteOrder/{id}")
-  	ResponseEntity<String> deleteOrder(@PathVariable String id)
+  	@DeleteMapping("/deleteOrder/{id}") 
+  	@CircuitBreaker(name="orderServiceBreaker", fallbackMethod = "deleteOrderFallback")
+  	public ResponseEntity<String> deleteOrder(@PathVariable String id)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.deleteOrder(id));
   	}
@@ -131,8 +140,9 @@ public class doctorController {
   	
   	//viewAllPickups
   	@PreAuthorize("hasRole('DOCTOR')")
-  	public @GetMapping("/viewAllPickups/{id}")
-  	ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
+  	@GetMapping("/viewAllPickups/{id}")
+  	@CircuitBreaker(name="pickupServiceBreaker", fallbackMethod = "viewAllPickupsFallback")
+  	public ResponseEntity<List<Pickup>>viewAllPickups(@PathVariable String id)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.viewAllPickups(id));
   	}
@@ -140,6 +150,7 @@ public class doctorController {
   	//Make payment 
   	@PreAuthorize("hasRole('DOCTOR')")
   	@PutMapping("/makePayment")
+  	@CircuitBreaker(name="pickupServiceBreaker", fallbackMethod = "makePaymentFallback")
   	public ResponseEntity<Pickup>makePayment(@RequestBody Pickup obj)
   	{
   		return ResponseEntity.status(HttpStatus.OK).body(doctorService.makePayment(obj));
@@ -228,7 +239,70 @@ public class doctorController {
 	        return "Credentials Invalid !!";
 	    }
 	 
+	 ////////////////////////////Fallback Methods ////////////////////////////////////////////
+	 //for drug inventory
+	 public ResponseEntity<List<Drug>>viewAllDrugsFallback(Throwable throwable)
+	  	{
+		
+		    Drug obj=new Drug("1234","Drug service not avilable",0,"","");
+	  		List<Drug> allDrugsList=new ArrayList<>();
+	  		allDrugsList.add(obj);
+	  		
+	  		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
+	  	}
 	 
+	 public ResponseEntity<List<Drug>> drugByNameFallback(String name,Throwable throwable)
+	  	{
+		  Drug obj=new Drug("1234","Drug service not avilable",0,"","");
+	  		List<Drug> allDrugsList=new ArrayList<>();
+	  		allDrugsList.add(obj);
+	  		
+	  		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
+	  	}
+	 
+		public ResponseEntity<Drug> drugByIdFallback(String Id,Throwable throwable)
+	  	{
+			Drug obj=new Drug("","Drug service not avilable",0,"","");
+	  		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	  	}
+		
+		//////////////////////////// fall backs for order 
+		
+		public ResponseEntity<List<Order>>viewAllOrdersFallback(String doctorId,Throwable throwable)
+	  	{
+			List<Order> allordersList=new ArrayList<>();
+	  		return ResponseEntity.status(HttpStatus.OK).body(allordersList);
+	  	}
+		
 	
+	  	public ResponseEntity<Order> addOrderFallback(Order orderObj,Throwable throwable)
+	  	{
+	  		Order object=new Order();
+	  		return ResponseEntity.status(HttpStatus.OK).body(object);
+	  	}
+	  	
+	  	
+	  	/////for delete order 
+	  	public ResponseEntity<String> deleteOrderFallback(String id,Throwable throwable)
+	  	{
+	  		return ResponseEntity.status(HttpStatus.OK).body("Service Unavilable");
+	  	}
+	  	
+	 ////////////////////////////////////////// fallback for pickup
+	  	
+	  	
+	  	public ResponseEntity<List<Pickup>>viewAllPickupsFallback(String id,Throwable throwable)
+	  	{
+	  		List<Pickup> allPickup=new ArrayList<>();
+	  		return ResponseEntity.status(HttpStatus.OK).body(allPickup);
+	  	}
+	  	
+	  	
+	  	public ResponseEntity<Pickup>makePaymentFallback(Pickup obj,Throwable throwable)
+	  	{
+	  		Pickup object=new Pickup();
+	  		
+	  		return ResponseEntity.status(HttpStatus.OK).body(object);
+	  	}
 
 }

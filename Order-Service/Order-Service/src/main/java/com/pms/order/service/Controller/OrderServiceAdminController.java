@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.pms.order.service.Impl.orderServiceAdminImpl;
 import com.pms.order.service.Model.order;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 
 @RestController
 @RequestMapping("/verifyOrder")
@@ -46,6 +48,7 @@ public class OrderServiceAdminController {
 	}
 	
 	@PutMapping("/verifyOrder")
+	@CircuitBreaker(name="updateOrderStatusBreaker", fallbackMethod = "updateOrderStatusFallback")
 	public ResponseEntity<order>updateOrderStatus(@RequestBody order obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.updateOrderStatus(obj));
@@ -58,6 +61,14 @@ public class OrderServiceAdminController {
 	public ResponseEntity<String> addToPickup()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.addToPickup());
+	}
+	
+	
+	///////////////////////////////FallbackMethods ////////////////////////////////////////////
+	public ResponseEntity<order>updateOrderStatusFallback(order obj)
+	{
+		order obj2=new order();
+		return ResponseEntity.status(HttpStatus.OK).body(obj2);
 	}
 
 }

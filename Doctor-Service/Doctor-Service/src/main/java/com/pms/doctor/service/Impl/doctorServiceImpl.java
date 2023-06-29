@@ -47,6 +47,7 @@ public class doctorServiceImpl implements doctorService {
 		// TODO Auto-generated method stub
 		ArrayList<Drug>viewAllDrugs=restTemplate.getForObject("http://DRUG-INVENTORY/drugs/getalldrugs", ArrayList.class);
 		logger.info("{}",viewAllDrugs);
+	
 		return viewAllDrugs;
 	}
 
