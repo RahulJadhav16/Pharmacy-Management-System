@@ -2,6 +2,7 @@ package com.pms.AdminMicroservice.Service;
 
 import java.util.List;
 
+import com.pms.AdminMicroservice.Model.PaymentDetails;
 import com.pms.AdminMicroservice.Model.Pickup;
 
 
@@ -22,5 +23,12 @@ public interface PickupService {
 	
 	//get by payment done
 	List<Pickup> getPickupPaymentNotDone();
+	
+	//get all payment details 
+	List<PaymentDetails> getAllPaymentDetails();
+		
+	//get paymentdetails by payment id
+	PaymentDetails getBypaymentID(String id);
+	
 
 }

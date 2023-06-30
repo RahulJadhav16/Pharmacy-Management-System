@@ -1,6 +1,7 @@
 package com.pms.AdminMicroservice.Controller;
-
+import com.pms.AdminMicroservice.Model.PaymentDetails;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -41,6 +42,9 @@ import com.pms.AdminMicroservice.Model.Drug;
 import com.pms.AdminMicroservice.Model.DrugsStock;
 import com.pms.AdminMicroservice.Model.Order;
 import com.pms.AdminMicroservice.Model.Pickup;
+
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 
 @RestController
@@ -155,9 +159,10 @@ public class AdminOprationsController {
 	
 	
 	
-	/////////////////// These End points are for DrugsCatelog //////////////////////////////
+	///////////////////////// These End points are for DrugsCatelog //////////////////////////////
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getalldrugs")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "viewAllDrugsFallback")
 	public ResponseEntity<List<Drug>>getalldrugs()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(catalogueServiceImpl.getalldrugs());
@@ -165,6 +170,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getdrugbyid/{id}")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "drugByIdFallback")
 	public ResponseEntity<Drug>getdrugbyid(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(catalogueServiceImpl.getdrugbyid(id));
@@ -172,6 +178,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getdrugbyname/{name}")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "drugByNameFallback")
 	public ResponseEntity<List<Drug>>getdrugbyname(@PathVariable String name)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(catalogueServiceImpl.getdrugbyname(name));
@@ -179,12 +186,14 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@PostMapping("/createdrug")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "createdrugFallback")
 	public ResponseEntity<Drug>createdrug(@RequestBody Drug obj)
 	{
 		return ResponseEntity.status(HttpStatus.CREATED).body(catalogueServiceImpl.createdrug(obj));
 	}
-	
+	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/updatedrug")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "updatedrugFallback")
 	public ResponseEntity<Drug>updatedrug(@RequestBody Drug obj)
 	{
 		return ResponseEntity.status(HttpStatus.CREATED).body(catalogueServiceImpl.updatedrug(obj));
@@ -192,6 +201,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/deletedrug/{id}")
+	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "deletedrugFallback")
 	public ResponseEntity<String>deletedrug(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(catalogueServiceImpl.deletedrug(id));
@@ -315,6 +325,67 @@ public class AdminOprationsController {
 	public ResponseEntity<List<Pickup>>getPickupPaymentNotDone()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getPickupPaymentNotDone());
+	}
+	
+	
+	//////////////This endpoints for payment details 
+	@GetMapping("/getAllPaymentDetails")
+	public ResponseEntity<List<PaymentDetails>>getAllPaymentDetails()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getAllPaymentDetails());
+	}
+	@GetMapping("/getBypaymentID/{id}")
+	public ResponseEntity<PaymentDetails>getBypaymentID(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getBypaymentID(id));
+	}
+	
+	
+	////////////////////////////Fall back methods ////////////////////////////////////////////
+	//////////////For drug service 
+	 public ResponseEntity<List<Drug>>viewAllDrugsFallback(Throwable throwable)
+	  	{
+		
+		    Drug obj=new Drug("1234","Drug service not avilable",0,"","");
+	  		List<Drug> allDrugsList=new ArrayList<>();
+	  		allDrugsList.add(obj);
+	  		
+	  		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
+	  	}
+	 public ResponseEntity<List<Drug>> drugByNameFallback(String name,Throwable throwable)
+	  	{
+		  Drug obj=new Drug("1234","Drug service not avilable",0,"","");
+	  		List<Drug> allDrugsList=new ArrayList<>();
+	  		allDrugsList.add(obj);
+	  		
+	  		return ResponseEntity.status(HttpStatus.OK).body(allDrugsList);
+	  	}
+	 
+	public ResponseEntity<Drug> drugByIdFallback(String Id,Throwable throwable)
+	  	{
+			Drug obj=new Drug("","Drug service not avilable",0,"","");
+	  		return ResponseEntity.status(HttpStatus.OK).body(obj);
+	  	}
+	
+	
+	
+	public ResponseEntity<Drug>createdrugFallback(Drug obj,Throwable throwable)
+	{
+		Drug fallBackObject=new Drug();
+		return ResponseEntity.status(HttpStatus.OK).body(fallBackObject);
+	}
+	
+	
+	public ResponseEntity<Drug>updatedrugFallback( Drug obj,Throwable throwable)
+	{
+		Drug fallBackObject=new Drug();
+		return ResponseEntity.status(HttpStatus.OK).body(fallBackObject);
+	}
+	
+	
+	public ResponseEntity<String>deletedrugFallback(String id,Throwable throwable)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body("Drug-Inventory is down!");
 	}
 
 	

@@ -22,6 +22,7 @@ import AdminLogin from "./Admin/AdminLogin";
 import AdminDashboard from "./Admin/AdminDashboard";
 import AdminRoute from "./ProtectedRotes/AdminRoute";
 import AdminProfileUpdate from "./Admin/AdminProfileUpdate";
+import DrugInventory from "./Admin/DrugInventory";
 
 export default function MainPage() {
 
@@ -93,8 +94,9 @@ export default function MainPage() {
       <Route element={<AdminRoute id={userData}/>}>
 
       <Route exact path="/adminDashboard" element={<AdminDashboard onDataReceived={handleDataReceived} />}/>
-      
       <Route exact path="/updateAdminProfile" element={<AdminProfileUpdate />}/>
+      <Route exact path="/drugInventory" element={<DrugInventory />}/>
+      
       </Route>
       
 

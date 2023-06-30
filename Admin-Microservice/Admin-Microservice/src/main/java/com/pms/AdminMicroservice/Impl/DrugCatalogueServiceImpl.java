@@ -3,6 +3,8 @@ package com.pms.AdminMicroservice.Impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,17 +19,22 @@ import com.pms.AdminMicroservice.Exception.DrugNotFoundById;
 import com.pms.AdminMicroservice.Model.Drug;
 import com.pms.AdminMicroservice.Service.DrugCatalogueService;
 
+
 @Service
 public class DrugCatalogueServiceImpl implements DrugCatalogueService{
 	
 	@Autowired
 	private RestTemplate restTemplate;
+	
+	private Logger logger= LoggerFactory.getLogger(DrugCatalogueServiceImpl.class);
 
 	@Override
 	public List<Drug> getalldrugs() {
 		// TODO Auto-generated method stub
 		String url="http://DRUG-INVENTORY/drugs/getalldrugs";
-		return restTemplate.getForObject(url, ArrayList.class);
+		List<Drug>viewAllDrugs=restTemplate.getForObject(url, ArrayList.class);
+		logger.info("{}",viewAllDrugs);
+		return viewAllDrugs;
 	}
 
 	@Override

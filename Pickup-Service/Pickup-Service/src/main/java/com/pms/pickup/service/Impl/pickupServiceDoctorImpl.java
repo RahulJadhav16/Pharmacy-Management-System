@@ -112,4 +112,16 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 		return paymentInfo;
 	}
 
+	@Override
+	public List<PaymentDetails> getAllPaymentDetails() {
+		// TODO Auto-generated method stub
+		return paymentRepo.findAll();
+	}
+
+	@Override
+	public PaymentDetails getBypaymentID(String id) {
+		// TODO Auto-generated method stub
+		return paymentRepo.findById(id).orElse(null);
+	}
+
 }

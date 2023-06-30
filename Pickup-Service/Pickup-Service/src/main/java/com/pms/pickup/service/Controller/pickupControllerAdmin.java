@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pms.pickup.service.Impl.pickupServiceDoctorImpl;
 import com.pms.pickup.service.Impl.pickupServiceImpl;
+import com.pms.pickup.service.Model.PaymentDetails;
 import com.pms.pickup.service.Model.Pickup;
 
 @RestController
@@ -20,6 +22,9 @@ import com.pms.pickup.service.Model.Pickup;
 public class pickupControllerAdmin {
 	@Autowired
 	private pickupServiceImpl pickupservice;
+	
+	@Autowired
+	private pickupServiceDoctorImpl doctorimpl;
 	
 	
 	@GetMapping("/getAllPickups")
@@ -59,10 +64,28 @@ public class pickupControllerAdmin {
 	
 	
 	//This Method is auto call by Order microservice
-	@PostMapping("/addSingleOrder")
-	public ResponseEntity<Pickup> createSinglePickup(@RequestBody Pickup pickupobj )
-	{
-		return ResponseEntity.status(HttpStatus.CREATED).body(pickupservice.createSinglePickup(pickupobj));
-	}
+		@PostMapping("/addSingleOrder")
+		public ResponseEntity<Pickup> createSinglePickup(@RequestBody Pickup pickupobj )
+		{
+			return ResponseEntity.status(HttpStatus.CREATED).body(pickupservice.createSinglePickup(pickupobj));
+		}
+	
+	/////////////////////////////////////////Payment details ///////////////////////////////
+		
+		@GetMapping("/getAllPaymentDetails")
+		public ResponseEntity<List<PaymentDetails>>getAllPaymentDetails()
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(doctorimpl.getAllPaymentDetails());
+		}
+		@GetMapping("/getBypaymentID/{id}")
+		public ResponseEntity<PaymentDetails>getBypaymentID(@PathVariable String id)
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(doctorimpl.getBypaymentID(id));
+		}
+		
+		
+
+		
+		
 
 }

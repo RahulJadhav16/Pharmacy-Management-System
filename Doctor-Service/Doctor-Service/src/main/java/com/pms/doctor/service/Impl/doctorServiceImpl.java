@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Base64Utils;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,11 +41,15 @@ public class doctorServiceImpl implements doctorService {
 	private RestTemplate restTemplate;
 	
 	
+	
+	
+	
 	private Logger logger= LoggerFactory.getLogger(doctorServiceImpl.class);
 
 	@Override
 	public List<Drug> viewAllDrugs() {
 		// TODO Auto-generated method stub
+		
 		ArrayList<Drug>viewAllDrugs=restTemplate.getForObject("http://DRUG-INVENTORY/drugs/getalldrugs", ArrayList.class);
 		logger.info("{}",viewAllDrugs);
 	
@@ -91,6 +96,7 @@ public class doctorServiceImpl implements doctorService {
 	    try {
 		String url = "http://ORDER-SERVICE/orderService/showOrder/"+doctorId;
 		ArrayList<Order> orderList=restTemplate.getForObject(url, ArrayList.class);
+		
 		return orderList;
 	    }
 	    

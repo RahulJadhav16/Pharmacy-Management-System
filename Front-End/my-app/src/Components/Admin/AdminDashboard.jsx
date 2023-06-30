@@ -1,9 +1,31 @@
 import React from 'react'
 import SideBarAdmin from './SideBarAdmin'
 import { useEffect } from 'react';
+
+import "./CSS/AdminDashboard.css"
+import { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 export default function AdminDashboard({onDataReceived}) {
     const navigate = useNavigate();
+    const token = localStorage.getItem("JwtToken");
+    
+
+    //setting the usestates
+    const [drugsquantity,setDrugsquantity]=useState(0);
+    const [orderQuantity,setOrderQuantity]=useState(0);
+    const [pickupQuantity,setPickupQuantity]=useState(0);
+    const [expiredquantity,setExpiredquantity]=useState(0);
+    const [outofstockQuantity,setOutofstockQuantity]=useState(0);
+    const[money,setmoney]=useState(0);
+
+    //Seting the token
+    const axiosInstance = axios.create({
+      headers: {
+        Authorization: `Bearer ${token}`, 
+      },
+    });
+
     useEffect(() => {
         const storedData = localStorage.getItem("userData");
         const parsedData = JSON.parse(storedData);
@@ -15,9 +37,78 @@ export default function AdminDashboard({onDataReceived}) {
             navigate('/doctorDashboard');
         }
 
+        //From here i am calling all microservices to get info
+        axiosInstance
+        .get("http://localhost:9091/adminOprations/getAllStock")
+        .then(function (response) {
+          const date = new Date();
+          let expire=0;
+          let outofstock=0;
+          setDrugsquantity(response.data.length)
+          response.data.map((e)=>{
+            if(e.expireDate<date)
+            {
+              expire+=1;
+
+            }
+            if(e.quantity<=0)
+            {
+              outofstock+=1;
+
+            }
+          })
+          setExpiredquantity(expire);
+          setOutofstockQuantity(outofstock);
 
 
-    })
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+
+        axiosInstance
+        .get("http://localhost:9091/adminOprations/allOrders")
+        .then(function (response) {
+          setOrderQuantity(response.data.length)
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+
+        axiosInstance
+        .get("http://localhost:9091/adminOprations/getAllPickups")
+        .then(function (response) {
+          setPickupQuantity(response.data.length)
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+
+        axiosInstance
+        .get("http://localhost:9091/adminOprations/getAllPaymentDetails")
+        .then(function (response) {
+          let totalmoney=0;
+          response.data.map((e)=>{
+            totalmoney+=e.amountPaid;
+          })
+
+          setmoney(totalmoney)
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+
+    },[])
+
+    const handelDrugInventory=()=>{
+      navigate('/drugInventory')
+
+    }
+
+
+
+
     const handleDataReceived=() => {
         const obj={
           path:'/login',
@@ -25,12 +116,56 @@ export default function AdminDashboard({onDataReceived}) {
         }
         onDataReceived({obj});
        }
+
+
   return (
-    <div>
-      <div className="d-flex flex-wrap justify-content-around my-5 ">
-        <SideBarAdmin onDataReceived={handleDataReceived}/>
-        </div>
+    <div className="d-flex mx-1 my-1">
+      <SideBarAdmin onDataReceived={handleDataReceived} />
+    <div className="d-flex justify-content-between my-4 flex-wrap">
       
+      <div className="cookieCard cookieCard-1 View-Drugs">
+        <h1 className="cookieHeading">💊 View Drugs [{drugsquantity}]</h1>
+        <h2 className="cookieDescription">Explore and access the complete list of Drugs, Add drugs and edit.</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-2 View-Orders">
+        <h1 className="cookieHeading">📦 View Orders [{orderQuantity}]</h1>
+        <h2 className="cookieDescription">View all orders and verify the order status</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-3 Pickup">
+        <h1 className="cookieHeading">🚚 Pickup [{pickupQuantity}]</h1>
+        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-3 Pickup">
+        <h1 className="cookieHeading">📅 Expired Drugs [{expiredquantity}]</h1>
+        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-3 Pickup my-3">
+        <h1 className="cookieHeading">Drugs Out of Stock [{outofstockQuantity}]</h1>
+        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+      </div>
+      
+      <div className="cookieCard cookieCard-3 Pickup my-3" onClick={handelDrugInventory} style={{cursor: "pointer"}}>
+        <h1 className="cookieHeading">🏢Drug Inventory</h1>
+        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-3 Pickup my-3">
+        <h1 className="cookieHeading">₹{money}</h1>
+        <h2 className="cookieHeading">Total money received</h2>
+      </div>
+  
+      <div className="cookieCard cookieCard-3 Pickup my-3">
+        <h1 className="cookieHeading">📈 Analytics</h1>
+        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+      </div>
     </div>
+  </div>
+  
+      
+    
   )
 }

@@ -11,6 +11,7 @@ management:
     health:
       show-details: always
 
+
       
       
       
@@ -27,10 +28,37 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
         slidingWindowSize: 10
         slidingWindowType: COUNT_BASED
+      orderServiceBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+      pickupServiceBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+      
 
   retry:
     instances:
       DRUG-INVENTORY:
+        max-attempts: 3
+        wait-duration: 5s
+      ORDER-SERVICE:
+        max-attempts: 3
+        wait-duration: 5s
+      PICKUP-SERVICE:
         max-attempts: 3
         wait-duration: 5s
 

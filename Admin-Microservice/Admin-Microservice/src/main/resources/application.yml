@@ -1,0 +1,30 @@
+    
+resilience4j:
+  circuitbreaker:
+    instances:
+      drugServiceBreaker:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        waitDurationInOpenState: 6s
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        slidingWindowType: COUNT_BASED
+      
+      
+
+  retry:
+    instances:
+      DRUG-INVENTORY:
+        max-attempts: 3
+        wait-duration: 5s
+      
+
+  ratelimiter:
+    instances:
+      userRateLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 2
+        timeout-duration: 2s

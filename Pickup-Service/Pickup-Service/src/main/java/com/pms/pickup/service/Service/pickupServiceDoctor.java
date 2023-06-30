@@ -15,5 +15,11 @@ public interface pickupServiceDoctor {
 	
 	//Add payment details
 	PaymentDetails addPaymentDetails(PaymentDetails obj);
+	
+	//get all payment details 
+	List<PaymentDetails> getAllPaymentDetails();
+	
+	//get paymentdetails by payment id
+	PaymentDetails getBypaymentID(String id);
 
 }

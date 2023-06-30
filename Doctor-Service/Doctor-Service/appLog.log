@@ -1,60 +1,552 @@
-2023-06-29 20:29:47,479 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDQ1MDAyLCJleHAiOjE2ODgwNjMwMDJ9.v6GvPF9M5IqO00sMMRLkuattMj-oTXbGjAnTOB64_9_FNMbjiZx99Vjx2xuDaO6SrpQdn9UUnLQMmOcluYAkjA
-2023-06-29 20:29:47,516 [WARN] org.springframework.cloud.loadbalancer.core.RoundRobinLoadBalancer [http-nio-8081-exec-6] No servers available for service: DRUG-INVENTORY
-2023-06-29 20:29:53,016 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDQ1MDAyLCJleHAiOjE2ODgwNjMwMDJ9.v6GvPF9M5IqO00sMMRLkuattMj-oTXbGjAnTOB64_9_FNMbjiZx99Vjx2xuDaO6SrpQdn9UUnLQMmOcluYAkjA
-2023-06-29 20:29:53,658 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-7] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
-2023-06-29 20:30:57,937 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDQ1MDAyLCJleHAiOjE2ODgwNjMwMDJ9.v6GvPF9M5IqO00sMMRLkuattMj-oTXbGjAnTOB64_9_FNMbjiZx99Vjx2xuDaO6SrpQdn9UUnLQMmOcluYAkjA
-2023-06-29 20:31:47,783 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2023-06-29 20:36:47,799 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2023-06-29 20:38:13,554 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  null
-2023-06-29 20:38:13,554 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2] Invalid Header Value !! 
-2023-06-29 20:38:13,905 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:13,960 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:13,973 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:14,004 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:14,012 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:14,049 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:27,341 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:27,373 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-9] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
-2023-06-29 20:38:27,389 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:27,412 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-10] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
-2023-06-29 20:38:44,593 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:44,604 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-1] Order [orderId=null, DoctorId=648ae14e6a4987649b85c1a3, doctorName=Suraj Patil, drugName=Paracetamol, quantity=10, status=false, orderDate=null]
-2023-06-29 20:38:49,796 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:38:49,826 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,744 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,776 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,794 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,819 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,826 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:30,857 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:32,110 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:32,144 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:40,825 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:40,962 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:41:47,815 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
-2023-06-29 20:42:25,719 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:03,307 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:03,350 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,861 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,895 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,917 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,942 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,950 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:11,974 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,825 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,846 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,855 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,881 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,890 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:29,917 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:31,705 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:31,734 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-2] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
-2023-06-29 20:43:31,749 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:43:31,773 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-3] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
-2023-06-29 20:44:06,113 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:44:06,146 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:44:06,154 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:44:06,182 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:44:06,189 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:44:06,212 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MDUxMjkzLCJleHAiOjE2ODgwNjkyOTN9.v2PdLqc_IBR-K6n23Za_t9xsvemoQlUvL5vEBZjgAQQuEDTuhM6cYMYDoIfZccKwDxBIW7H92x0fj8dl5OHxDg
-2023-06-29 20:46:47,817 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 14:40:42,537 [INFO] com.pms.doctor.service.DoctorServiceApplication [restartedMain] Starting DoctorServiceApplication using Java 17.0.7 with PID 10748 (C:\Users\rahul\Desktop\PMS\Doctor-Service\Doctor-Service\target\classes started by rahul in C:\Users\rahul\Desktop\PMS\Doctor-Service\Doctor-Service)
+2023-06-30 14:40:42,542 [INFO] com.pms.doctor.service.DoctorServiceApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2023-06-30 14:40:42,652 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-30 14:40:42,653 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-30 14:40:44,641 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2023-06-30 14:40:44,887 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 236 ms. Found 3 MongoDB repository interfaces.
+2023-06-30 14:40:45,507 [INFO] org.springframework.cloud.context.scope.GenericScope [restartedMain] BeanFactory id=9d49a758-c7ed-3eae-bd4e-012bf9b1a3ee
+2023-06-30 14:40:46,962 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2023-06-30 14:40:46,978 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2023-06-30 14:40:46,978 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-30 14:40:47,100 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2023-06-30 14:40:47,100 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4446 ms
+2023-06-30 14:40:47,994 [INFO] org.mongodb.driver.client [restartedMain] MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.8.2"}, "os": {"type": "Windows", "name": "Windows 11", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.7+7"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@46b34273], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@4cc81a7b]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@123894ae], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2023-06-30 14:40:48,023 [INFO] org.mongodb.driver.cluster [cluster-ClusterId{value='649e9c17c3c98017ab7d6cf6', description='null'}-localhost:27017] Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=35478900}
+2023-06-30 14:40:49,125 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2023-06-30 14:40:51,329 [INFO] org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 1 endpoint(s) beneath base path '/actuator'
+2023-06-30 14:40:51,438 [INFO] org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56512b75, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a38b013, org.springframework.security.web.context.SecurityContextHolderFilter@57df963d, org.springframework.security.web.header.HeaderWriterFilter@4762c89, org.springframework.web.filter.CorsFilter@59308781, org.springframework.security.web.authentication.logout.LogoutFilter@21d9d30f, com.pms.doctor.service.Config.JwtAuthenticationFilter@483110b0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@71fa21e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3a12b77a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1aef5a8, org.springframework.security.web.session.SessionManagementFilter@53b4fdab, org.springframework.security.web.access.ExceptionTranslationFilter@59ec0ecb, org.springframework.security.web.access.intercept.AuthorizationFilter@2b10e7c7]
+2023-06-30 14:40:52,836 [INFO] org.springframework.cloud.netflix.eureka.config.DiscoveryClientOptionalArgsConfiguration [restartedMain] Eureka HTTP Client uses RestTemplate.
+2023-06-30 14:40:53,024 [WARN] org.springframework.cloud.loadbalancer.config.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger [restartedMain] Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-30 14:40:53,147 [INFO] org.springframework.cloud.netflix.eureka.InstanceInfoFactory [restartedMain] Setting initial instance status as: STARTING
+2023-06-30 14:40:53,271 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Initializing Eureka in region us-east-1
+2023-06-30 14:40:53,280 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [restartedMain] Resolving eureka endpoints via configuration
+2023-06-30 14:40:53,316 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Disable delta property : false
+2023-06-30 14:40:53,316 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Single vip registry refresh property : null
+2023-06-30 14:40:53,316 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Force full registry fetch : false
+2023-06-30 14:40:53,316 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Application is null : false
+2023-06-30 14:40:53,317 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Registered Applications size is zero : true
+2023-06-30 14:40:53,317 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Application version is -1: true
+2023-06-30 14:40:53,317 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Getting all instance registry info from the eureka server
+2023-06-30 14:40:53,932 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] The response status is 200
+2023-06-30 14:40:53,937 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Starting heartbeat executor: renew interval is: 30
+2023-06-30 14:40:53,942 [INFO] com.netflix.discovery.InstanceInfoReplicator [restartedMain] InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-30 14:40:53,950 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Discovery Client initialized at timestamp 1688116253948 with initial instances count: 1
+2023-06-30 14:40:53,969 [INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry [restartedMain] Registering application DOCTOR-SERVICE with eureka with status UP
+2023-06-30 14:40:53,970 [INFO] com.netflix.discovery.DiscoveryClient [restartedMain] Saw local status change event StatusChangeEvent [timestamp=1688116253970, current=UP, previous=STARTING]
+2023-06-30 14:40:53,973 [INFO] com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_DOCTOR-SERVICE/LAPTOP-GFBQMQJH:doctor-service:8081: registering service...
+2023-06-30 14:40:54,013 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2023-06-30 14:40:54,016 [INFO] org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration [restartedMain] Updating port to 8081
+2023-06-30 14:40:54,047 [INFO] com.netflix.discovery.DiscoveryClient [DiscoveryClient-InstanceInfoReplicator-0] DiscoveryClient_DOCTOR-SERVICE/LAPTOP-GFBQMQJH:doctor-service:8081 - registration status: 204
+2023-06-30 14:40:54,308 [INFO] com.pms.doctor.service.DoctorServiceApplication [restartedMain] Started DoctorServiceApplication in 12.716 seconds (process running for 13.614)
+2023-06-30 14:45:53,330 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 14:49:50,448 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-30 14:49:50,449 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Initializing Servlet 'dispatcherServlet'
+2023-06-30 14:49:50,452 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Completed initialization in 3 ms
+2023-06-30 14:49:50,525 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  null
+2023-06-30 14:49:50,525 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2] Invalid Header Value !! 
+2023-06-30 14:49:53,370 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:49:53,462 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:49:53,478 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:49:53,661 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:49:53,671 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:49:53,855 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:03,296 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:03,822 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-8] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
+2023-06-30 14:50:03,915 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:04,011 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-9] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
+2023-06-30 14:50:20,461 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:20,498 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:20,531 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:20,579 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:20,580 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:20,639 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:22,588 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:23,125 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,001 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,031 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,040 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,069 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,078 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:31,112 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:32,127 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:32,823 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,738 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,766 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,781 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,808 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,815 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:37,849 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:50:53,339 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 14:51:08,663 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:08,686 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:08,694 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:08,716 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:08,723 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:08,751 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,567 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,599 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,605 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,642 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,642 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:51:14,674 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTE2NzkwLCJleHAiOjE2ODgxMzQ3OTB9.gMXCg0SkJDPy0rmY6jCj-evqdkTYOIutjPAVjmUqmJZtIGqS51CAzX8LNH-CE4WnnQLjtYHVMBgOm2An7sY_Rg
+2023-06-30 14:55:53,346 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:00:53,357 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:05:53,358 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:10:53,367 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:15:53,374 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:20:53,384 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:25:53,389 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:30:53,391 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:35:53,401 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:40:53,407 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:45:53,420 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:50:53,431 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 15:55:53,439 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:00:53,444 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:04:11,942 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2ODgxMTY5MjEsImV4cCI6MTY4ODEzNDkyMX0.sgTDP09kQ-tqMBmqyksdbk0pmMuJUjCoNhC7T7XoIFX02hEfzSgpZR04vVjgFaCAjViA7P40DA6oNrHvy1AFZQ
+2023-06-30 16:04:12,013 [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8081-exec-6] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.pms.doctor.service.Models.Doctor.getEmail()" because "obj" is null
+	at com.pms.doctor.service.Config.CustomUserDetailsService.loadUserByUsername(CustomUserDetailsService.java:22)
+	at com.pms.doctor.service.Config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:76)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:268)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:169)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-06-30 16:04:12,191 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2ODgxMTY5MjEsImV4cCI6MTY4ODEzNDkyMX0.sgTDP09kQ-tqMBmqyksdbk0pmMuJUjCoNhC7T7XoIFX02hEfzSgpZR04vVjgFaCAjViA7P40DA6oNrHvy1AFZQ
+2023-06-30 16:04:12,199 [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8081-exec-7] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.pms.doctor.service.Models.Doctor.getEmail()" because "obj" is null
+	at com.pms.doctor.service.Config.CustomUserDetailsService.loadUserByUsername(CustomUserDetailsService.java:22)
+	at com.pms.doctor.service.Config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:76)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:268)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:169)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-06-30 16:05:53,453 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:10:53,460 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:15:53,473 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:20:53,477 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:25:53,480 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:30:53,485 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:35:53,490 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:40:53,506 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:45:53,508 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:50:53,519 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 16:55:53,531 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:00:53,538 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:05:53,545 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:10:53,550 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:15:53,558 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:16:41,560 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2ODgxMTY5MjEsImV4cCI6MTY4ODEzNDkyMX0.sgTDP09kQ-tqMBmqyksdbk0pmMuJUjCoNhC7T7XoIFX02hEfzSgpZR04vVjgFaCAjViA7P40DA6oNrHvy1AFZQ
+2023-06-30 17:16:41,571 [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8081-exec-9] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.pms.doctor.service.Models.Doctor.getEmail()" because "obj" is null
+	at com.pms.doctor.service.Config.CustomUserDetailsService.loadUserByUsername(CustomUserDetailsService.java:22)
+	at com.pms.doctor.service.Config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:76)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:268)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:169)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-06-30 17:16:41,591 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE2ODgxMTY5MjEsImV4cCI6MTY4ODEzNDkyMX0.sgTDP09kQ-tqMBmqyksdbk0pmMuJUjCoNhC7T7XoIFX02hEfzSgpZR04vVjgFaCAjViA7P40DA6oNrHvy1AFZQ
+2023-06-30 17:16:41,605 [ERROR] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] [http-nio-8081-exec-10] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.lang.NullPointerException: Cannot invoke "com.pms.doctor.service.Models.Doctor.getEmail()" because "obj" is null
+	at com.pms.doctor.service.Config.CustomUserDetailsService.loadUserByUsername(CustomUserDetailsService.java:22)
+	at com.pms.doctor.service.Config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:76)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:172)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.wrapFilter(ObservationFilterChainDecorator.java:185)
+	at org.springframework.security.web.ObservationFilterChainDecorator$AroundFilterObservation$SimpleAroundFilterObservation.lambda$wrap$0(ObservationFilterChainDecorator.java:268)
+	at org.springframework.security.web.ObservationFilterChainDecorator$ObservationFilter.doFilter(ObservationFilterChainDecorator.java:169)
+	at org.springframework.security.web.ObservationFilterChainDecorator$VirtualFilterChain.doFilter(ObservationFilterChainDecorator.java:133)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.ServerHttpObservationFilter.doFilterInternal(ServerHttpObservationFilter.java:109)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:166)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-06-30 17:20:53,561 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:25:53,573 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:30:53,577 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:35:53,590 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:40:53,607 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:45:53,619 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:50:53,628 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 17:55:53,649 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:00:53,651 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:05:53,664 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:10:53,670 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:15:53,671 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:20:53,685 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:25:53,692 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:30:53,700 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:35:53,706 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:40:53,708 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:45:53,722 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:50:53,738 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 18:55:53,795 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:00:53,802 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:05:53,817 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:10:53,825 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:15:53,834 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:20:53,847 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:25:54,020 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:30:54,027 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:35:54,045 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:40:54,058 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:45:54,060 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:50:54,062 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 19:55:54,077 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:00:54,089 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:05:54,104 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:10:54,111 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:15:54,124 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:20:54,137 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:25:54,142 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:30:54,144 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:35:54,152 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:40:54,162 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:45:54,170 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:50:54,187 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 20:55:54,203 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:00:54,206 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:05:54,210 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:10:54,220 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:15:54,231 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:20:54,253 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:25:54,264 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:30:54,276 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:35:54,279 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:40:54,282 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:45:54,297 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:50:54,308 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:53:29,212 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  null
+2023-06-30 21:53:29,213 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1] Invalid Header Value !! 
+2023-06-30 21:53:29,574 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:29,628 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:29,635 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:29,655 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:29,661 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:29,681 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,652 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,669 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,674 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,695 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,788 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:41,813 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:42,949 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:42,976 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-3] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
+2023-06-30 21:53:42,981 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:42,992 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-5] [{id=648011f1029f637a5d28a7a7, name=Aspirin, price=50, type=Tablet, category=Aspirin is used to reduce fever}, {id=6480141f029f637a5d28a7ad, name=Amoxicillin, price=100, type=Capsule, category=Amoxicillin is a penicillin antibiotic}, {id=6480143d029f637a5d28a7af, name=Atorvastatin, price=130, type=Tablet, category=Cholesterol-lowering agent}, {id=6480144d029f637a5d28a7b0, name=Ibuprofen, price=200, type=Tablet, category=Nonsteroidal anti-inflammatory drug (NSAID)}, {id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}, {id=64918f86f72e301ef847fea1, name=Lisinopril, price=80, type=Tablet, category=Antihypertensive}, {id=64918fa1f72e301ef847fea2, name=Metformin, price=70, type=Tablet, category=Antidiabetic}, {id=64918fb6f72e301ef847fea3, name=Cetirizine, price=60, type=Tablet, category=Antihistamine}]
+2023-06-30 21:53:57,926 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:53:57,996 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-6] [{id=648584915683641112507aa4, name=Paracetamol, price=120, type=Tablet, category=Pain reliever}]
+2023-06-30 21:54:28,072 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:54:28,212 [INFO] com.pms.doctor.service.Impl.doctorServiceImpl [http-nio-8081-exec-7] Order [orderId=null, DoctorId=648ae14e6a4987649b85c1a3, doctorName=Suraj Patil, drugName=Paracetamol, quantity=5, status=false, orderDate=null]
+2023-06-30 21:54:33,801 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:54:33,896 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:55:54,315 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 21:57:04,541 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:04,555 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:04,560 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:04,574 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:04,709 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:04,721 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:11,305 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:11,368 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:15,900 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:57:15,927 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:39,524 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,756 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,774 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,781 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,794 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,799 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:55,812 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:58,243 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:58:58,268 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:59:02,789 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 21:59:02,810 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,180 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,273 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,278 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,294 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,299 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-9]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:03,313 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-2]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:40,739 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-1]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:40,761 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-10]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:00:54,332 [INFO] com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver [AsyncResolver-bootstrap-executor-0] Resolving eureka endpoints via configuration
+2023-06-30 22:01:10,049 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-3]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:01:10,069 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-5]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:01:10,073 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-4]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:01:10,089 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-6]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:01:10,094 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-7]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ
+2023-06-30 22:01:10,108 [INFO] org.springframework.web.filter.OncePerRequestFilter [http-nio-8081-exec-8]  Header :  Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJteXNlbGZmb3IxMDJAZ21haWwuY29tIiwiaWF0IjoxNjg4MTQyMjA5LCJleHAiOjE2ODgxNjAyMDl9.qD2uz4LxB9LkvQH2CL3CsgCOtkL5EqjnrdhSfUOgznncbSkjmq-hgPckc9fzXw4Q8WMKrTDxsawzaVvv5YekkQ

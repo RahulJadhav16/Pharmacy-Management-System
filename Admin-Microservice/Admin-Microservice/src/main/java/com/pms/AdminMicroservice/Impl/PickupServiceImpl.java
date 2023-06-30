@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.pms.AdminMicroservice.Model.PaymentDetails;
 import com.pms.AdminMicroservice.Model.Pickup;
 import com.pms.AdminMicroservice.Service.PickupService;
 
@@ -50,6 +51,22 @@ public class PickupServiceImpl implements PickupService{
 		// TODO Auto-generated method stub
 		String url="http://PICKUP-SERVICE/pickupAdmin/getPickupPaymentNotDone";
 		List<Pickup> response =restTemplate.getForObject(url, ArrayList.class);
+		return response;
+	}
+
+	@Override
+	public List<PaymentDetails> getAllPaymentDetails() {
+		// TODO Auto-generated method stub
+		String url="http://PICKUP-SERVICE/pickupAdmin/getAllPaymentDetails";
+		List<PaymentDetails> response =restTemplate.getForObject(url, ArrayList.class);
+		return response;
+	}
+
+	@Override
+	public PaymentDetails getBypaymentID(String id) {
+		// TODO Auto-generated method stub
+		String url="http://PICKUP-SERVICE/pickupAdmin/getBypaymentID/"+id;
+		PaymentDetails response =restTemplate.getForObject(url, PaymentDetails.class);
 		return response;
 	}
 	
