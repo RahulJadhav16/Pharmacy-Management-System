@@ -30,13 +30,13 @@ const StripeButton = ({ price }) => {
       
         
         
-        NotificationManager.success("payment success");
+        NotificationManager.success("","payment success",1000);
       })
       .catch((error) => {
         console.log(error);
         NotificationManager.error('payment failed');
       });
-      NotificationManager.warning("Wait Dont't refersh the page we are updating payment status");
+      NotificationManager.warning("","Wait Dont't refersh the page we are updating payment status",1000);
       
      
         //Updateing the payment status

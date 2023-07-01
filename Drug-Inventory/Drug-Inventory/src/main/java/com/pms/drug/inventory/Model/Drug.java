@@ -11,7 +11,6 @@ public class Drug {
 	private String type;
 	private String category;
 	
-	
 	public String getId() {
 		return id;
 	}

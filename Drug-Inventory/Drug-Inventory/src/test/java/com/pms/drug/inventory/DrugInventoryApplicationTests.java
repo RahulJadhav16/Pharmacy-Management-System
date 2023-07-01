@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -123,7 +124,7 @@ public class DrugInventoryApplicationTests {
     void testAddDrug() {
         // Prepare test data
         Drug drug = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
-
+       ;
         // Mock the drugImpl's behavior
         when(drugImpl.addDrug(drug)).thenReturn(drug);
 
@@ -133,7 +134,7 @@ public class DrugInventoryApplicationTests {
         // Verify the response
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(drug, response.getBody());
-
+     
         // Verify that the drugImpl's method was called
         verify(drugImpl).addDrug(drug);
     }

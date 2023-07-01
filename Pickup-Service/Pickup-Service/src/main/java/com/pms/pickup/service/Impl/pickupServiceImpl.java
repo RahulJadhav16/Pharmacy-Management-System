@@ -169,6 +169,14 @@ public class pickupServiceImpl implements pickupService{
 		return pickupOfPaymentNotDone;
 	}
 
+	@Override
+	public String deletePickup(String id) {
+		
+		 pickupRepo.deleteById(id);
+		 
+		 return "Record deleted";
+	}
+
 	
 	
 

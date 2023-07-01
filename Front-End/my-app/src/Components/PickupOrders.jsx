@@ -25,8 +25,10 @@ export default function PickupOrders({onDataReceived}) {
       axiosInstance
       .get("http://localhost:9091/doctor/viewAllPickups/"+localStorage.getItem("Doctorid"))
       .then(function (response) {
+        console.log("I am data from ================")
         console.log(response.data);
         setData(response.data);
+
       })
       .catch(function (error) {
         console.log(error);

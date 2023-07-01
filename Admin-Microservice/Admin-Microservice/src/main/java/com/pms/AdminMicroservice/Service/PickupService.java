@@ -30,5 +30,11 @@ public interface PickupService {
 	//get paymentdetails by payment id
 	PaymentDetails getBypaymentID(String id);
 	
+	//get by order id
+	List<PaymentDetails>getByOrderID(String id);
+	
+	//Delete pickup
+	String deletePickup(String id);
+	
 
 }

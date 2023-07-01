@@ -46,16 +46,15 @@ export default function AdminDashboard({onDataReceived}) {
           let outofstock=0;
           setDrugsquantity(response.data.length)
           response.data.map((e)=>{
-            if(e.expireDate<date)
+            if(e.status==="Expired")
             {
               expire+=1;
-
             }
             if(e.quantity<=0)
             {
               outofstock+=1;
-
             }
+            
           })
           setExpiredquantity(expire);
           setOutofstockQuantity(outofstock);
@@ -105,6 +104,12 @@ export default function AdminDashboard({onDataReceived}) {
       navigate('/drugInventory')
 
     }
+    const handelExpiredDrugsclicked=()=>{
+      navigate('/expiredDrugs')
+    }
+    const handelPickupClick=()=>{
+      navigate('/adminPickup')
+    }
 
 
 
@@ -123,34 +128,34 @@ export default function AdminDashboard({onDataReceived}) {
       <SideBarAdmin onDataReceived={handleDataReceived} />
     <div className="d-flex justify-content-between my-4 flex-wrap">
       
-      <div className="cookieCard cookieCard-1 View-Drugs">
+      <div className="cookieCard cookieCard-1 View-Drugs" style={{cursor: "pointer"}}>
         <h1 className="cookieHeading">💊 View Drugs [{drugsquantity}]</h1>
         <h2 className="cookieDescription">Explore and access the complete list of Drugs, Add drugs and edit.</h2>
       </div>
   
-      <div className="cookieCard cookieCard-2 View-Orders">
+      <div className="cookieCard cookieCard-2 View-Orders" style={{cursor: "pointer"}}>
         <h1 className="cookieHeading">📦 View Orders [{orderQuantity}]</h1>
         <h2 className="cookieDescription">View all orders and verify the order status</h2>
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup">
+      <div className="cookieCard cookieCard-3 Pickup" style={{cursor: "pointer"}} onClick={handelPickupClick}>
         <h1 className="cookieHeading">🚚 Pickup [{pickupQuantity}]</h1>
         <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup">
+      <div className="cookieCard cookieCard-3 Pickup" style={{cursor: "pointer"}} onClick={handelExpiredDrugsclicked}>
         <h1 className="cookieHeading">📅 Expired Drugs [{expiredquantity}]</h1>
-        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+        
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup my-3">
+      <div className="cookieCard cookieCard-3 Pickup my-3" style={{cursor: "pointer"}}>
         <h1 className="cookieHeading">Drugs Out of Stock [{outofstockQuantity}]</h1>
-        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+        
       </div>
       
       <div className="cookieCard cookieCard-3 Pickup my-3" onClick={handelDrugInventory} style={{cursor: "pointer"}}>
         <h1 className="cookieHeading">🏢Drug Inventory</h1>
-        <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
+        <h1 className="cookieDescription">Manage your drug inventory add drugs, add suppliers</h1>
       </div>
   
       <div className="cookieCard cookieCard-3 Pickup my-3">

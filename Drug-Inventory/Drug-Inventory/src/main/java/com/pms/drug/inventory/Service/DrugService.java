@@ -2,6 +2,8 @@ package com.pms.drug.inventory.Service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.pms.drug.inventory.Model.Drug;
 
 public interface DrugService {

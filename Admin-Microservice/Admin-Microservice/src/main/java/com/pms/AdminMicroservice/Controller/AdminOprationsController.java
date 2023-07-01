@@ -326,6 +326,12 @@ public class AdminOprationsController {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getPickupPaymentNotDone());
 	}
+	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/deletePickup/{id}")
+    public ResponseEntity<String> deletePickup(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.deletePickup(id));
+	}
 	
 	
 	//////////////This endpoints for payment details 
@@ -338,6 +344,12 @@ public class AdminOprationsController {
 	public ResponseEntity<PaymentDetails>getBypaymentID(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getBypaymentID(id));
+	}
+	
+	@GetMapping("/getPaymentDetailsByOrderid/{id}")
+	public ResponseEntity<List<PaymentDetails>>getPaymentDetailsByOrderid(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getByOrderID(id));
 	}
 	
 	

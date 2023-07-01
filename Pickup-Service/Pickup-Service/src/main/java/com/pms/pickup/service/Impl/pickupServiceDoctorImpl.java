@@ -55,16 +55,17 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 		for(Pickup e:pickupBydoctor)
 		{
 			try {
-			List<PaymentDetails> paymentDetails=paymentRepo.findByOrderId(e.getPickupId());
+			List<PaymentDetails> paymentDetails=paymentRepo.findAll();
 
 			for(PaymentDetails p:paymentDetails)
 			{
-				
+				if(p.getPaymentDate().equals(e.getOrders().get(0).getOrderDate()))
 				money= money+p.getAmountPaid();
 				e.setMoneyPaid(money);
 				
 			}
-			
+			//Saving the data in database
+			repo.save(e);
 			
 			}
 			catch (Exception exce) {
@@ -122,6 +123,14 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 	public PaymentDetails getBypaymentID(String id) {
 		// TODO Auto-generated method stub
 		return paymentRepo.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<PaymentDetails> getByOrderID(String id) {
+		// TODO Auto-generated method stub
+		
+		return paymentRepo.findByOrderId(id);
+	
 	}
 
 }

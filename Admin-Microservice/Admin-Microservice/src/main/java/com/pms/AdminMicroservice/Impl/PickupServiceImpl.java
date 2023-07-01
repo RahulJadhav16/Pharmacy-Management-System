@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -68,6 +70,31 @@ public class PickupServiceImpl implements PickupService{
 		String url="http://PICKUP-SERVICE/pickupAdmin/getBypaymentID/"+id;
 		PaymentDetails response =restTemplate.getForObject(url, PaymentDetails.class);
 		return response;
+	}
+
+	@Override
+	public List<PaymentDetails> getByOrderID(String id) {
+		// TODO Auto-generated method stub
+		String url="http://PICKUP-SERVICE/pickupAdmin/getByOrderID/"+id;
+		List<PaymentDetails>response =restTemplate.getForObject(url, ArrayList.class);
+		return response;
+	}
+
+	@Override
+	public String deletePickup(String id) {
+		// TODO Auto-generated method stub
+		// Create a RestTemplate instance
+		RestTemplate restTemplate = new RestTemplate();
+
+		String url = "http://PICKUP-SERVICE/pickupAdmin/deletePickup/" + id;
+
+		// Send the DELETE request
+		ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.DELETE, null, String.class);
+
+		// Get the response body
+		String responseBody = response.getBody();
+
+		return responseBody;
 	}
 	
 	

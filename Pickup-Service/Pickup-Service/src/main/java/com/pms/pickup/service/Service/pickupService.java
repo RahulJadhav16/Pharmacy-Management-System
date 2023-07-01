@@ -27,6 +27,10 @@ public interface pickupService {
 	Pickup createSinglePickup(Pickup pickupObj);
 	
 	
+	//Delete pickup
+	String deletePickup(String id);
+	
+	
 	
 	
 

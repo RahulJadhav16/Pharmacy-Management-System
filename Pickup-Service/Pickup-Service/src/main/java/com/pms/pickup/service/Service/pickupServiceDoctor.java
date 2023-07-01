@@ -21,5 +21,8 @@ public interface pickupServiceDoctor {
 	
 	//get paymentdetails by payment id
 	PaymentDetails getBypaymentID(String id);
+	
+	//get by order id
+	List<PaymentDetails>getByOrderID(String id);
 
 }

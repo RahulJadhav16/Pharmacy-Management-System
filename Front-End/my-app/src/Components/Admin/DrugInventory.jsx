@@ -20,7 +20,7 @@ export default function DrugInventory() {
       Authorization: `Bearer ${token}`,
     },
   });
-  const [filteredPosts, setFilteredPosts] = useState([]);
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [data, setdata] = useState([]);
   const [email,setEmail]=useState(null);
@@ -29,6 +29,10 @@ export default function DrugInventory() {
   const [batchId,Setbatchid]=useState(null);
   const [price,setprice]=useState(null);
   const [date,setdate]=useState(null);
+  const [selectedDate, setSelectedDate] = useState('');
+
+  // Get the current date in the format yyyy-mm-dd
+  const currentDate = new Date().toISOString().split('T')[0];
 
   
 
@@ -335,7 +339,7 @@ export default function DrugInventory() {
                               </div>
                               <div className="col">
                                 <b>Expire Date:</b>
-                                <input type="date" className="form-control" onChange={handelDateChange}/>
+                                <input type="date" className="form-control" onChange={handelDateChange} min={currentDate}/>
                                 
                               </div>
                             </div>
@@ -349,7 +353,7 @@ export default function DrugInventory() {
             return (
               <div
                 className="card my-2"
-                style={{ width: "1000px", height: "220px" }}
+                style={{ width: "1000px", height: "220px",backgroundColor:`${iteam.status==="Expired"?"#F46D6D":"white"}`}}
               >
                 <div className="card-header">ID:{iteam.id}</div>
                 <div className="card-body">
@@ -441,7 +445,7 @@ export default function DrugInventory() {
                               </div>
                               <div className="col">
                                 <b>Expire Date:</b>
-                                <input type="date" className="form-control" onChange={handelDateChange}/>
+                                <input type="date" className="form-control" onChange={handelDateChange} min={currentDate}/>
                                 
                               </div>
                             </div>

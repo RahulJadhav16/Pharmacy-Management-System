@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-
-
+import com.pms.pickup.service.Impl.pickupServiceDoctorImpl;
 import com.pms.pickup.service.Model.PaymentDetails;
 import com.pms.pickup.service.Model.Pickup;
 import com.pms.pickup.service.Service.pickupServiceDoctor;
@@ -30,7 +29,7 @@ public class pickupControllerDoctor {
 	
 	
 	@Autowired
-	private pickupServiceDoctor service;
+	private pickupServiceDoctorImpl service;
 	
 	
 	@GetMapping("/getAllPickups/{id}")
@@ -51,6 +50,16 @@ public class pickupControllerDoctor {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(service.addPaymentDetails(obj));
 	}
+	
+	
+	@GetMapping("/getByOrderID/{id}")
+	public ResponseEntity<List<PaymentDetails>> getByOrderID(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(service.getByOrderID(id));
+	}
+	
+	
+	
 	
 	
 	

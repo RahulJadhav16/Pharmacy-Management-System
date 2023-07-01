@@ -44,26 +44,19 @@ export default function ViewOrders() {
             .then(function (response) {
               NotificationManager.success('Order deleted successfully!');
               console.log(response.data);
-              // Return the response data for the next .then() block
-              return response.data;
-            })
-            .then(function (data) {
-              console.log(data);
-              // Make the get request after the delete request is successful
-              return axiosInstance.get("http://localhost:9091/doctor/viewAllOrders/" + localStorage.getItem("Doctorid"));
-            })
-            .then(function (response) {
-             
-              if(response.data.length > 0) {
-                
-              setData(response.data);
-              }
-              else{
-                setData([]);
-              }
-              
+              axiosInstance
+              .get("http://localhost:9091/doctor/viewAllOrders/"+localStorage.getItem("Doctorid"))
+              .then(function (response) {
+                console.log(response.data);
+                setData(response.data);
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+
               
             })
+
             .catch(function (error) {
               
               console.log(error);
