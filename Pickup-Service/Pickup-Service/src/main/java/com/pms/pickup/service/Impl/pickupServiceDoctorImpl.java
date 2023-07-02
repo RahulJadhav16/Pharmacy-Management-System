@@ -51,17 +51,25 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 		
 		//If money paid one by one then 
 		
+		
 		double money =0;		
 		for(Pickup e:pickupBydoctor)
 		{
+			if(e.getMoneyPaid()>=e.getTotalBill())
+			{
+				//if its true do not add payment into it
+			}
+			else {
 			try {
 			List<PaymentDetails> paymentDetails=paymentRepo.findAll();
 
 			for(PaymentDetails p:paymentDetails)
 			{
-				if(p.getPaymentDate().equals(e.getOrders().get(0).getOrderDate()))
+				if(p.getOrderId().equals(e.getPickupId()))
+				{
 				money= money+p.getAmountPaid();
 				e.setMoneyPaid(money);
+				}
 				
 			}
 			//Saving the data in database
@@ -75,6 +83,7 @@ public class pickupServiceDoctorImpl implements pickupServiceDoctor{
 				
 				
 			}
+		}
 		}
 		
 		
