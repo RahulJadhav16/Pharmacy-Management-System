@@ -3,9 +3,9 @@ import './CSS/doctorDashboard.css';
 import SideBarDoctor from './SideBarDoctor';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Footer from './Footer';
 import { Link } from 'react-router-dom';
 export default function DoctorDashBoard({onDataReceived}) { 
+  
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
   const navigate = useNavigate();
@@ -46,6 +46,9 @@ export default function DoctorDashBoard({onDataReceived}) {
     
   return (
     <div>
+      
+     
+      
     
 
 

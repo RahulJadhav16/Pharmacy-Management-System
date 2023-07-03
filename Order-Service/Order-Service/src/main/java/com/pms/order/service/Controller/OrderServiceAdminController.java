@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -52,6 +54,12 @@ public class OrderServiceAdminController {
 	public ResponseEntity<order>updateOrderStatus(@RequestBody order obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(orderService.updateOrderStatus(obj));
+	}
+	
+	@DeleteMapping("/deleteOrder/{id}")
+	public ResponseEntity<String>deleteOrder(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(orderService.deleteOrder(id));
 	}
 	
 	

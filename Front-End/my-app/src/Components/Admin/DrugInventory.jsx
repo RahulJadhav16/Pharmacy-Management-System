@@ -138,6 +138,7 @@ export default function DrugInventory() {
          })
          .catch(function (error) {
            console.log(error);
+           NotificationManager.warning('', 'Drug not found !', 3000);
          });
 
 
@@ -353,7 +354,7 @@ export default function DrugInventory() {
             return (
               <div
                 className="card my-2"
-                style={{ width: "1000px", height: "220px",backgroundColor:`${iteam.status==="Expired"?"#F46D6D":"white"}`}}
+                style={{ width: "1000px", height: "220px",backgroundColor:`${iteam.quantity<=0?"#F9E79F":iteam.status==="Expired"?"#F46D6D":"white"}`}}
               >
                 <div className="card-header">ID:{iteam.id}</div>
                 <div className="card-body">

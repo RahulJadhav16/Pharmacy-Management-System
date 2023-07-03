@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import SideBarDoctor from "./SideBarDoctor";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./CSS/viewDrugs.css";
@@ -8,7 +7,11 @@ import { NotificationContainer} from 'react-notifications';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import "./CSS/doctorlogin.css";
+import SyncLoader from "react-spinners/SyncLoader";
+import LoadingBar from 'react-top-loading-bar'
 export default function ViewDrugs() {
+  const [progress, setProgress] = useState(0)
+  const[loader,setLoader]=useState(false);
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
 
@@ -72,6 +75,8 @@ export default function ViewDrugs() {
   }
 
   useEffect(() => {
+    setLoader(true)
+    setProgress(50)
     // Set the token value
     const token = localStorage.getItem("JwtToken");
 
@@ -88,9 +93,13 @@ export default function ViewDrugs() {
         console.log(response.data);
         setData(response.data);
         
+        
+        
       })
       .catch(function (error) {
         console.log(error);
+        setLoader(false)
+        setProgress(100)
       });
 
       axios
@@ -121,11 +130,15 @@ export default function ViewDrugs() {
         });
 
         setImgPath(imgPathArray);
+        setLoader(false)
+        setProgress(100)
          
 
       })
       .catch(function (error) {
         console.log(error);
+        setLoader(false)
+        setProgress(100)
 
       });
   }, []);
@@ -191,6 +204,11 @@ export default function ViewDrugs() {
 
   return (
     <div>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <NotificationContainer/>
       {/* SearchBar */}
       <div className="row height d-flex justify-content-center align-items-center">
@@ -330,7 +348,16 @@ export default function ViewDrugs() {
           </div>
         </div>
         <div className="d-flex flex-wrap justify-content-around">
-          {filteredPosts.length
+        {loader?
+        <div className="my-3" style={{marginLeft:"450px"}}>
+        <SyncLoader
+        color={"#36d7b7"}
+        loading={loader}
+    
+        size={20}
+        aria-label="Loading Spinner"
+        data-testid="loader" /></div>:
+          filteredPosts.length
             ? filteredPosts.map((item) => {
               
                 

@@ -2,7 +2,9 @@ import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar'
 export default function PickupOrders({onDataReceived}) {
+  const [progress, setProgress] = useState(0)
    const navigate = useNavigate();
     const token = localStorage.getItem("JwtToken");
     const[data,setData]=useState([]);
@@ -19,19 +21,22 @@ export default function PickupOrders({onDataReceived}) {
     const expire="bg-danger text-light";
 
     useEffect(() => { 
+      setProgress(20)
 
       
 
       axiosInstance
       .get("http://localhost:9091/doctor/viewAllPickups/"+localStorage.getItem("Doctorid"))
       .then(function (response) {
-        console.log("I am data from ================")
+        
         console.log(response.data);
         setData(response.data);
+        setProgress(100)
 
       })
       .catch(function (error) {
         console.log(error);
+        setProgress(100)
       });
 
 
@@ -50,6 +55,11 @@ export default function PickupOrders({onDataReceived}) {
 
   return (
     <div>
+       <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
        <div className="my-5 mx-4 d-flex">
        <div>
           <div

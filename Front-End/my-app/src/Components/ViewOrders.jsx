@@ -3,13 +3,14 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { NotificationManager, NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import SideBarDoctor from './SideBarDoctor';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './CSS/doctorlogin.css';
+import LoadingBar from 'react-top-loading-bar'
 
 export default function ViewOrders() {
+  const [progress, setProgress] = useState(0)
   const navigate = useNavigate();
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
@@ -79,16 +80,19 @@ export default function ViewOrders() {
   
 
   useEffect(() => {
-    
+    setProgress(10)
+    setProgress(50)
 
     axiosInstance
       .get("http://localhost:9091/doctor/viewAllOrders/"+localStorage.getItem("Doctorid"))
       .then(function (response) {
         console.log(response.data);
         setData(response.data);
+        setProgress(100)
       })
       .catch(function (error) {
         console.log(error);
+        setProgress(100)
       });
 
   },[])
@@ -97,6 +101,11 @@ export default function ViewOrders() {
   
   return (
     <div>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <NotificationContainer/>
         {/* Side bar */}
         <div className="my-5 mx-4 d-flex">

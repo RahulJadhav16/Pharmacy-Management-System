@@ -78,4 +78,17 @@ public class VerifyOrderServiceImpl implements VerifyOrderService {
 		
 	}
 
+	@Override
+	public String deleteOrder(String orderId) {
+		// TODO Auto-generated method stub
+		String url="http://ORDER-SERVICE/verifyOrder/deleteOrder/"+orderId;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<String> requestEntity = new HttpEntity<>(orderId, headers);
+		String response= restTemplate.exchange(url, HttpMethod.DELETE, requestEntity, String.class).getBody();
+	
+		
+		return response;
+	}
+
 }

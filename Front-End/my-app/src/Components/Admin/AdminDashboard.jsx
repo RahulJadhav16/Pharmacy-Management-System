@@ -6,7 +6,9 @@ import "./CSS/AdminDashboard.css"
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import LoadingBar from 'react-top-loading-bar'
 export default function AdminDashboard({onDataReceived}) {
+  const [progress, setProgress] = useState(0)
     const navigate = useNavigate();
     const token = localStorage.getItem("JwtToken");
     
@@ -27,6 +29,7 @@ export default function AdminDashboard({onDataReceived}) {
     });
 
     useEffect(() => {
+      setProgress(25)
         const storedData = localStorage.getItem("userData");
         const parsedData = JSON.parse(storedData);
         if(parsedData?.role==="ADMIN")
@@ -70,18 +73,22 @@ export default function AdminDashboard({onDataReceived}) {
         .get("http://localhost:9091/adminOprations/allOrders")
         .then(function (response) {
           setOrderQuantity(response.data.length)
+          setProgress(100)
         })
         .catch(function (error) {
           console.log(error);
+          setProgress(100)
         })
 
         axiosInstance
         .get("http://localhost:9091/adminOprations/getAllPickups")
         .then(function (response) {
           setPickupQuantity(response.data.length)
+          setProgress(100)
         })
         .catch(function (error) {
           console.log(error);
+          setProgress(100)
         })
 
         axiosInstance
@@ -110,6 +117,15 @@ export default function AdminDashboard({onDataReceived}) {
     const handelPickupClick=()=>{
       navigate('/adminPickup')
     }
+    const handelMoneyClick=()=>{
+      navigate('/adminMoney')
+    }
+    const handelOrderClick=()=>{
+      navigate('/Adminorder')
+    }
+    const handelDrugOutofStock=()=>{
+      navigate('/drugOutofStock')
+    }
 
 
 
@@ -125,6 +141,11 @@ export default function AdminDashboard({onDataReceived}) {
 
   return (
     <div className="d-flex mx-1 my-1">
+       <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <SideBarAdmin onDataReceived={handleDataReceived} />
     <div className="d-flex justify-content-between my-4 flex-wrap">
       
@@ -133,7 +154,7 @@ export default function AdminDashboard({onDataReceived}) {
         <h2 className="cookieDescription">Explore and access the complete list of Drugs, Add drugs and edit.</h2>
       </div>
   
-      <div className="cookieCard cookieCard-2 View-Orders" style={{cursor: "pointer"}}>
+      <div className="cookieCard cookieCard-2 View-Orders" style={{cursor: "pointer"}}onClick={handelOrderClick}>
         <h1 className="cookieHeading">📦 View Orders [{orderQuantity}]</h1>
         <h2 className="cookieDescription">View all orders and verify the order status</h2>
       </div>
@@ -148,7 +169,7 @@ export default function AdminDashboard({onDataReceived}) {
         
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup my-3" style={{cursor: "pointer"}}>
+      <div className="cookieCard cookieCard-3 Pickup my-3" style={{cursor: "pointer"}} onClick={handelDrugOutofStock}>
         <h1 className="cookieHeading">Drugs Out of Stock [{outofstockQuantity}]</h1>
         
       </div>
@@ -158,7 +179,7 @@ export default function AdminDashboard({onDataReceived}) {
         <h1 className="cookieDescription">Manage your drug inventory add drugs, add suppliers</h1>
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup my-3">
+      <div className="cookieCard cookieCard-3 Pickup my-3"style={{cursor: "pointer"}} onClick={handelMoneyClick}>
         <h1 className="cookieHeading">₹{money}</h1>
         <h2 className="cookieHeading">Total money received</h2>
       </div>

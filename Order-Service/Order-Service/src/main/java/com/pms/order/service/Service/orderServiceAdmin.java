@@ -21,6 +21,10 @@ public interface orderServiceAdmin {
 	//Adding order to pickup
 	String addToPickup();
 	
+	//Delete the order
+	String deleteOrder(String orderId);
+		
+	
 	
 
 

@@ -25,6 +25,9 @@ import AdminProfileUpdate from "./Admin/AdminProfileUpdate";
 import DrugInventory from "./Admin/DrugInventory";
 import ExpiredDrugs from "./Admin/ExpiredDrugs";
 import Pickup from "./Admin/Pickup";
+import AdminMoney from "./Admin/AdminMoney";
+import AdminViewOrders from "./Admin/AdminViewOrders";
+import DrugOutOffStock from "./Admin/DrugOutOffStock";
 
 export default function MainPage() {
 
@@ -100,6 +103,10 @@ export default function MainPage() {
       <Route exact path="/drugInventory" element={<DrugInventory />}/>
       <Route exact path="/expiredDrugs" element={<ExpiredDrugs />}/>
       <Route exact path="/adminPickup" element={<Pickup />}/>
+      <Route exact path="/adminMoney" element={<AdminMoney />}/>
+      <Route exact path="/Adminorder" element={<AdminViewOrders />}/>
+      <Route exact path="/drugOutofStock" element={<DrugOutOffStock />}/>
+      
       
       </Route>
       

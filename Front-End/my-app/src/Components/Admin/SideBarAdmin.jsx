@@ -107,7 +107,7 @@ export default function SideBarAdmin({onDataReceived}) {
 
 <li className='sidebar'>
   <Link
-    to={"/viewOrders"}
+    to={"/Adminorder"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -126,7 +126,7 @@ export default function SideBarAdmin({onDataReceived}) {
 
 <li className='sidebar'>
   <Link
-    to={"/viewDrugs"}
+    to={"/drugInventory"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -139,13 +139,13 @@ export default function SideBarAdmin({onDataReceived}) {
       e.target.style.backgroundColor = 'initial';
     }}
   >
-    Drugs
+    Drug Inventory
   </Link>
 </li>
 
 <li className='sidebar'>
   <Link
-    to={"/pickupOrder"}
+    to={"/adminPickup"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -177,7 +177,7 @@ export default function SideBarAdmin({onDataReceived}) {
       e.target.style.backgroundColor = 'initial';
     }}
   >
-    Contact Admin
+    Chat
   </Link>
 </li>
 

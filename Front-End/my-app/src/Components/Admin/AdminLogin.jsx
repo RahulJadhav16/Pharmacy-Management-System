@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { isEmail } from 'validator';
 import axios from 'axios';
+import LoadingBar from 'react-top-loading-bar'
 export default function AdminLogin({ onDataReceived }) {
+  const [progress, setProgress] = useState(0)
     const navigate = useNavigate();
     let[Adminemail,setEmail]=useState("");
     let[Adminpassword,setPassword]=useState("");
@@ -26,14 +28,17 @@ export default function AdminLogin({ onDataReceived }) {
     };
   
    const handelSubmit=(e)=>{
+    setProgress(10)
     e.preventDefault();
     if(Adminemail.trim() === '' || Adminpassword.trim() === '')
     {
       setMsg('Please enter valid data!')
+      
       return;
     }
     if (!isEmail(Adminemail)) {
       setMsg("Please enter a valid email address!");
+      
       return;
     }
     axios
@@ -50,7 +55,7 @@ export default function AdminLogin({ onDataReceived }) {
           }
           localStorage.setItem('JwtToken',response.data.jwtToken)
           localStorage.setItem('UserEmailId',response.data.username)
-          
+          setProgress(100)
           const AdminEmail=localStorage.getItem('UserEmailId');
           const obj={
             path:'/adminDashboard',
@@ -113,6 +118,11 @@ export default function AdminLogin({ onDataReceived }) {
   
     return (
       <div>
+        <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <div className="back d-flex justify-content-center">
         
         <img src={require("./Assets/login.png")} width="500px" height="540px" alt="" className="my-3"/>

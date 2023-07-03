@@ -207,6 +207,9 @@ public class AdminOprationsController {
 		return ResponseEntity.status(HttpStatus.OK).body(catalogueServiceImpl.deletedrug(id));
 	}
 	
+	
+	
+	
 	//////////////////////////////  These endpoints are for Drug Stock ////////////////////////
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getAllStock")
@@ -257,6 +260,8 @@ public class AdminOprationsController {
 	}
 	
 	
+	
+	
 	/////////////////////////These end points are for verify the order /////////////////////
 	
 	@PreAuthorize("hasRole('ADMIN')")
@@ -281,11 +286,20 @@ public class AdminOprationsController {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(verifyOrderServiceImpl.getOrderById(id));
 	}
+	
 	@PreAuthorize("hasRole('ADMIN')")
 	@PutMapping("/verifyOrder")
 	public ResponseEntity<Order>verifyOrder(@RequestBody Order obj)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(verifyOrderServiceImpl.verifyOrder(obj));
+	}
+	
+	
+	@PreAuthorize("hasRole('ADMIN')")
+	@DeleteMapping("/deleteOrder/{id}")
+	public ResponseEntity<String>deleteOrder(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(verifyOrderServiceImpl.deleteOrder(id));
 	}
 	
 	

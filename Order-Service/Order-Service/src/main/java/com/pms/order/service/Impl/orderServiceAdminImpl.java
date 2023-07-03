@@ -235,5 +235,12 @@ public class orderServiceAdminImpl implements orderServiceAdmin{
 		return "All verified orders added to pickup section!!";
 	}
 
+	@Override
+	public String deleteOrder(String orderId) {
+		// TODO Auto-generated method stub
+		orderRepo.deleteById(orderId);
+		return "Order deleted";
+	}
+
 
 }

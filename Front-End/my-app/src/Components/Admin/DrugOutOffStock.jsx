@@ -1,7 +1,8 @@
-import React, { useEffect,useState } from 'react'
+import React from 'react'
 import SideAdminRest from './SideAdminRest'
 import axios from 'axios';
-export default function ExpiredDrugs() {
+import { useEffect,useState } from 'react';
+export default function DrugOutOffStock() {
     const [data, setdata] = useState([]);
     const token = localStorage.getItem("JwtToken");
   //Seting the token
@@ -13,40 +14,39 @@ export default function ExpiredDrugs() {
 
   useEffect(()=>{
     axiosInstance
-          .get("http://localhost:9091/adminOprations/getAllStock")
- 
-          .then(function (response) {
-             const drugs=[];
-            response.data.map((e,index)=>{
-                if(response.data[index].status==="Expired")
-                {
-                    drugs.push(e);
-                }
+    .get("http://localhost:9091/adminOprations/getAllStock")
 
-            })
-            
-            console.log(drugs)
-            setdata(drugs);
-            
-            
+    .then(function (response) {
+       const drugs=[];
+      response.data.map((e,index)=>{
+          if(response.data[index].quantity<=0)
+          {
+              drugs.push(e);
+          }
+
+      })
+      
+      console.log(drugs)
+      setdata(drugs);
+      
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
 
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
   },[])
 
   return (
     <div>
       <div className="my-5 mx-4 d-flex">
-        <SideAdminRest />
+        <SideAdminRest/>
         {data.length?data.map((iteam)=>{
             return(
                 <div
                 key={iteam.id}
                 className="card my-2 mx-5"
-                style={{ width: "1000px", height: "150px",backgroundColor:`${iteam.status==="Expired"?"#F46D6D":"white"}`}}
+                style={{ width: "1000px", height: "150px",backgroundColor:"#F9E79F"}}
               >
                 <div className="card-header">ID:{iteam.id}</div>
                 <div className="card-body">
@@ -95,7 +95,6 @@ export default function ExpiredDrugs() {
         />
         <h5 style={{ marginLeft: "30px" }}> No data found!</h5>
       </div>}
-        
         </div>
     </div>
   )

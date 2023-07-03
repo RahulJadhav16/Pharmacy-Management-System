@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { isEmail } from 'validator';
 import axios from 'axios';
-
-
+import LoadingBar from 'react-top-loading-bar'
 export default function DoctorLogin({ onDataReceived }) {
-  
+  const [progress, setProgress] = useState(0)
+
+                        
   const navigate = useNavigate();
   useEffect(() =>{
     if(localStorage?.getItem('JwtToken'))
@@ -53,6 +54,7 @@ export default function DoctorLogin({ onDataReceived }) {
     setMsg("Please enter a valid email address!");
     return;
   }
+  setProgress(10)
   axios
       .post('http://localhost:9091/doctor/auth/login', {
         email:Doctoremail,
@@ -62,11 +64,14 @@ export default function DoctorLogin({ onDataReceived }) {
 
         if(response.data.jwtToken==="" || response.data.jwtToken===undefined)
         {
+          setProgress(100)
           setMsg("Invalid credentials !");
           return;
+          
         }
         localStorage.setItem('JwtToken',response.data.jwtToken)
         localStorage.setItem('UserEmailId',response.data.username)
+        setProgress(100)
         navigate('/doctorDashboard');
         const Doctorname=localStorage.getItem('UserEmailId');
         const obj={
@@ -99,10 +104,21 @@ export default function DoctorLogin({ onDataReceived }) {
 
   return (
     <div>
-    <div className="back d-flex justify-content-center">
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       
+      
+      
+    <div className="back d-flex justify-content-center">
+
       <img src={require("../Assets/login.jpg")} width="600px" height="540px" alt=""/>
+     
+      
       <div className="card my-4 logincard" style={{ width: "20rem" ,height:"540px"}}>
+        
         <div className="d-flex justify-content-center my-5">
           <img
             className="doctorlogo"
@@ -111,6 +127,9 @@ export default function DoctorLogin({ onDataReceived }) {
             height="48px"
           />
         </div>
+        
+        
+
         <div className="card-body d-flex flex-column align-items-center">
           <h4>Login</h4>
           <p style={{color:"red"}}>{msg}</p>
@@ -161,6 +180,8 @@ export default function DoctorLogin({ onDataReceived }) {
         </div>
       </div>
     </div>
+    
+    
     </div>
   );
 }

@@ -18,6 +18,9 @@ public interface VerifyOrderService {
 	//verifyOrder
 	Order verifyOrder(Order obj);
 	
+	//Delete the order
+	String deleteOrder(String orderId);
+	
 	
 
 }

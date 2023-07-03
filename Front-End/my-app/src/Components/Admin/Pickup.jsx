@@ -157,7 +157,7 @@ export default function Pickup() {
                    
                    
                    
-                    <button type="button" className="btn btn-secondary mx-1" onClick={handelDelete(item)}>❌Delete</button> 
+                    <button type="button" className="btn btn-secondary mx-1" onClick={handelDelete(item)} disabled={item.paymentStatus}>❌Delete</button> 
                    
 
 

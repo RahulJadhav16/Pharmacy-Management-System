@@ -34,7 +34,7 @@ export default function SideAdminRest() {
     
     <li className='sidebar'>
       <Link
-        to={"/viewOrders"}
+        to={"/Adminorder"}
         className="nav-link link-dark"
         style={{
           backgroundColor: 'initial',
@@ -53,7 +53,7 @@ export default function SideAdminRest() {
     
     <li className='sidebar'>
       <Link
-        to={"/viewDrugs"}
+        to={"/drugInventory"}
         className="nav-link link-dark"
         style={{
           backgroundColor: 'initial',
@@ -66,13 +66,13 @@ export default function SideAdminRest() {
           e.target.style.backgroundColor = 'initial';
         }}
       >
-        Drugs
+        Drug Inventory
       </Link>
     </li>
     
     <li className='sidebar'>
       <Link
-        to={"/pickupOrder"}
+        to={"/adminPickup"}
         className="nav-link link-dark"
         style={{
           backgroundColor: 'initial',
@@ -104,7 +104,7 @@ export default function SideAdminRest() {
           e.target.style.backgroundColor = 'initial';
         }}
       >
-        Contact Admin
+        Chat
       </Link>
     </li>
     
