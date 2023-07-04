@@ -7,7 +7,9 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import { NotificationManager, NotificationContainer } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
+import LoadingBar from 'react-top-loading-bar'
 export default function Pickup() {
+  const [progress, setProgress] = useState(0)
     let date = new Date().toJSON();
     const expire="bg-danger text-light";
     const token = localStorage.getItem("JwtToken");
@@ -20,15 +22,18 @@ export default function Pickup() {
       });
 
       useEffect(()=>{
+        setProgress(10)
         axiosInstance
         .get("http://localhost:9091/adminOprations/getAllPickups")
 
         .then(function (response) {
            setData(response.data);
         console.log(response.data);
+        setProgress(100)
         })
         .catch(function (error) {
           console.log(error);
+          setProgress(100)
         });
     
       },[])
@@ -92,6 +97,11 @@ export default function Pickup() {
       
   return (
     <div>
+       <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
         <NotificationContainer/>
        <div className="my-5 mx-4 d-flex">
         <SideAdminRest />

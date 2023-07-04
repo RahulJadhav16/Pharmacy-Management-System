@@ -54,7 +54,11 @@ public class DrugController {
 		return ResponseEntity.status(HttpStatus.OK).body(drugImagesImpl.getAllDrugImg());
 	}
 	
-	
+	@DeleteMapping("/deleteImg/{id}")
+	public ResponseEntity<String>deleteImg(@PathVariable String id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(drugImagesImpl.deleteImg(id));
+	}
 	
 	
 	

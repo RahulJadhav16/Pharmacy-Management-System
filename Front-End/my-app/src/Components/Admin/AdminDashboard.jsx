@@ -47,7 +47,7 @@ export default function AdminDashboard({onDataReceived}) {
           const date = new Date();
           let expire=0;
           let outofstock=0;
-          setDrugsquantity(response.data.length)
+          
           response.data.map((e)=>{
             if(e.status==="Expired")
             {
@@ -78,6 +78,17 @@ export default function AdminDashboard({onDataReceived}) {
         .catch(function (error) {
           console.log(error);
           setProgress(100)
+        })
+
+        axiosInstance
+        .get("http://localhost:9091/adminOprations/getalldrugs")
+        .then(function (response) {
+          setDrugsquantity(response.data.length)
+         
+        })
+        .catch(function (error) {
+          console.log(error);
+          
         })
 
         axiosInstance
@@ -126,6 +137,10 @@ export default function AdminDashboard({onDataReceived}) {
     const handelDrugOutofStock=()=>{
       navigate('/drugOutofStock')
     }
+    const handelDrug=()=>{
+      navigate('/adminDrug')
+
+    }
 
 
 
@@ -136,7 +151,9 @@ export default function AdminDashboard({onDataReceived}) {
           name:"Login"
         }
         onDataReceived({obj});
-       }
+       } 
+
+    
 
 
   return (
@@ -149,7 +166,7 @@ export default function AdminDashboard({onDataReceived}) {
       <SideBarAdmin onDataReceived={handleDataReceived} />
     <div className="d-flex justify-content-between my-4 flex-wrap">
       
-      <div className="cookieCard cookieCard-1 View-Drugs" style={{cursor: "pointer"}}>
+      <div className="cookieCard cookieCard-1 View-Drugs" style={{cursor: "pointer"}} onClick={handelDrug}>
         <h1 className="cookieHeading">💊 View Drugs [{drugsquantity}]</h1>
         <h2 className="cookieDescription">Explore and access the complete list of Drugs, Add drugs and edit.</h2>
       </div>

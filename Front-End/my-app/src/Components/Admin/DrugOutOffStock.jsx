@@ -2,7 +2,9 @@ import React from 'react'
 import SideAdminRest from './SideAdminRest'
 import axios from 'axios';
 import { useEffect,useState } from 'react';
+import LoadingBar from 'react-top-loading-bar'
 export default function DrugOutOffStock() {
+  const [progress, setProgress] = useState(0)
     const [data, setdata] = useState([]);
     const token = localStorage.getItem("JwtToken");
   //Seting the token
@@ -13,6 +15,7 @@ export default function DrugOutOffStock() {
   });
 
   useEffect(()=>{
+    setProgress(10)
     axiosInstance
     .get("http://localhost:9091/adminOprations/getAllStock")
 
@@ -23,15 +26,17 @@ export default function DrugOutOffStock() {
           {
               drugs.push(e);
           }
+          
 
       })
       
       console.log(drugs)
       setdata(drugs);
-      
+      setProgress(100)
     })
     .catch(function (error) {
       console.log(error);
+      setProgress(100)
     });
 
 
@@ -39,6 +44,11 @@ export default function DrugOutOffStock() {
 
   return (
     <div>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <div className="my-5 mx-4 d-flex">
         <SideAdminRest/>
         {data.length?data.map((iteam)=>{

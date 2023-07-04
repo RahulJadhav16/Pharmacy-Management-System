@@ -43,6 +43,12 @@ public class drugImagesImpl implements DrugImgesService{
 		
 		return repo.findAll();
 	}
+
+	@Override
+	public String deleteImg(String id) {
+		repo.deleteById(id);
+		return "img deleted";
+	}
 	
 
 }

@@ -1,7 +1,9 @@
 import React, { useEffect,useState } from 'react'
 import SideAdminRest from './SideAdminRest'
 import axios from 'axios';
+import LoadingBar from 'react-top-loading-bar'
 export default function ExpiredDrugs() {
+  const [progress, setProgress] = useState(0)
     const [data, setdata] = useState([]);
     const token = localStorage.getItem("JwtToken");
   //Seting the token
@@ -12,6 +14,7 @@ export default function ExpiredDrugs() {
   });
 
   useEffect(()=>{
+    setProgress(20)
     axiosInstance
           .get("http://localhost:9091/adminOprations/getAllStock")
  
@@ -22,23 +25,30 @@ export default function ExpiredDrugs() {
                 {
                     drugs.push(e);
                 }
+               
 
             })
             
             console.log(drugs)
             setdata(drugs);
             
-            
+            setProgress(100)
 
 
           })
           .catch(function (error) {
             console.log(error);
+            setProgress(100)
           });
   },[])
 
   return (
     <div>
+       <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <div className="my-5 mx-4 d-flex">
         <SideAdminRest />
         {data.length?data.map((iteam)=>{

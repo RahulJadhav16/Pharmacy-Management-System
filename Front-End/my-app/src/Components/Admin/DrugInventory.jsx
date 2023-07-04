@@ -9,9 +9,11 @@ import { NotificationContainer} from 'react-notifications';
 import { useNavigate } from 'react-router-dom';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import LoadingBar from 'react-top-loading-bar'
 
 import "reactjs-popup/dist/index.css";
 export default function DrugInventory() {
+  const [progress, setProgress] = useState(0)
     const navigate = useNavigate();
     const token = localStorage.getItem("JwtToken");
   //Seting the token
@@ -81,28 +83,28 @@ export default function DrugInventory() {
   };
 
   const handelUpdate=(Iteam)=>()=>{
-   if(email===null || drugName==null || quantity===null || batchId===null || price===null || date===null)
-   {
-    console.log("Please select");
-    NotificationManager.error('', 'Enter Valid Data!',1000);
-   }
+    if (email === null && drugName === null && quantity === null && batchId === null && price === null && date === null) {
+      NotificationManager.error('', 'Enter Valid Data!', 1000);
+    }
+    
    else{
     
     axiosInstance
     .put("http://localhost:9091/adminOprations/updateStock",{
         id: Iteam.id,
-        supplierEmailId: email,
-        drugName: drugName,
-        quantity: quantity,
-        batchId: batchId,
-        price: price,
-        expireDate: date
+        supplierEmailId: email?email:Iteam.supplierEmailId,
+        drugName: drugName?drugName:Iteam.drugName,
+        quantity: quantity?quantity:Iteam.quantity,
+        batchId: batchId?batchId:Iteam.batchId,
+        price: price?price:Iteam.price,
+        expireDate: date?date:Iteam.expireDate
+        
         
     })
     .then(function (response) {
          console.log(response.data)
          NotificationManager.success('', 'Drug data updated',1000);
-         //Making usestate null again
+         
          setEmail(null);
   setDrugname(null);
   setQuantity(null);
@@ -249,17 +251,25 @@ export default function DrugInventory() {
   
 
   useEffect(() => {
+    setProgress(10)
     axiosInstance
       .get("http://localhost:9091/adminOprations/getAllStock")
       .then(function (response) {
         setdata(response.data);
+        setProgress(100)
       })
       .catch(function (error) {
         console.log(error);
+        setProgress(100)
       });
   }, []);
   return (
     <div>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
          <NotificationContainer/>
            {/* SearchBar */}
            

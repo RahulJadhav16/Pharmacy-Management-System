@@ -16,5 +16,8 @@ public interface DrugImgesService {
 	
 	//get all images
 	List<DrugImges>getAllDrugImg();
+	
+	//Delete img 
+	String deleteImg(String id);
 
 }

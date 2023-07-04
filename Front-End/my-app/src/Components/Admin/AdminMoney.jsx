@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+
 import SideAdminRest from './SideAdminRest'
 import axios from 'axios';
+import { useEffect,useState } from 'react';
+import LoadingBar from 'react-top-loading-bar'
 export default function AdminMoney() {
+  const [progress, setProgress] = useState(0)
   const[data,setData]=useState([]);
   const token = localStorage.getItem("JwtToken");
   
@@ -13,15 +16,18 @@ export default function AdminMoney() {
   });
 
   useEffect(()=>{
+    setProgress(10)
     axiosInstance
           .get("http://localhost:9091/adminOprations/getAllPaymentDetails")
  
           .then(function (response) {
             console.log(response.data)
             setData(response.data);
+            setProgress(100)
           })
           .catch(function (error) {
             console.log(error);
+            setProgress(100)
           });
 
   },[])
@@ -36,7 +42,11 @@ export default function AdminMoney() {
 
   return (
     <div>
-       
+        <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
 
       <div className="my-5 mx-4 d-flex">
         <SideAdminRest/>
