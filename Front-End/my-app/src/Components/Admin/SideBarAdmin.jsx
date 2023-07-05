@@ -164,7 +164,7 @@ export default function SideBarAdmin({onDataReceived}) {
 
 <li className='sidebar'>
   <Link
-    to={"/adminDashboard"}
+    to={"/analytics"}
     className="nav-link link-dark"
     style={{
       backgroundColor: 'initial',
@@ -177,7 +177,7 @@ export default function SideBarAdmin({onDataReceived}) {
       e.target.style.backgroundColor = 'initial';
     }}
   >
-    Chat
+    Analytics
   </Link>
 </li>
 

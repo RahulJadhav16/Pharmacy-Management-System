@@ -19,8 +19,8 @@ export default function AdminProfileUpdate() {
         Authorization: `Bearer ${token}`, // Adding the token to the 'Authorization' header
       },
     });
-    const [AdminId,setAdminId]=useState(parsedData.id);
-    const [AdminName, setName] = useState(parsedData.name);
+    const [AdminId,setAdminId]=useState(parsedData?.id);
+    const [AdminName, setName] = useState(parsedData?.name);
     
     const [Adminpassword, setPassword] = useState("test");
     let [file, setFile] = useState(null);
@@ -125,7 +125,7 @@ export default function AdminProfileUpdate() {
                 src={require("./Assets/menu.png")}
               ></img>
   
-              <span className="fs-4">Hii,{parsedData.name}</span>
+              <span className="fs-4">Hii,{parsedData?.name}</span>
             </Link>
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">
@@ -278,7 +278,7 @@ export default function AdminProfileUpdate() {
                     className="form-control my-2"
                     aria-describedby="emailHelp"
                     onChange={handelNameChange}
-                    placeholder={parsedData.name}
+                    placeholder={parsedData?.name}
                   ></input>
                   <label>Password</label>
                   <input

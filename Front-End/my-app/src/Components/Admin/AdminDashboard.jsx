@@ -141,6 +141,9 @@ export default function AdminDashboard({onDataReceived}) {
       navigate('/adminDrug')
 
     }
+    const handelanalyticsClick=()=>{
+      navigate("/analytics")
+    }
 
 
 
@@ -152,6 +155,8 @@ export default function AdminDashboard({onDataReceived}) {
         }
         onDataReceived({obj});
        } 
+    
+       
 
     
 
@@ -201,7 +206,7 @@ export default function AdminDashboard({onDataReceived}) {
         <h2 className="cookieHeading">Total money received</h2>
       </div>
   
-      <div className="cookieCard cookieCard-3 Pickup my-3">
+      <div className="cookieCard cookieCard-3 Pickup my-3" onClick={handelanalyticsClick} style={{cursor: "pointer"}}>
         <h1 className="cookieHeading">📈 Analytics</h1>
         <h2 className="cookieDescription">View orders in pickup section and check payment status</h2>
       </div>

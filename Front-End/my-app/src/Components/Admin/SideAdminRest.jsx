@@ -8,7 +8,7 @@ export default function SideAdminRest() {
           <div className="d-flex flex-column flex-shrink-0 p-3 bg-light" style={{width: "280px"}}>
         <Link to={"/adminDashboard"} className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" >
           <img className="bi me-2" width="40" height="32" src={require('./Assets/menu.png')}></img>
-          <span className="fs-4">Hii,  {parsedData.name?parsedData.name:" "}</span>
+          <span className="fs-4">Hii,  {parsedData?.name?parsedData.name:" "}</span>
         </Link>
         <hr/>
         <ul className="nav nav-pills flex-column mb-auto">
@@ -91,7 +91,7 @@ export default function SideAdminRest() {
     
     <li className='sidebar'>
       <Link
-        to={"/adminDashboard"}
+        to={"/analytics"}
         className="nav-link link-dark"
         style={{
           backgroundColor: 'initial',
@@ -104,7 +104,7 @@ export default function SideAdminRest() {
           e.target.style.backgroundColor = 'initial';
         }}
       >
-        Chat
+        Analytics
       </Link>
     </li>
     

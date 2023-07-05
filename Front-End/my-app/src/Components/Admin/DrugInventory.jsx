@@ -263,6 +263,8 @@ export default function DrugInventory() {
         setProgress(100)
       });
   }, []);
+
+
   return (
     <div>
       <LoadingBar

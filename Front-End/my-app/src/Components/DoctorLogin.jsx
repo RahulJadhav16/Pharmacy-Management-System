@@ -138,7 +138,7 @@ export default function DoctorLogin({ onDataReceived }) {
             <input
               type="email"
               className="form-control"
-              
+              id="testEmail"
               aria-describedby="emailHelp"
               placeholder="Enter email"
               onChange={handelEmailChange}
@@ -153,7 +153,7 @@ export default function DoctorLogin({ onDataReceived }) {
             <input
               type={show}
               className="form-control"
-              
+              id="testPassword"
               placeholder="Password"
               onChange={handelPasswordChange}
               

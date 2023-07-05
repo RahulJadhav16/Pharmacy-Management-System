@@ -19,8 +19,8 @@ export default function DoctorProfileUpdate() {
     },
   });
 
-  const [DoctorName, setName] = useState(parsedData.name);
-  const [DoctorAddress, setAddress] = useState(parsedData.address);
+  const [DoctorName, setName] = useState(parsedData?.name);
+  const [DoctorAddress, setAddress] = useState(parsedData?.address);
   const [Doctorpassword, setPassword] = useState("test");
   let [file, setFile] = useState(null);
 
@@ -126,7 +126,7 @@ export default function DoctorProfileUpdate() {
               src={require("../Assets/menu.png")}
             ></img>
 
-            <span className="fs-4">Hii, Dr {parsedData.name}</span>
+            <span className="fs-4">Hii, Dr {parsedData?.name}</span>
           </Link>
           <hr />
           <ul className="nav nav-pills flex-column mb-auto">
@@ -277,7 +277,7 @@ export default function DoctorProfileUpdate() {
                   type="number"
                   className="form-control my-2"
                   aria-describedby="emailHelp"
-                  value={parsedData.contact}
+                  value={parsedData?.contact}
                   disabled
                 />
                 <label>Full Name</label>
@@ -286,7 +286,7 @@ export default function DoctorProfileUpdate() {
                   className="form-control my-2"
                   aria-describedby="emailHelp"
                   onChange={handelNameChange}
-                  placeholder={parsedData.name}
+                  placeholder={parsedData?.name}
                 ></input>
                 <label>Password</label>
                 <input
@@ -302,7 +302,7 @@ export default function DoctorProfileUpdate() {
                   rows="3"
                   onChange={handleAddressChange}
                 >
-                  {parsedData.address}
+                  {parsedData?.address}
                 </textarea>
 
                 <button

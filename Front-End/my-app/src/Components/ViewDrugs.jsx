@@ -245,7 +245,7 @@ export default function ViewDrugs() {
                 height="32"
                 src={require("../Assets/menu.png")}
               ></img>
-              <span className="fs-4">Hii, Dr {parsedData.name}</span>
+              <span className="fs-4">Hii, Dr {parsedData?.name}</span>
             </Link>
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">

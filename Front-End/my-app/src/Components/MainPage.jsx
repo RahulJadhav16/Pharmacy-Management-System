@@ -29,6 +29,7 @@ import AdminMoney from "./Admin/AdminMoney";
 import AdminViewOrders from "./Admin/AdminViewOrders";
 import DrugOutOffStock from "./Admin/DrugOutOffStock";
 import AdminDrugs from "./Admin/AdminDrugs";
+import Analytics from "./Admin/Analytics";
 
 export default function MainPage() {
 
@@ -108,7 +109,7 @@ export default function MainPage() {
       <Route exact path="/Adminorder" element={<AdminViewOrders />}/>
       <Route exact path="/drugOutofStock" element={<DrugOutOffStock />}/>
       <Route exact path="/adminDrug" element={<AdminDrugs />}/>
-      
+      <Route exact path="/analytics" element={<Analytics />}/>
       
       </Route>
       
