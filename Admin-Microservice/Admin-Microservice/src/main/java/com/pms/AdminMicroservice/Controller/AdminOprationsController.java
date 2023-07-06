@@ -220,7 +220,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getByDrugName/{name}")
-	ResponseEntity<List<DrugsStock>>getByDrugName(@PathVariable String name)
+	public ResponseEntity<List<DrugsStock>>getByDrugName(@PathVariable String name)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(drugStockServiceImpl.getByDrugName(name));
 	}
@@ -266,7 +266,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/allOrders")
-	ResponseEntity<List<Order>>allOrders()
+	public ResponseEntity<List<Order>>allOrders()
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(verifyOrderServiceImpl.allOrders());
 	}
@@ -282,7 +282,7 @@ public class AdminOprationsController {
 	
 	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/getOrderById/{id}")
-	ResponseEntity<Order>getOrderById(@PathVariable String id)
+	public ResponseEntity<Order>getOrderById(@PathVariable String id)
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(verifyOrderServiceImpl.getOrderById(id));
 	}
