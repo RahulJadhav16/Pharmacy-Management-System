@@ -30,6 +30,10 @@ import AdminViewOrders from "./Admin/AdminViewOrders";
 import DrugOutOffStock from "./Admin/DrugOutOffStock";
 import AdminDrugs from "./Admin/AdminDrugs";
 import Analytics from "./Admin/Analytics";
+import Services from "./Services";
+import Contactus from "./Contactus";
+import Testimonial from "./Testimonial";
+import Gallary from "./Gallary";
 
 export default function MainPage() {
 
@@ -81,7 +85,10 @@ export default function MainPage() {
       <Route exact path="/login" element={<Login/>}/>
       <Route exact path="/doctor" element={<DoctorLogin onDataReceived={handleDataReceived}/>}/>
       <Route exact path="/signup" element={<DoctorSignup/>}/>
-
+      <Route exact path="/contactus" element={<Contactus/>}/>
+      <Route exact path="/services" element={<Services/>}/>
+      <Route exact path="/testimonial" element={<Testimonial/>}/>
+      <Route exact path="/gallary" element={<Gallary/>}/>
       <Route exact path="/admin" element={<AdminLogin onDataReceived={handleDataReceived}/>}/>
 
 

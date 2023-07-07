@@ -371,7 +371,6 @@ public class AdminOprationsController {
 	//////////////For drug service 
 	 public ResponseEntity<List<Drug>>viewAllDrugsFallback(Throwable throwable)
 	  	{
-		
 		    Drug obj=new Drug("1234","Drug service not avilable",0,"","");
 	  		List<Drug> allDrugsList=new ArrayList<>();
 	  		allDrugsList.add(obj);

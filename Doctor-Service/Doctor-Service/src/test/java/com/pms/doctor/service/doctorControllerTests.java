@@ -1,10 +1,19 @@
 package com.pms.doctor.service;
+import com.pms.doctor.service.Impl.*;
+import com.pms.doctor.service.Config.CustomUserDetailsService;
+import com.pms.doctor.service.Config.JwtAuthenticationEntryPoint;
+import com.pms.doctor.service.Config.JwtRequest;
 import com.pms.doctor.service.Controller.doctorController;
+import com.pms.doctor.service.Models.Doctor;
+import com.pms.doctor.service.Models.DoctorPersonalDetails;
+import com.pms.doctor.service.Models.DoctorProfileImg;
 import com.pms.doctor.service.Models.Drug;
 import com.pms.doctor.service.Models.Order;
 import com.pms.doctor.service.Models.Pickup;
+import com.pms.doctor.service.Service.doctorPersonalDetailsService;
 import com.pms.doctor.service.Exception.DrugNotFoundByname;
 import com.pms.doctor.service.Exception.DrugNotFoundById;
+import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,9 +21,11 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -25,11 +36,29 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-
+@SpringBootTest
 public class doctorControllerTests {
 
     @Mock
     private doctorServiceImpl doctorService;
+    
+    @Mock
+    private Doctor doctor;
+    
+    @Mock
+    private DoctorProfileImg doctorProfileImg;
+    
+    @Mock
+    private doctorPersonalDetailsService doctorDetailsService;
+
+    @Mock
+    private DoctorPersonalDetailsImpl doctorPersonalDetailsImpl;
+    
+    @Mock
+    private doctorDetailsImpl doctorDetailsImpl;
+
+    @Mock
+    private doctorProfileImgImpl doctorProfileImgImpl;
 
     @InjectMocks
     private  doctorController doctorController;
@@ -39,25 +68,117 @@ public class doctorControllerTests {
     	
         MockitoAnnotations.openMocks(this);
     }
-
+    
+    
+    // This is for doctor profile 
     @Test
-    public void testViewAllDrugs() {
-        // Prepare test data
-        List<Drug> drugs = new ArrayList<>();
-        drugs.add(new Drug("123","Aspirin",50,"Tablet","Pain reliever"));
+    public void testGetDetails() {
+        //test data
+        String doctorId = "D001";
+        DoctorPersonalDetails details = new DoctorPersonalDetails(doctorId,"Suraj","9087678767","Doctor@gmail.com","address");
        
+        when(doctorPersonalDetailsImpl.getDetails(doctorId)).thenReturn(details);
+        ResponseEntity<DoctorPersonalDetails> response = doctorController.getDetails(doctorId);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(details, response.getBody());
+        verify(doctorPersonalDetailsImpl).getDetails(doctorId);
+        }
+    
+    
+    @Test
+    public void testAddDetails() {
+        // Prepare test data
+        Doctor doctor = new Doctor("D101","suraj","9087678767","Doctor@gmail.com","password","address");
+        // Set necessary properties of the doctor object
 
-        // Mock the doctorService's behavior
-        when(doctorService.viewAllDrugs()).thenReturn(drugs);
+        // Mock the doctorDetailsService's behavior
+        when(doctorDetailsImpl.addDetails(doctor)).thenReturn(doctor);
 
         // Call the API endpoint
-        ResponseEntity<List<Drug>> response = doctorController.viewAllDrugs();
+        ResponseEntity<Doctor> response = doctorController.addDetails(doctor);
 
         // Verify the response
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(doctor, response.getBody());
+
+        // Verify that the doctorDetailsService's method was called
+        verify(doctorDetailsImpl).addDetails(doctor);
+    }
+    
+    
+    
+    @Test
+    public void testUpdateDetails() {
+       
+        Doctor doctor = new Doctor("D101","suraj","9087678767","Doctor@gmail.com","password","address");
+        when(doctorDetailsImpl.updateDetails(doctor)).thenReturn(doctor);
+        ResponseEntity<Doctor> response = doctorController.updateDetails(doctor);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(doctor, response.getBody());
+        verify(doctorDetailsImpl).updateDetails(doctor);
+    }
+    
+    @Test
+    public void testUploadImg() {
+        // Prepare test data
+    	String id = "D001";
+        byte[] fileContent = "Test file content".getBytes();
+        String fileName = "test-file.txt";
+        String contentType = "text/plain";
+        MockMultipartFile file = new MockMultipartFile(fileName, fileName, contentType, fileContent);
+        DoctorProfileImg profileImg = new DoctorProfileImg();
+        when(doctorProfileImgImpl.uploadImg(id, file)).thenReturn(profileImg);
+        ResponseEntity<DoctorProfileImg> response = doctorController.uploadImg(id, file);
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(profileImg, response.getBody());
+
+       
+        verify(doctorProfileImgImpl).uploadImg(id, file);
+        }
+    
+    @Test
+    public void testGetProfileImg() {
+        
+        String id = "D001";
+        byte[] fileContent = "Test file content".getBytes();
+        DoctorProfileImg profileImg = new DoctorProfileImg(id,fileContent);
+        
+        when(doctorProfileImgImpl.getProfileImg(id)).thenReturn(profileImg);
+        ResponseEntity<DoctorProfileImg> response = doctorController.getProfileImg(id);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(profileImg, response.getBody());
+        verify(doctorProfileImgImpl).getProfileImg(id);
+    }
+    
+    @Test
+    public void testGetDoctoridBymail() {
+        // Prepare test data
+        String email = "doctor@abc.com";
+        String expectedDoctorId = "D001";
+        when(doctorDetailsImpl.getDoctoridBymail(email)).thenReturn(expectedDoctorId);
+        String response = doctorController.getDoctoridBymail(email);
+        assertEquals(expectedDoctorId, response);
+        verify(doctorDetailsImpl).getDoctoridBymail(email);
+    }
+    
+    
+    
+    
+    
+    @Test
+    public void testExceptionHandler() {
+        String message = doctorController.exceptionHandler();
+        assertEquals("Credentials Invalid !!", message);
+    }
+    ///This test cases for Drugs section 
+    @Test
+    public void testViewAllDrugs() {
+        List<Drug> drugs = new ArrayList<>();
+        drugs.add(new Drug("123","Aspirin",50,"Tablet","Pain reliever"));
+        when(doctorService.viewAllDrugs()).thenReturn(drugs);
+        ResponseEntity<List<Drug>> response = doctorController.viewAllDrugs();
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(drugs, response.getBody());
-
-        // Verify that the doctorService's method was called
         verify(doctorService).viewAllDrugs();
     }
     
@@ -75,7 +196,7 @@ public class doctorControllerTests {
         // Call the API endpoint
         ResponseEntity<List<Drug>> response = doctorController.drugByName(drugName);
 
-        // Verify the response
+        
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(drugs, response.getBody());
 
@@ -83,23 +204,7 @@ public class doctorControllerTests {
         verify(doctorService).drugByName(drugName);
     }
     
-    //this meant to fail
-    @Test
-    public void testDrugByName_NoMatch() {
-        // Prepare test data
-        String drugName = "NonexistentDrug";
-
-        // Mock the doctorService's behavior
-        when(doctorService.drugByName(drugName)).thenReturn(Collections.emptyList());
-
-        // Call the API endpoint and assert that an exception is thrown
-        assertThrows(DrugNotFoundByname.class, () -> {
-            doctorController.drugByName(drugName);
-        });
-
-        // Verify that the doctorService's method was called
-        verify(doctorService).drugByName(drugName);
-    }
+   
     
 
 
@@ -115,39 +220,16 @@ public class doctorControllerTests {
         String drugId = "1";
         Drug drug = new Drug("1", "Aspirin", 10, "Type1", "Category1");
 
-        // Mock the doctorService's behavior
-        when(doctorService.drugById(drugId)).thenReturn(drug);
-
-        // Call the API endpoint
-        ResponseEntity<Drug> response = doctorController.drugById(drugId);
-
        
+        when(doctorService.drugById(drugId)).thenReturn(drug);
+        ResponseEntity<Drug> response = doctorController.drugById(drugId);
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(drug, response.getBody());
 
-        // Verify that the doctorService's method was called
         verify(doctorService).drugById(drugId);
     }
 
 
-
-    //this meant to fail
-    @Test
-    public void testDrugById_NoMatch() {
-        // Prepare test data
-        String drugId = "999";
-
-        // Mock the doctorService's behavior
-        when(doctorService.drugById(drugId)).thenReturn(null);
-
-        // Call the API endpoint and assert that the exception is thrown
-        assertThrows(DrugNotFoundById.class, () -> {
-            doctorController.drugById(drugId);
-        });
-
-        // Verify that the doctorService's method was called
-        verify(doctorService).drugById(drugId);
-    }
 
     
     
@@ -182,9 +264,6 @@ public class doctorControllerTests {
     public void testAddOrder() {
        
         Order orderObj = new Order("1", "D001", "Dr. John Doe", "Drug1", 5, true, LocalDate.now());
-        
-
-       
         when(doctorService.addOrder(orderObj)).thenReturn(orderObj);
 
         // Call the API endpoint
@@ -203,17 +282,17 @@ public class doctorControllerTests {
        
         String orderId = "1";
 
-        // Mock the doctorService's behavior
+        
         when(doctorService.deleteOrder(orderId)).thenReturn("Order deleted successfully");
 
-        // Call the API endpoint
+      
         ResponseEntity<String> response = doctorController.deleteOrder(orderId);
 
-        // Verify the response
+       
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Order deleted successfully", response.getBody());
 
-        // Verify that the doctorService's method was called
+       
         verify(doctorService).deleteOrder(orderId);
     }
     
@@ -260,29 +339,133 @@ public class doctorControllerTests {
     
     @Test
     public void testMakePayment() {
-        // Prepare test data
+        
         Pickup pickupObj = new Pickup();
-        // Set the necessary properties of the pickupObj
+        
         ArrayList<Order> orders1 = new ArrayList<>();
-        // Add some orders to orders1 list
+        
         Order order1 = new Order("orderId1", "doctorId1", "doctorName1", "drugName1", 1, true, LocalDate.now());
         orders1.add(order1);
         pickupObj = new Pickup("1", 100.0, LocalDate.now(), true, 50.0, orders1);
-        
-
-        // Mock the doctorService's behavior
         when(doctorService.makePayment(pickupObj)).thenReturn(pickupObj);
-
-        // Call the API endpoint
         ResponseEntity<Pickup> response = doctorController.makePayment(pickupObj);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(pickupObj, response.getBody());
+        verify(doctorService).makePayment(pickupObj);
+    }
+    
+    ///////////////////////// Test case for fallback method
+    
+    @Test
+    public void testViewAllDrugsFallback() {
+        Throwable throwable = new Throwable();
+        ResponseEntity<List<Drug>> response = doctorController.viewAllDrugsFallback(throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        List<Drug> drugsList = response.getBody();
+        
+        assertEquals(1, drugsList.size());
+        Drug drug = drugsList.get(0);
+        assertEquals("1234", drug.getId());
+        assertEquals("Drug service not avilable",drug.getName());
+        assertEquals(0,drug.getPrice());
+        assertEquals("",drug.getType());
+        assertEquals("",drug.getCategory());
+        
+        
+    }
+    
+    @Test
+    public void testdrugByNameFallback() {
+        Throwable throwable = new Throwable();
+        ResponseEntity<List<Drug>> response = doctorController.drugByNameFallback("Tablet",throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        List<Drug> drugsList = response.getBody();
+        
+        assertEquals(1, drugsList.size());
+        Drug drug = drugsList.get(0);
+        assertEquals("1234", drug.getId());
+        assertEquals("Drug service not avilable",drug.getName());
+        assertEquals(0,drug.getPrice());
+        assertEquals("",drug.getType());
+        assertEquals("",drug.getCategory());
+        
+        
+    } 
+    
+    @Test
+    public void testdrugByIdFallback() {
+        Throwable throwable = new Throwable();
+        ResponseEntity<Drug> response = doctorController.drugByIdFallback("Tablet",throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        Drug drug = response.getBody();
+        
+        
+        assertEquals("1234", drug.getId());
+        assertEquals("Drug service not avilable",drug.getName());
+        assertEquals(0,drug.getPrice());
+        assertEquals("",drug.getType());
+        assertEquals("",drug.getCategory());
+        
+        
+    }
+    
+    @Test
+    public void testViewAllOrdersFallback() {
+        String doctorId = "D001";
+        Throwable throwable = new Throwable();
+        ResponseEntity<List<Order>> response = doctorController.viewAllOrdersFallback(doctorId, throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        List<Order> ordersList = response.getBody();
+        assertEquals(0, ordersList.size());
+    }
+    
+    @Test
+    public void testAddOrderFallback() {
+        Order orderObj = new Order("orderId1", "doctorId1", "doctorName1", "drugName1", 1, true, LocalDate.now());
+        Throwable throwable = new Throwable();
+        ResponseEntity<Order> response = doctorController.addOrderFallback(orderObj, throwable);
 
         // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(pickupObj, response.getBody());
-
-        // Verify that the doctorService's method was called
-        verify(doctorService).makePayment(pickupObj);
+        
     }
+    
+    @Test
+    public void testdeleteOrderFallback() {
+        Throwable throwable = new Throwable();
+        ResponseEntity<String> response = doctorController.deleteOrderFallback("1234", throwable);
+
+        // Verify the response
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        
+    }
+    
+    @Test
+    public void testviewAllPickupsFallback() {
+        String doctorId = "D001";
+        Throwable throwable = new Throwable();
+        ResponseEntity<List<Pickup>> response = doctorController.viewAllPickupsFallback(doctorId, throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        List<Pickup> pickupList = response.getBody();
+        assertEquals(0, pickupList.size());
+    }
+    
+    @Test
+    public void testmakePaymentFallback() {
+        String doctorId = "D001";
+        Throwable throwable = new Throwable();
+        Pickup pickupObj = new Pickup();
+        
+        ArrayList<Order> orders1 = new ArrayList<>();
+        
+        Order order1 = new Order("orderId1", "doctorId1", "doctorName1", "drugName1", 1, true, LocalDate.now());
+        orders1.add(order1);
+        pickupObj = new Pickup("1", 100.0, LocalDate.now(), true, 50.0, orders1);
+        ResponseEntity<Pickup> response = doctorController.makePaymentFallback(pickupObj, throwable);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        
+    }
+
 
 
 

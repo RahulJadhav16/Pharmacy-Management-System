@@ -15,3 +15,4 @@ public class SwaggerConfiguration {
 				.description("").termsOfService("http://swagger.io/terms/"));
 	}
 }
+

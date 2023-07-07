@@ -150,7 +150,7 @@ export default function AdminProfileUpdate() {
   
               <li className="sidebar">
                 <Link
-                  to={"/viewOrders"}
+                  to={"/Adminorder"}
                   className="nav-link link-dark"
                   style={{
                     backgroundColor: "initial",

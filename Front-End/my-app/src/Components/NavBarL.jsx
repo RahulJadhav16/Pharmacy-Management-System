@@ -29,24 +29,24 @@ export default function NavBarL(props) {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item mx-5 navbar-brand ">
-              <a className="nav-link txt" href="#">
+              <Link className="nav-link txt" to="/services">
                 Services
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-4 navbar-brand ">
-              <a className="nav-link txt" href="#">
+              <Link className="nav-link txt" to="/gallary">
                 Gallery
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-4 navbar-brand ">
-              <a className="nav-link txt" href="#">
+              <Link className="nav-link txt" to='/testimonial'>
                 Testimonials
-              </a>
+              </Link>
             </li>
             <li className="nav-item mx-4 navbar-brand ">
-              <a className="nav-link txt" href="#">
+              <Link className="nav-link txt" to='/contactus'>
                 Contact us
-              </a>
+              </Link>
             </li>
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

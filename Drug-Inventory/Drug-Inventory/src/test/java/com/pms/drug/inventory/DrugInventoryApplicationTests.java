@@ -21,60 +21,56 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.*;
 
 import com.pms.drug.inventory.Controller.DrugController;
+import com.pms.drug.inventory.Impl.drugImagesImpl;
 import com.pms.drug.inventory.Impl.drugInventoryImpl;
 import com.pms.drug.inventory.Model.Drug;
+import com.pms.drug.inventory.Model.DrugImges;
 import com.pms.drug.inventory.Repository.drugRepository;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 
 @ExtendWith(MockitoExtension.class)
 public class DrugInventoryApplicationTests {
 	@Mock
     private drugInventoryImpl drugImpl;
-	
+
 	@Mock
     private drugRepository drugRepository;
 
+	@Mock
+	private drugImagesImpl drugImagesImpl;
+
     @InjectMocks
     private  DrugController drugController;
-    
-
 
     @BeforeEach
     void setUp() {
-    	
+
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
     void testGetAll() {
-        // Prepare test data
-        List<Drug> expectedDrugs = new ArrayList<>();
-        // Add some drugs to the expected list
-        Drug drug1 = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
-        
-        expectedDrugs.add(drug1);
-         
 
-        // Mock the drugImpl's behavior
+        List<Drug> expectedDrugs = new ArrayList<>();
+
+        Drug drug1 = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
+
+        expectedDrugs.add(drug1);
+
         when(drugImpl.getAll()).thenReturn(expectedDrugs);
 
-        // Call the API endpoint
         ResponseEntity<List<Drug>> response = drugController.getAll();
 
-        // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedDrugs, response.getBody());
 
-        // Verify that the drugImpl's method was called
         verify(drugImpl).getAll();
     }
-    
 
     @Test
     void testGetDrugsByName() {
-        // Prepare test data
+
         String name = "Paracetamol";
 
         List<Drug> expectedDrugs = new ArrayList<>();
@@ -83,99 +79,142 @@ public class DrugInventoryApplicationTests {
 
         expectedDrugs.add(drug1);
 
-        // Mock the drugImpl's behavior
         when(drugImpl.getDrugsByName(name)).thenReturn(expectedDrugs);
 
-        // Call the API endpoint
         ResponseEntity<List<Drug>> response = drugController.getDrugsByName(name);
 
-        // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedDrugs, response.getBody());
 
-        // Verify that the drugImpl's method was called
         verify(drugImpl).getDrugsByName(name);
     }
-    
-    
-
 
     @Test
     void testGetDrugsById() {
-        // Prepare test data
+
         String id = "123";
         Drug expectedDrug = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
 
-        // Mock the drugImpl's behavior
         when(drugImpl.getDrugById(id)).thenReturn(expectedDrug);
 
-        // Call the API endpoint
         ResponseEntity<Drug> response = drugController.getDrugsById(id);
 
-        // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(expectedDrug, response.getBody());
 
-        // Verify that the drugImpl's method was called
         verify(drugImpl).getDrugById(id);
     }
-//
+
     @Test
     void testAddDrug() {
-        // Prepare test data
+
         Drug drug = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
        ;
-        // Mock the drugImpl's behavior
+
         when(drugImpl.addDrug(drug)).thenReturn(drug);
 
-        // Call the API endpoint
         ResponseEntity<Drug> response = drugController.addDrug(drug);
 
-        // Verify the response
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(drug, response.getBody());
-     
-        // Verify that the drugImpl's method was called
+
         verify(drugImpl).addDrug(drug);
     }
 
     @Test
     void testUpdateDrug() {
-        // Prepare test data
+
         Drug drug = new Drug("1", "Paracetamol", 50, "Tablet", "Paracetamol is a medication used to treat fever and mild to moderate pain.");
 
-        // Mock the drugImpl's behavior
         when(drugImpl.updateDrug(drug)).thenReturn(drug);
 
-        // Call the API endpoint
         ResponseEntity<Drug> response = drugController.updateDrug(drug);
 
-        // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(drug, response.getBody());
 
-        // Verify that the drugImpl's method was called
         verify(drugImpl).updateDrug(drug);
     }
 
     @Test
     void testDeleteDrug() {
-        // Prepare test data
+
         String id = "123";
 
-        // Mock the drugImpl's behavior
         when(drugImpl.deleteDrug(id)).thenReturn("Drug deleted");
 
-        // Call the API endpoint
         ResponseEntity<String> response = drugController.deleteDrug(id);
 
-        // Verify the response
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("Drug deleted", response.getBody());
 
-        // Verify that the drugImpl's method was called
         verify(drugImpl).deleteDrug(id);
     }
 
+    @Test
+    public void testAddDrugImg() {
+        String id = "12345";
+        MultipartFile file = mock(MultipartFile.class);
+        DrugImges drugImg = new DrugImges();
+
+        when(drugImagesImpl.addDrugImg(id, file)).thenReturn(drugImg);
+
+        ResponseEntity<DrugImges> response = drugController.addDrugImg(id, file);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(drugImg, response.getBody());
+
+        verify(drugImagesImpl).addDrugImg(id, file);
+    }
+
+    @Test
+    public void testGetDrugImg() {
+
+        String id = "12345";
+        DrugImges drugImg = new DrugImges();
+
+        when(drugImagesImpl.getDrugImg(id)).thenReturn(drugImg);
+
+        ResponseEntity<DrugImges> response = drugController.getDrugImg(id);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(drugImg, response.getBody());
+
+        verify(drugImagesImpl).getDrugImg(id);
+    }
+
+    @Test
+    public void testGetAllDrugImg() {
+
+        List<DrugImges> drugImgsList = new ArrayList<>();
+        DrugImges drugImg1 = new DrugImges();
+        DrugImges drugImg2 = new DrugImges();
+        drugImgsList.add(drugImg1);
+        drugImgsList.add(drugImg2);
+
+        when(drugImagesImpl.getAllDrugImg()).thenReturn(drugImgsList);
+
+        ResponseEntity<List<DrugImges>> response = drugController.getAllDrugImg();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(drugImgsList, response.getBody());
+
+        verify(drugImagesImpl).getAllDrugImg();
+    }
+
+    @Test
+    public void testDeleteImg() {
+
+        String id = "12345";
+
+        when(drugImagesImpl.deleteImg(id)).thenReturn("Image deleted successfully");
+
+        ResponseEntity<String> response = drugController.deleteImg(id);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals("Image deleted successfully", response.getBody());
+
+        verify(drugImagesImpl).deleteImg(id);
+    }
 
 }

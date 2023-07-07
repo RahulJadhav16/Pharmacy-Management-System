@@ -55,6 +55,7 @@ class AdminMicroserviceApplicationTests {
 	 @Mock
 	 private AdminProfileImpl adminProfileImpl;
 	 
+	 
 	 @InjectMocks
 	 private AdminOprationsController adminOprationsController;
 	 
@@ -102,6 +103,19 @@ class AdminMicroserviceApplicationTests {
 	        verify(adminProfileImpl).updateAdmin(adminDetails);
 	    }
 	    
+	    @Test
+	    public void testGetAdminDetails() {
+	        
+	        String email = "admin@gmail.com";
+	        long id=1234;
+	        AdminDetails adminDetails = new AdminDetails(id,"admin@gmail.com","password","name");
+	        
+	        when(adminProfileImpl.getAdminDetails(email)).thenReturn(adminDetails);
+	        AdminDetails response = adminOprationsController.getAdminDetails(email);
+	        assertEquals(adminDetails, response);
+	        verify(adminProfileImpl).getAdminDetails(email);
+	    }
+	    
 	    /////////////Test cases for All drugs 
 	    @Test
 	    public void testViewAllDrugs() {
@@ -122,7 +136,7 @@ class AdminMicroserviceApplicationTests {
 	     
 	        verify(catalogueServiceImpl).getalldrugs();
 	    }
-	    
+	   
 	    @Test
 	    public void testGetDrugById() {
 	        
@@ -205,9 +219,6 @@ class AdminMicroserviceApplicationTests {
 	    ///////////////Test cases for drugs stock 
 	    @Test
 	    public void testCreateStock() {
-	    	
-	    	
-	    	 
              DrugsStock drugsStock = new DrugsStock("12345", "supplier@gmail.com", "aspirin", 100, "A011", 100.0, date,"Not expired");
 
 	        when(drugStockServiceImpl.createStock(any(DrugsStock.class))).thenReturn(drugsStock);
@@ -218,9 +229,20 @@ class AdminMicroserviceApplicationTests {
 	        // Verify the response
 	        assertEquals(HttpStatus.CREATED, response.getStatusCode());
 	        assertEquals(drugsStock, response.getBody());
-
-	       
 	        verify(drugStockServiceImpl).createStock(drugsStock);
+	    }
+	    
+	    @Test
+	    public void testGetByExpireDate() {
+	       
+	    	List<DrugsStock> stocks = new ArrayList<>();
+	        DrugsStock drugsStock = new DrugsStock("12345", "supplier@gmail.com", "aspirin", 100, "A011", 100.0, date,"Not expired");
+	        stocks.add(drugsStock);
+	        when(drugStockServiceImpl.getByExpireDate(date)).thenReturn(stocks);
+	        ResponseEntity<List<DrugsStock>> response = adminOprationsController.getByExpireDate(date);
+	        assertEquals(HttpStatus.OK, response.getStatusCode());
+	        assertEquals(stocks, response.getBody());
+	        verify(drugStockServiceImpl).getByExpireDate(date);
 	    }
 	    
 	    @Test
@@ -360,7 +382,7 @@ class AdminMicroserviceApplicationTests {
 	    }
 	    
 	    
-	    ///////// Test cases for Pickupservice 
+	    ///////// Test cases for Pickup service 
 	    @Test
 	    public void testViewAllPickups() {
 	    
@@ -448,6 +470,50 @@ class AdminMicroserviceApplicationTests {
 	        verify(pickupServiceImpl).deletePickup(pickupId);
 	    }
 	    
+	    @Test
+	    public void testGetPickupPaymentNotDone() {
+	        //Preparing the data
+	    	List<Pickup> pickups = new ArrayList<>();
+		     ArrayList<Order> orders1 = new ArrayList<>();
+		     Order order1 = new Order("orderId1", "doctorId1", "doctorName1", "drugName1", 1, true, LocalDate.now());
+		     orders1.add(order1);
+		     Pickup pickup1 = new Pickup("1", 100.0, LocalDate.now(), false, 50.0, orders1);
+		     ArrayList<Order> orders2 = new ArrayList<>();
+		     Order order2 = new Order("orderId2", "doctorId2", "doctorName2", "drugName2", 2, true, LocalDate.now());
+		     orders2.add(order2);
+		     Pickup pickup2 = new Pickup("2", 150.0, LocalDate.now(), false, 100.0, orders2);
+		     pickups.add(pickup1);
+		     pickups.add(pickup2);
+	        
+	        when(pickupServiceImpl.getPickupPaymentNotDone()).thenReturn(pickups);
+	        ResponseEntity<List<Pickup>> response = adminOprationsController.getPickupPaymentNotDone();
+	        assertEquals(HttpStatus.OK, response.getStatusCode());
+	        assertEquals(pickups, response.getBody());
+	        verify(pickupServiceImpl).getPickupPaymentNotDone();
+	    }
+	    
+	    @Test
+	    public void testGetPickupPaymentDone() {
+	        //Preparing the data
+	    	List<Pickup> pickups = new ArrayList<>();
+		     ArrayList<Order> orders1 = new ArrayList<>();
+		     Order order1 = new Order("orderId1", "doctorId1", "doctorName1", "drugName1", 1, true, LocalDate.now());
+		     orders1.add(order1);
+		     Pickup pickup1 = new Pickup("1", 100.0, LocalDate.now(), true, 50.0, orders1);
+		     ArrayList<Order> orders2 = new ArrayList<>();
+		     Order order2 = new Order("orderId2", "doctorId2", "doctorName2", "drugName2", 2, true, LocalDate.now());
+		     orders2.add(order2);
+		     Pickup pickup2 = new Pickup("2", 150.0, LocalDate.now(), true, 100.0, orders2);
+		     pickups.add(pickup1);
+		     pickups.add(pickup2);
+	        
+	        when(pickupServiceImpl.getPickupPaymentDone()).thenReturn(pickups);
+	        ResponseEntity<List<Pickup>> response = adminOprationsController.getPickupPaymentDone();
+	        assertEquals(HttpStatus.OK, response.getStatusCode());
+	        assertEquals(pickups, response.getBody());
+	        verify(pickupServiceImpl).getPickupPaymentDone();
+	    }
+	    
 	    
 	    ///// test cases for payment
 	    @Test
@@ -498,6 +564,9 @@ class AdminMicroserviceApplicationTests {
 	        
 	        verify(pickupServiceImpl).getByOrderID(orderId);
 	        }
+	    
+	    
+	    
 
 	    
 	    

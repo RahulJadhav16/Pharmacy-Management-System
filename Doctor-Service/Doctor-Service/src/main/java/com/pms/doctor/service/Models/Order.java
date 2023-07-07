@@ -2,8 +2,6 @@ package com.pms.doctor.service.Models;
 
 import java.time.LocalDate;
 
-import org.springframework.data.annotation.Id;
-
 public class Order {
 	
 	private String orderId;

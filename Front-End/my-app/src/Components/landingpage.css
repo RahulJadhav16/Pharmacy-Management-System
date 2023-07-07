@@ -20,6 +20,37 @@
 
   }
   
+  .slogen2{
+    
+    color: white;
+   
+
+  }
+
+ 
+
+  .servicesText{
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+  }
+
+  .servicesText:hover{
+    box-shadow: inset 3000px 0 0 0 #58d0fc;
+    color:black; /* Specify the desired color here */
+    transition: color .6s ease-in-out, box-shadow .6s ease-in-out;
+
+  }
+  
+  .servicesText h4{
+    text-decoration: underline;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
  
  
