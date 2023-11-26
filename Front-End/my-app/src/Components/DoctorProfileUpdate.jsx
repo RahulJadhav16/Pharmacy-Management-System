@@ -301,6 +301,7 @@ export default function DoctorProfileUpdate() {
                   id="exampleFormControlTextarea1"
                   rows="3"
                   onChange={handleAddressChange}
+            
                 >
                   {parsedData?.address}
                 </textarea>
