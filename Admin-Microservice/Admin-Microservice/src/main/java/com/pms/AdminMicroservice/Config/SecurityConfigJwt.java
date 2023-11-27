@@ -45,7 +45,7 @@ public class SecurityConfigJwt {
     	
     	http.cors().and().csrf().disable()
 		.authorizeHttpRequests()
-		.requestMatchers("/adminOprations/auth/login","adminOprations/create")
+		.requestMatchers("/adminOprations/auth/login","adminOprations/create","adminOprations/createContactUs")
 		.permitAll()
 		.anyRequest()
         .authenticated()

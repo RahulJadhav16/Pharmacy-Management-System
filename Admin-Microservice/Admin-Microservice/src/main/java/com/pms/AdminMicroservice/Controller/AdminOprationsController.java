@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,8 +37,10 @@ import com.pms.AdminMicroservice.Impl.DrugCatalogueServiceImpl;
 import com.pms.AdminMicroservice.Impl.DrugStockServiceImpl;
 import com.pms.AdminMicroservice.Impl.PickupServiceImpl;
 import com.pms.AdminMicroservice.Impl.VerifyOrderServiceImpl;
+import com.pms.AdminMicroservice.Impl.contactUsImpl;
 import com.pms.AdminMicroservice.Model.AdminDetails;
 import com.pms.AdminMicroservice.Model.AdminProfileImg;
+import com.pms.AdminMicroservice.Model.ContactUs;
 import com.pms.AdminMicroservice.Model.Drug;
 import com.pms.AdminMicroservice.Model.DrugsStock;
 import com.pms.AdminMicroservice.Model.Order;
@@ -61,6 +64,9 @@ public class AdminOprationsController {
     
     @Autowired
     private AdminProfileImgImpl adminProfileImgImpl;
+    
+    @Autowired
+    private contactUsImpl ContactUsImpl;
 
 
     @Autowired
@@ -365,6 +371,30 @@ public class AdminOprationsController {
 	{
 		return ResponseEntity.status(HttpStatus.OK).body(pickupServiceImpl.getByOrderID(id));
 	}
+	
+	////////////////////////This End point is for contact us ///////////////////////////////////////////
+	@GetMapping("/getAllContactus")
+	public ResponseEntity<List<ContactUs>> getAllContactUs()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(ContactUsImpl.getAllContactUs());
+	}
+	
+	@PostMapping("/createContactUs")
+	public ResponseEntity<ContactUs> createAContactUs(@RequestBody ContactUs obj)
+	{
+		return ResponseEntity.status(HttpStatus.CREATED).body(ContactUsImpl.createAContactUs(obj));
+		
+	}
+	
+	@DeleteMapping("/deleteContactus/{id}")
+	public ResponseEntity<String>deleteContactus(@PathVariable long id)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(ContactUsImpl.deleteContactus(id));
+		
+	}
+	
+	
+	
 	
 	
 	////////////////////////////Fall back methods ////////////////////////////////////////////
