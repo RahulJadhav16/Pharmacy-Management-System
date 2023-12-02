@@ -187,7 +187,7 @@ export default function SideBarDoctor({ onDataReceived }) {
 
           <li className="sidebar">
             <Link
-              to={"/doctorDashboard"}
+              to={"/contactAdmin"}
               className="nav-link link-dark"
               style={{
                 backgroundColor: "initial",

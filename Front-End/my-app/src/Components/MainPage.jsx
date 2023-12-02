@@ -35,6 +35,8 @@ import Contactus from "./Contactus";
 import Testimonial from "./Testimonial";
 import Gallary from "./Gallary";
 import Requests from "./Admin/Requests";
+import Chat from "./Admin/Chat";
+import ContactAdmin from "./ContactAdmin";
 
 export default function MainPage() {
 
@@ -102,6 +104,7 @@ export default function MainPage() {
       <Route exact path="/pickupOrder" element={<PickupOrders onDataReceived={handelPaymentDetails}/>}/>
       <Route exact path="/checkout" element={<Checkout itemDeatils={item}/>}/>
       <Route exact path="/updateProfile" element={<DoctorProfileUpdate/>}/>
+      <Route exact path="/contactAdmin" element={<ContactAdmin/>}/>
       <Route exact path="/receipt" element={<Receipt itemDeatils={item}/>}/>
       
       </Route>
@@ -119,6 +122,7 @@ export default function MainPage() {
       <Route exact path="/adminDrug" element={<AdminDrugs />}/>
       <Route exact path="/analytics" element={<Analytics />}/>
       <Route exact path="/requests" element={<Requests />}/>
+      <Route exact path="/chats" element={<Chat/>}/>
       
       </Route>
       

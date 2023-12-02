@@ -27,14 +27,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
+
 import com.pms.doctor.service.Config.JwtHelper;
 import com.pms.doctor.service.Config.JwtRequest;
 import com.pms.doctor.service.Config.JwtResponse;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
+import com.pms.doctor.service.Impl.DoctorChatImpl;
 import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
 import com.pms.doctor.service.Impl.doctorDetailsImpl;
 import com.pms.doctor.service.Impl.doctorProfileImgImpl;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
+import com.pms.doctor.service.Models.Chat;
 import com.pms.doctor.service.Models.Doctor;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
 import com.pms.doctor.service.Models.DoctorProfileImg;
@@ -53,7 +56,8 @@ public class doctorController {
 	@Autowired
 	private doctorProfileImgImpl doctorProfileImgImpl;
 	
-	
+	@Autowired
+	private  DoctorChatImpl chatImpl;
 	
 	@Autowired
 	private doctorDetailsImpl doctorDetailsService;
@@ -285,6 +289,24 @@ public class doctorController {
 	  	{
 	  		return ResponseEntity.status(HttpStatus.OK).body("Service Unavilable");
 	  	}
+	  	
+	  	
+	  	
+	//////////////////////////// For Chat System/////////////////////
+	  	@GetMapping("/getAllMsg")
+		public ResponseEntity<List<Chat>> getAllMsg()
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(chatImpl.getAllMsg());
+			
+		}
+		
+		@PostMapping("/crateMsg")
+		public ResponseEntity<Chat> CreateMsg(@RequestBody Chat obj)
+		{
+			return ResponseEntity.status(HttpStatus.OK).body(chatImpl.createMsg(obj));
+			
+			
+		}
 	  	
 	 ////////////////////////////////////////// fallback for pickup
 	  	
