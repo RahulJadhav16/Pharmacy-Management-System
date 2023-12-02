@@ -186,7 +186,7 @@ const userData = JSON.parse(userdataString);
       <div>
         <div className={`alert ${item.personID===id ? 'alert-success' : 'alert-primary'}`} role="alert" ref={bottomRef}>
 
-  <h4 class="alert-heading">{item.name} ({item.role})</h4>
+  <h4 class="alert-heading">{item.name} ({item.role}) {item.role==="ADMIN"?"✅":""}</h4>
 
   
   
