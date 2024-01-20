@@ -34,6 +34,7 @@ import Services from "./Services";
 import Contactus from "./Contactus";
 import Testimonial from "./Testimonial";
 import Gallary from "./Gallary";
+import Requests from "./Admin/Requests";
 
 export default function MainPage() {
 
@@ -117,6 +118,7 @@ export default function MainPage() {
       <Route exact path="/drugOutofStock" element={<DrugOutOffStock />}/>
       <Route exact path="/adminDrug" element={<AdminDrugs />}/>
       <Route exact path="/analytics" element={<Analytics />}/>
+      <Route exact path="/requests" element={<Requests />}/>
       
       </Route>
       

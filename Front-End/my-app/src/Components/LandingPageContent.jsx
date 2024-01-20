@@ -1,6 +1,9 @@
 import React from 'react'
 import Footer from './Footer'
+
 export default function LandingPageContent() {
+  
+
   return (
     <div>
         <div className="area">
@@ -11,7 +14,7 @@ export default function LandingPageContent() {
         </ul>
 
         <div className="d-flex justify-content-center">
-          <h1 className="slogen my-5">
+          <h1 className="slogen my-5 mob">
             Empowering doctors with seamless medication procurement
           </h1>
         </div>
@@ -24,7 +27,7 @@ export default function LandingPageContent() {
               alt=""
             />
           </div>
-          <div className="content my-5">
+          <div className="content my-5 mob">
             <h1>
               Why choose us <span style={{ color: "orange" }}>?</span>
             </h1>

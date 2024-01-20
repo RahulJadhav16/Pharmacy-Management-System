@@ -13,26 +13,26 @@ spring:
             allowed-headers: "*"
       routes:
         - id: ADMIN-SERVICE
-          uri: lb://ADMIN-SERVICE
+          uri: http://localhost:8090/
           predicates:
             - Path=/adminOprations/**
 
         - id: DOCTOR-SERVICE
-          uri: lb://DOCTOR-SERVICE
+          uri: http://localhost:8081/
           predicates:
             - Path=/doctor/**,/registerDoctor/**
 
         - id: PICKUP-SERVICE
-          uri: lb://PICKUP-SERVICE
+          uri: http://localhost:8086/
           predicates:
             - Path=/pickupAdmin/**,/pickupDoctor/**,/payment/**
 
         - id: ORDER-SERVICE
-          uri: lb://ORDER-SERVICE
+          uri: http://localhost:8083/
           predicates:
             - Path=/verifyOrder/**,/orderService/**
 
         - id: DRUG-INVENTORY
-          uri: lb://DRUG-INVENTORY
+          uri: http://localhost:8082/
           predicates:
             - Path=/drugs/**,/stock/**

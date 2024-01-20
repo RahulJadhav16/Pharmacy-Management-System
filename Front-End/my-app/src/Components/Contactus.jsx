@@ -1,9 +1,74 @@
 import React from 'react'
 import "./CSS/contactus.css"
 import Footer from './Footer'
+import { useState } from 'react'
+import LoadingBar from 'react-top-loading-bar'
+import axios from 'axios';
 export default function Contactus() {
+  const [progress, setProgress] = useState(0)
+
+  let[FirstName,setFirstName]=useState("");
+  let[EmailId,setEmailId]=useState("");
+  let[MObNO,setMObNO]=useState("");
+  let[Message,setMessage]=useState("");
+
+
+  const handelSubmit=(e)=>
+  {
+    setProgress(10)
+    axios.post('http://localhost:9091/adminOprations/createContactUs',{
+      name:FirstName,
+      email:EmailId,
+      mobNo:MObNO,
+      message:Message
+
+
+    }).then((response)=>{
+      console.log(response)
+      setProgress(100)
+
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
+
+
+
+  }
+
+
+  const handelFirstNameChange=(e)=>{
+    setFirstName(e.target.value);
+    // console.log(e.target.value);
+   
+  }
+
+  const handelEmailId=(e)=>{
+    setEmailId(e.target.value);
+    //console.log(e.target.value);
+   
+  }
+
+  const handelMobNo=(e)=>{
+    setMObNO(e.target.value);
+    //console.log(e.target.value);
+   
+  }
+
+  const handelMessage=(e)=>{
+    setMessage(e.target.value);
+    //console.log(e.target.value);
+   
+  }
+
   return (
     <div>
+      <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
         
         <div className="contact_us_6">
   <div className="responsive-container-block container">
@@ -26,6 +91,8 @@ export default function Contactus() {
               id="ijowk-3"
               name="FirstName"
               placeholder="Please enter first name..."
+              onChange={handelFirstNameChange}
+              required
             />
           </div>
           <div
@@ -38,6 +105,8 @@ export default function Contactus() {
               id="ipmgh-3"
               name="Email"
               placeholder="Please enter email..."
+              onChange={handelEmailId}
+              required
             />
           </div>
           <div
@@ -50,6 +119,8 @@ export default function Contactus() {
               id="imgis-3"
               name="PhoneNumber"
               placeholder="Please enter phone number..."
+              onChange={handelMobNo}
+              required
             />
           </div>
           <div
@@ -62,10 +133,12 @@ export default function Contactus() {
               id="i5vyy-3"
               placeholder="Please enter query..."
               defaultValue={""}
+              onChange={handelMessage}
+              required
             />
           </div>
         </div>
-        <button className="submit-btn" id="w-c-s-bgc_p-1-dm-id-2">
+        <button className="submit-btn" id="w-c-s-bgc_p-1-dm-id-2" onClick={handelSubmit}>
           Submit
         </button>
       </div>

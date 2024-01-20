@@ -181,6 +181,25 @@ export default function SideBarAdmin({onDataReceived}) {
   </Link>
 </li>
 
+<li className='sidebar'>
+  <Link
+    to={"/requests"}
+    className="nav-link link-dark"
+    style={{
+      backgroundColor: 'initial',
+      transition: 'background-color 0.3s',
+    }}
+    onMouseOver={(e) => {
+      e.target.style.backgroundColor = 'orchid';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.backgroundColor = 'initial';
+    }}
+  >
+    Requests
+  </Link>
+</li>
+
     </ul>
     <hr/>
     <div className="dropdown">
