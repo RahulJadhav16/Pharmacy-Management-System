@@ -36,3 +36,8 @@ spring:
           uri: http://localhost:8082/
           predicates:
             - Path=/drugs/**,/stock/**
+            
+        - id: CHAT-SYSTEM
+          uri: http://localhost:9092/
+          predicates:
+            - Path=/chat/**

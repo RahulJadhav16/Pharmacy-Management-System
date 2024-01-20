@@ -31,6 +31,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.pms.AdminMicroservice.Config.JwtHelper;
 import com.pms.AdminMicroservice.Config.JwtRequest;
 import com.pms.AdminMicroservice.Config.JwtResponse;
+import com.pms.AdminMicroservice.Impl.AdminChatImpl;
 import com.pms.AdminMicroservice.Impl.AdminProfileImgImpl;
 import com.pms.AdminMicroservice.Impl.AdminProfileImpl;
 import com.pms.AdminMicroservice.Impl.DrugCatalogueServiceImpl;
@@ -40,6 +41,7 @@ import com.pms.AdminMicroservice.Impl.VerifyOrderServiceImpl;
 import com.pms.AdminMicroservice.Impl.contactUsImpl;
 import com.pms.AdminMicroservice.Model.AdminDetails;
 import com.pms.AdminMicroservice.Model.AdminProfileImg;
+import com.pms.AdminMicroservice.Model.Chat;
 import com.pms.AdminMicroservice.Model.ContactUs;
 import com.pms.AdminMicroservice.Model.Drug;
 import com.pms.AdminMicroservice.Model.DrugsStock;
@@ -67,6 +69,9 @@ public class AdminOprationsController {
     
     @Autowired
     private contactUsImpl ContactUsImpl;
+    
+    @Autowired
+    private AdminChatImpl adminChatImpl;
 
 
     @Autowired
@@ -394,6 +399,21 @@ public class AdminOprationsController {
 	}
 	
 	
+	///////////////////////////This end point is for chat app for admin /////////////////
+	@GetMapping("/getAllMsg")
+	public ResponseEntity<List<Chat>> getAllMsg()
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(adminChatImpl.getAllMsg());
+		
+	}
+	
+	@PostMapping("/crateMsg")
+	public ResponseEntity<Chat> CreateMsg(@RequestBody Chat obj)
+	{
+		return ResponseEntity.status(HttpStatus.OK).body(adminChatImpl.createMsg(obj));
+		
+		
+	}
 	
 	
 	
