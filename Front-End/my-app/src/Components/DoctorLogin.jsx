@@ -56,7 +56,7 @@ export default function DoctorLogin({ onDataReceived }) {
   }
   setProgress(10)
   axios
-      .post('http://localhost:9091/doctor/auth/login', {
+      .post('http://localhost:8081/doctor/auth/login', {
         email:Doctoremail,
         password:Doctorpassword
       })
