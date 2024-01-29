@@ -69,10 +69,11 @@ export default function DoctorSignup() {
         // Perform any desired action after successful form submission
        
           NotificationManager.success('Sign up successful', 'Success');
+          NotificationManager.warning("Don't refresh while we redirect you to the login page !", 'warning');
          
         setTimeout(() => {
           navigate('/doctor');
-        }, 2000);
+        }, 6000);
        
         
       })

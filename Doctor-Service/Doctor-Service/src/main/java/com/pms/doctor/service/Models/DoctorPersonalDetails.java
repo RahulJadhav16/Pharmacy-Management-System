@@ -11,6 +11,10 @@ public class DoctorPersonalDetails {
 	private String contact;
 	private String email;
 	private String address;
+	
+	
+	
+	
 	public String getId() {
 		return id;
 	}

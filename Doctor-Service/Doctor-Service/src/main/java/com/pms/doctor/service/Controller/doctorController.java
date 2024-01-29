@@ -34,7 +34,9 @@ import com.pms.doctor.service.Config.JwtResponse;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
 import com.pms.doctor.service.Impl.DoctorChatImpl;
 import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
+import com.pms.doctor.service.Impl.VerifyOptImpl;
 import com.pms.doctor.service.Impl.doctorDetailsImpl;
+import com.pms.doctor.service.Impl.doctorEmailVerificationServiceImpl;
 import com.pms.doctor.service.Impl.doctorProfileImgImpl;
 import com.pms.doctor.service.Impl.doctorServiceImpl;
 import com.pms.doctor.service.Models.Chat;
@@ -42,8 +44,10 @@ import com.pms.doctor.service.Models.Doctor;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
 import com.pms.doctor.service.Models.DoctorProfileImg;
 import com.pms.doctor.service.Models.Drug;
-
+import com.pms.doctor.service.Models.MailVerification;
 import com.pms.doctor.service.Models.Order;
+import com.pms.doctor.service.Models.Otp;
+import com.pms.doctor.service.Models.OtpVerifyModel;
 import com.pms.doctor.service.Models.Pickup;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -52,6 +56,12 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 @RestController
 @RequestMapping("/doctor")
 public class doctorController {
+	
+	@Autowired
+	private VerifyOptImpl optImpl;
+	
+	@Autowired
+	private doctorEmailVerificationServiceImpl doctorEmailVerifiaction;
 	
 	@Autowired
 	private doctorProfileImgImpl doctorProfileImgImpl;
@@ -240,6 +250,53 @@ public class doctorController {
 	    public String exceptionHandler() {
 	        return "Credentials Invalid !!";
 	    }
+	 
+	 
+	 /////////////////////////// OPT Verification ////////////////////////////////////////////
+	 
+	 @PostMapping("/sendOpt/{email}")
+		public ResponseEntity<Otp> SendOtp(@PathVariable String email) {
+		 return ResponseEntity.status(HttpStatus.CREATED).body(optImpl.SendOpt(email));
+
+	       
+	    }
+	 
+	 @PostMapping("/VerifyOtp")
+		public ResponseEntity<String> VerifyOpt(@RequestBody OtpVerifyModel obj) {
+		 
+		 return ResponseEntity.status(HttpStatus.CREATED).body(optImpl.VerifyOpt(obj));
+		  
+	    } 
+		
+		@GetMapping("/getDoctorEmailVerificationStatus/{id}")
+		public ResponseEntity<MailVerification> VerifyDoctorMailId(@PathVariable String id) {
+		 
+		 return ResponseEntity.status(HttpStatus.OK).body(doctorEmailVerifiaction.getDoctorEmailVerification(id));
+
+	    }
+		
+		 @PostMapping("/setDoctorVetificationStatus")
+			public ResponseEntity<MailVerification> setDoctorVetificationStatus(@RequestBody MailVerification obj) {
+			 
+			 return ResponseEntity.status(HttpStatus.CREATED).body(doctorEmailVerifiaction.setDoctorEmailVerification(obj));
+			  
+		    } 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	
 	 
 	 ////////////////////////////Fallback Methods ////////////////////////////////////////////
 	 //for drug inventory

@@ -56,6 +56,22 @@ export default function SideBarDoctor({ onDataReceived }) {
           const imageUrl = URL.createObjectURL(blob);
           setprofileImg(imageUrl);
           localStorage.setItem('profilePath', imageUrl);
+
+
+          //emailVerification
+          axiosInstance.get("http://localhost:9091/doctor/getDoctorEmailVerificationStatus/"+localStorage.getItem("Doctorid"))
+    .then((response) =>{
+       
+
+      console.log(response.data.emailVerified);
+      localStorage.setItem("emailVerification", JSON.stringify(response.data.emailVerified));
+
+
+    })
+    .catch((error) =>{
+      console.log(error);
+
+    })
         })
         .catch(function (error) {
           console.log(error);

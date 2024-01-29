@@ -4,6 +4,12 @@ import Footer from './Footer'
 import { useState } from 'react'
 import LoadingBar from 'react-top-loading-bar'
 import axios from 'axios';
+import { NotificationManager} from 'react-notifications';
+import { NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
+
+
 export default function Contactus() {
   const [progress, setProgress] = useState(0)
 
@@ -26,6 +32,7 @@ export default function Contactus() {
     }).then((response)=>{
       console.log(response)
       setProgress(100)
+      NotificationManager.success("Your request has been sent!", 'Success');
 
     })
     .catch(function (error) {
@@ -64,6 +71,7 @@ export default function Contactus() {
 
   return (
     <div>
+       <NotificationContainer/>
       <LoadingBar
         color='#f11946'
         progress={progress}

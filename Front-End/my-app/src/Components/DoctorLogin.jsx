@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { isEmail } from 'validator';
 import axios from 'axios';
 import LoadingBar from 'react-top-loading-bar'
+import { NotificationManager} from 'react-notifications';
+import { NotificationContainer} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+
+
+
 export default function DoctorLogin({ onDataReceived }) {
   const [progress, setProgress] = useState(0)
 
@@ -52,6 +58,7 @@ export default function DoctorLogin({ onDataReceived }) {
   }
   if (!isEmail(Doctoremail)) {
     setMsg("Please enter a valid email address!");
+    NotificationManager.warning("⚠️Please enter a valid email address!", 'warning');
     return;
   }
   setProgress(10)
@@ -66,6 +73,7 @@ export default function DoctorLogin({ onDataReceived }) {
         {
           setProgress(100)
           setMsg("Invalid credentials !");
+          NotificationManager.error("⚠️Invalid Credentials!", 'warning');
           return;
           
         }
@@ -87,6 +95,8 @@ export default function DoctorLogin({ onDataReceived }) {
 
       })
       .catch(function (error) {
+        setProgress(100)
+        NotificationManager.error("⚠️Invalid Credentials!", 'warning');
         console.log(error);
       })
 
@@ -104,6 +114,7 @@ export default function DoctorLogin({ onDataReceived }) {
 
   return (
     <div>
+       <NotificationContainer/>
       <LoadingBar
         color='#f11946'
         progress={progress}

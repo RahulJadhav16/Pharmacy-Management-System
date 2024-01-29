@@ -10,7 +10,10 @@ import com.pms.doctor.service.Exception.EmailIdAlreadyExistsException;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
 import com.pms.doctor.service.Models.Doctor;
 import com.pms.doctor.service.Models.DoctorPersonalDetails;
+import com.pms.doctor.service.Models.MailVerification;
+import com.pms.doctor.service.Models.OtpVerifyModel;
 import com.pms.doctor.service.Repository.DoctorPersonalDetailsRepository;
+import com.pms.doctor.service.Repository.EmailVerification;
 import com.pms.doctor.service.Repository.doctorRepository;
 import com.pms.doctor.service.Service.doctorDetailsService;
 import com.pms.doctor.service.Service.doctorService;
@@ -20,6 +23,9 @@ public class doctorDetailsImpl implements doctorDetailsService{
 	
 	@Autowired
 	private doctorRepository doctorRepo;
+	
+	@Autowired
+	private EmailVerification emailVerificationRepo;
 	
 	@Autowired
 	private DoctorPersonalDetailsRepository doctorPersonalDetailsRepository;
@@ -54,6 +60,11 @@ public class doctorDetailsImpl implements doctorDetailsService{
 		doctorRepo.save(doctorobj);
 		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(doctorobj.getDoctorId(),doctorobj.getName(),doctorobj.getContact(),doctorobj.getEmail(),doctorobj.getAddress());
 		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
+		
+		//On first time seting emailverification as false
+		MailVerification otpVerifyObj=new MailVerification(doctorobj.getDoctorId(),false);
+		
+		emailVerificationRepo.save(otpVerifyObj);
 		return doctorobj;
 		}
 	}

@@ -37,6 +37,7 @@ import Gallary from "./Gallary";
 import Requests from "./Admin/Requests";
 import Chat from "./Admin/Chat";
 import ContactAdmin from "./ContactAdmin";
+import OtpVerificatin from "./OtpVerificatin";
 
 export default function MainPage() {
 
@@ -93,6 +94,8 @@ export default function MainPage() {
       <Route exact path="/testimonial" element={<Testimonial/>}/>
       <Route exact path="/gallary" element={<Gallary/>}/>
       <Route exact path="/admin" element={<AdminLogin onDataReceived={handleDataReceived}/>}/>
+      <Route exact path="/otpVerification" element={<OtpVerificatin/>}/>
+
 
 
 

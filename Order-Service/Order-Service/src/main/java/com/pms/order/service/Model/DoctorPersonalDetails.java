@@ -11,6 +11,25 @@ public class DoctorPersonalDetails {
 	private String contact;
 	private String email;
 	private String address;
+	private boolean doctorVerification=false;
+	
+	
+	public DoctorPersonalDetails(String id, String name, String contact, String email, String address,
+			boolean doctorVerification) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.contact = contact;
+		this.email = email;
+		this.address = address;
+		this.doctorVerification = doctorVerification;
+	}
+	public boolean isDoctorVerification() {
+		return doctorVerification;
+	}
+	public void setDoctorVerification(boolean doctorVerification) {
+		this.doctorVerification = doctorVerification;
+	}
 	public String getId() {
 		return id;
 	}
