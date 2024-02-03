@@ -38,6 +38,7 @@ import Requests from "./Admin/Requests";
 import Chat from "./Admin/Chat";
 import ContactAdmin from "./ContactAdmin";
 import OtpVerificatin from "./OtpVerificatin";
+import DocotorForgetPassword from "./DocotorForgetPassword";
 
 export default function MainPage() {
 
@@ -95,6 +96,7 @@ export default function MainPage() {
       <Route exact path="/gallary" element={<Gallary/>}/>
       <Route exact path="/admin" element={<AdminLogin onDataReceived={handleDataReceived}/>}/>
       <Route exact path="/otpVerification" element={<OtpVerificatin/>}/>
+      <Route exact path="/forgetpassword" element={<DocotorForgetPassword/>}/>
 
 
 

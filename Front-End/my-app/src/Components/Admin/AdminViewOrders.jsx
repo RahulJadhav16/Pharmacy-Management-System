@@ -7,6 +7,7 @@ import { NotificationContainer} from 'react-notifications';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import LoadingBar from 'react-top-loading-bar'
+
 export default function AdminViewOrders() {
   const [progress, setProgress] = useState(0)
     const[loader,setLoader]=useState(false);

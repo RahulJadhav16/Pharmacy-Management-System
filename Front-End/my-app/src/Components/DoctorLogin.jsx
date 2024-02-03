@@ -128,7 +128,7 @@ export default function DoctorLogin({ onDataReceived }) {
       <img src={require("../Assets/login.jpg")} width="600px" height="540px" alt=""/>
      
       
-      <div className="card my-4 logincard" style={{ width: "20rem" ,height:"540px"}}>
+      <div className="card my-4 logincard" style={{ width: "20rem" ,height:"580px"}}>
         
         <div className="d-flex justify-content-center my-5">
           <img
@@ -180,13 +180,19 @@ export default function DoctorLogin({ onDataReceived }) {
               <label className="form-check-label" for="exampleCheck1">
                 Show Password
               </label>
+              
             </div>
+            
           </div>
+          <Link to="/forgetpassword" className="my-4">
+              Forgot password ?
+        
+          </Link>
           <button type="submit" className="btn btn-primary my-2" onClick={handelSubmit}>
             Submit
           </button>
-          <Link to="/signup" className="my-4">
-            Dont't have an account, Create one
+          <Link to="/signup" className="mx-4">
+            Dont't have an account
           </Link>
         </div>
       </div>
