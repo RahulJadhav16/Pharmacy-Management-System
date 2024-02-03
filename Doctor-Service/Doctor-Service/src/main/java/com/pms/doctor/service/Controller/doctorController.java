@@ -92,6 +92,7 @@ public class doctorController {
 	
     
      //To view all the drugs
+    
   	@PreAuthorize("hasRole('DOCTOR')")
   	@GetMapping("/viewAllDrugs")
   	@CircuitBreaker(name="drugServiceBreaker", fallbackMethod = "viewAllDrugsFallback")
