@@ -45,7 +45,7 @@ public class SecurityConfigJwt {
     	
     	http.cors().and().csrf().disable()
 		.authorizeHttpRequests()
-		.requestMatchers("/doctor/auth/login","doctor/create")
+		.requestMatchers("/doctor/auth/login","doctor/create","doctor/forgetPassword/**")
 		.permitAll()
 		.anyRequest()
         .authenticated()

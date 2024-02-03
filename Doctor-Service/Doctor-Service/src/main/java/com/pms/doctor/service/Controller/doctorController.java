@@ -33,6 +33,7 @@ import com.pms.doctor.service.Config.JwtRequest;
 import com.pms.doctor.service.Config.JwtResponse;
 import com.pms.doctor.service.Exception.UserNotFoundByIDException;
 import com.pms.doctor.service.Impl.DoctorChatImpl;
+import com.pms.doctor.service.Impl.DoctorForgetPasswordImpl;
 import com.pms.doctor.service.Impl.DoctorPersonalDetailsImpl;
 import com.pms.doctor.service.Impl.VerifyOptImpl;
 import com.pms.doctor.service.Impl.doctorDetailsImpl;
@@ -59,6 +60,9 @@ public class doctorController {
 	
 	@Autowired
 	private VerifyOptImpl optImpl;
+	
+	@Autowired
+	private  DoctorForgetPasswordImpl doctorForgetpassword;
 	
 	@Autowired
 	private doctorEmailVerificationServiceImpl doctorEmailVerifiaction;
@@ -282,7 +286,16 @@ public class doctorController {
 			 return ResponseEntity.status(HttpStatus.CREATED).body(doctorEmailVerifiaction.setDoctorEmailVerification(obj));
 			  
 		    } 
-	 
+		 
+	        ///////////////////////Doctor user forget password //////////////////////// 
+		 
+		 @PostMapping("/forgetPassword/{email}")
+         public ResponseEntity<String> doctorForgetpassword(@PathVariable String email) {
+			 
+			 return ResponseEntity.status(HttpStatus.CREATED).body(doctorForgetpassword.genratePassword(email));
+			  
+		    } 
+		 
 	 
 	 
 	 
