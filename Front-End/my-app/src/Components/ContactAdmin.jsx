@@ -3,11 +3,19 @@ import React, { useState,useEffect ,useRef} from 'react'
 import { Link } from 'react-router-dom';
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
+import EmojiPicker from 'emoji-picker-react';
 
 export default function ContactAdmin() {
   const [data,setData]=useState([]);
   const bottomRef = useRef(null);
   const [msg,setMsg]=useState(" ");
+
+  const handleEmojiClick = (emojiObject) => {
+  
+   setMsg((prevMsg) => prevMsg + emojiObject.emoji);
+    // console.log(emojiObject.emoji);
+  };
+  
 
 
 
@@ -56,6 +64,7 @@ export default function ContactAdmin() {
 const handelMsgType=(e)=>{
   console.log(e.target.value);
   setMsg(e.target.value);
+
 
 }
 
@@ -115,6 +124,8 @@ const userData = JSON.parse(userdataString);
   .catch(function (error) {
       console.log(error);
     });
+
+    setMsg("");
 
 
   }
@@ -276,6 +287,11 @@ const userData = JSON.parse(userdataString);
             <hr />
           </div>
         </div>
+        <div >
+  <EmojiPicker onEmojiClick={handleEmojiClick} />
+</div>
+
+       
 
         <div className="justify-content-around mx-3" >
         {data.length
@@ -305,13 +321,27 @@ const userData = JSON.parse(userdataString);
     </div>
 }
 <div className="sticky-bottom bg-light p-3" >
+
+
 <div class="input-group mb-3">
-  <input onChange={handelMsgType} type="text" class="form-control" placeholder="Your message goes here...." aria-label="Recipient's username" aria-describedby="button-addon2"/>
+  <input
+              onChange={handelMsgType}
+              type="text"
+              value={msg}
+              className="form-control"
+              placeholder="Your message goes here...."
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
   <div class="input-group-append">
     <button class="btn btn-outline-secondary" type="button" id="button-addon2" onClick={handelSendmsg}>➤</button>
   </div>
 </div>
+
+
 </div>
+
+
 
           
           
