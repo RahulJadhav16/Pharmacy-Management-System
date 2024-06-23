@@ -8,11 +8,15 @@ import LoadingBar from 'react-top-loading-bar'
 import { NotificationManager} from 'react-notifications';
 import { NotificationContainer} from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-
+import errorSound from '../Assets/error.mp3'
+import success from '../Assets/success.mp3'
 
 
 export default function DoctorLogin({ onDataReceived }) {
   const [progress, setProgress] = useState(0)
+
+  const errorSoundNotifiaction=new Audio(errorSound);
+  const successNotificationSound=new Audio(success)
 
                         
   const navigate = useNavigate();
@@ -54,10 +58,12 @@ export default function DoctorLogin({ onDataReceived }) {
   if(Doctoremail.trim() === '' || Doctorpassword.trim() === '')
   {
     setMsg('Please enter valid data!')
+    errorSoundNotifiaction.play();
     return;
   }
   if (!isEmail(Doctoremail)) {
     setMsg("Please enter a valid email address!");
+    errorSoundNotifiaction.play();
     NotificationManager.warning("⚠️Please enter a valid email address!", 'warning');
     return;
   }
@@ -73,10 +79,12 @@ export default function DoctorLogin({ onDataReceived }) {
         {
           setProgress(100)
           setMsg("Invalid credentials !");
+          errorSoundNotifiaction.play();
           NotificationManager.error("⚠️Invalid Credentials!", 'warning');
           return;
           
         }
+        successNotificationSound.play();
         localStorage.setItem('JwtToken',response.data.jwtToken)
         localStorage.setItem('UserEmailId',response.data.username)
         setProgress(100)
@@ -96,6 +104,7 @@ export default function DoctorLogin({ onDataReceived }) {
       })
       .catch(function (error) {
         setProgress(100)
+        errorSoundNotifiaction.play();
         NotificationManager.error("⚠️Invalid Credentials!", 'warning');
         console.log(error);
       })

@@ -58,6 +58,7 @@ public class doctorDetailsImpl implements doctorDetailsService{
 		//Hashing the password
 		doctorobj.setPassword(passwordEncoder.encode(doctorobj.getPassword()));
 		doctorRepo.save(doctorobj);
+		
 		DoctorPersonalDetails doctorPersonalDetails=new DoctorPersonalDetails(doctorobj.getDoctorId(),doctorobj.getName(),doctorobj.getContact(),doctorobj.getEmail(),doctorobj.getAddress());
 		doctorPersonalDetailsRepository.save(doctorPersonalDetails);
 		

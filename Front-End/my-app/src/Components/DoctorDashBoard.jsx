@@ -3,10 +3,13 @@ import './CSS/doctorDashboard.css';
 import SideBarDoctor from './SideBarDoctor';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import tapNotification from '../Assets/tapNotification.mp3'
 import { Link } from 'react-router-dom';
 export default function DoctorDashBoard({onDataReceived}) { 
 
   //  let emailVerification=true;
+
+  const tapSound=new Audio(tapNotification);
 
  
 
@@ -76,14 +79,17 @@ export default function DoctorDashBoard({onDataReceived}) {
  }
 
  const handelViewDrugs=() => {
+  tapSound.play();
   navigate('/viewDrugs');
  }
 
  const handelViewOrders=() => {
+  tapSound.play();
   navigate('/viewOrders');
  }
 
  const handelPickOrders=() => {
+  tapSound.play();
   navigate('/pickupOrder');
  }
 

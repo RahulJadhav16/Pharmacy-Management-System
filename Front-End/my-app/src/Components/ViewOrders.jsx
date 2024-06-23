@@ -9,11 +9,17 @@ import axios from 'axios';
 import './CSS/doctorlogin.css';
 import LoadingBar from 'react-top-loading-bar'
 
+import errorSound from '../Assets/error.mp3'
+
 export default function ViewOrders() {
   const [progress, setProgress] = useState(0)
   const navigate = useNavigate();
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
+  const errorSoundNotifiaction=new Audio(errorSound);
+  
+
+  const serviceAvailable = true;
 
   const emailVerification=localStorage.getItem('emailVerification');
  
@@ -31,6 +37,7 @@ export default function ViewOrders() {
 
   const handleOrderDeleteClick = (item) => () => {
     if (item.status) {
+      errorSoundNotifiaction.play();
       NotificationManager.error('', 'Verified order cannot be deleted!', 4000);
       return;
     }
@@ -94,6 +101,10 @@ export default function ViewOrders() {
       })
       .catch(function (error) {
         console.log(error);
+        if(error.code==="500")
+        {
+          console.log("500")
+        }
         setProgress(100)
       });
 
@@ -120,6 +131,12 @@ export default function ViewOrders() {
 
 
   }
+
+
+
+
+
+
 
   if(emailVerification=="false" || emailVerification==null)
   {

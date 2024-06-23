@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 import axios  from 'axios';
 import { useNavigate } from 'react-router-dom';
 import EmojiPicker from 'emoji-picker-react';
+import successTwo from '../Assets/successTwo.mp3'
 
 export default function ContactAdmin() {
   const [data,setData]=useState([]);
   const bottomRef = useRef(null);
   const [msg,setMsg]=useState(" ");
+  const successTwoNotification=new Audio(successTwo);
 
   const handleEmojiClick = (emojiObject) => {
   
@@ -115,6 +117,7 @@ const userData = JSON.parse(userdataString);
       
       handelRefresh();
       scrollToBottom();
+      successTwoNotification.play();
 
      
 

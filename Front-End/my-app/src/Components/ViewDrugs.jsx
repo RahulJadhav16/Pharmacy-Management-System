@@ -8,12 +8,21 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import "./CSS/doctorlogin.css";
 import SyncLoader from "react-spinners/SyncLoader";
-import LoadingBar from 'react-top-loading-bar'
+import LoadingBar from 'react-top-loading-bar';
+
+import successTwo from '../Assets/successTwo.mp3'
+
+import errorSound from '../Assets/error.mp3'
+
 export default function ViewDrugs() {
   const [progress, setProgress] = useState(0)
   const[loader,setLoader]=useState(false);
   const storedData = localStorage.getItem("userData");
   const parsedData = JSON.parse(storedData);
+
+  const successTwoNotification=new Audio(successTwo);
+  const errorSoundNotifiaction=new Audio(errorSound);
+  const [serviceAbl,setServiceAbl]=useState("true");
 
   const [data, setData] = useState([]);
   const [filterImg, setFilterImg] = useState("");
@@ -61,6 +70,7 @@ export default function ViewDrugs() {
     //console.log(item);
     if(quantityIp==='' || quantityIp==null || quantityIp<=0)
     {
+      errorSoundNotifiaction.play();
       NotificationManager.error('', 'Enter Valid Quantity!', 3000);
       return;
     }
@@ -82,6 +92,7 @@ export default function ViewDrugs() {
     .then(function (response) {
       console.log(response.data);
       setquantity(0);
+      successTwoNotification.play();
       NotificationManager.success(`${response.data.drugName} with quantity ${response.data.quantity}`, 'Order placed successfully', 3000);
 
     })
@@ -154,6 +165,7 @@ export default function ViewDrugs() {
 
       })
       .catch(function (error) {
+        setServiceAbl("false");
         console.log(error);
         setLoader(false)
         setProgress(100)
@@ -213,6 +225,7 @@ export default function ViewDrugs() {
           NotificationManager.warning('', 'Drug not found !', 3000);
         }
         if (error.response && error.response.status === 401) {
+          errorSoundNotifiaction.play();
           NotificationManager.error('', 'Enter Valid Name!', 3000);
         }
         
@@ -432,6 +445,171 @@ export default function ViewDrugs() {
  </div>
 
  )
+ }
+
+ if(serviceAbl==="false")
+ {
+  return (
+    <div>
+        <LoadingBar
+        color='#f11946'
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+      <NotificationContainer/>
+      {/* SearchBar */}
+      <div className="row height d-flex justify-content-center align-items-center">
+        <div className="col-md-8">
+          <div className="search">
+            <i className="fa fa-search"></i>
+            <input
+  type="text"
+  className="form-control"
+  placeholder="Search Drugs.."
+  onChange={handleSearchChange}
+  onKeyDown={handleBackspace}
+/>
+            <button className="btn btn-primary" onClick={handleSearchSubmit}>
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="my-5 mx-4 d-flex">
+        {/* SideBar */}
+        <div>
+          <div
+            className="d-flex flex-column flex-shrink-0 p-3 bg-light"
+            style={{ width: "280px" }}
+          >
+            <Link
+              to={"/doctorDashboard"}
+              className="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+            >
+              <img
+                className="bi me-2"
+                width="40"
+                height="32"
+                src={require("../Assets/menu.png")}
+              ></img>
+              <span className="fs-4">Hii, Dr {parsedData?.name}</span>
+            </Link>
+            <hr />
+            <ul className="nav nav-pills flex-column mb-auto">
+              <li>
+                <Link
+                  to={"/doctorDashboard"}
+                  className="nav-link link-dark"
+                  style={{
+                    backgroundColor: "initial",
+                    transition: "background-color 0.3s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = "violet";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "initial";
+                  }}
+                >
+                  Dashboard
+                </Link>
+              </li>
+
+              <li className="sidebar">
+                <Link
+                  to={"/viewOrders"}
+                  className="nav-link link-dark"
+                  style={{
+                    backgroundColor: "initial",
+                    transition: "background-color 0.3s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = "orchid";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "initial";
+                  }}
+                >
+                  Orders
+                </Link>
+              </li>
+
+              <li className="sidebar">
+                <Link
+                  to={"/viewDrugs"}
+                  className="nav-link link-dark"
+                  style={{
+                    backgroundColor: "initial",
+                    transition: "background-color 0.3s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = "orchid";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "initial";
+                  }}
+                >
+                  Drugs
+                </Link>
+              </li>
+
+              <li className='sidebar'>
+  <Link
+    to={"/pickupOrder"}
+    className="nav-link link-dark"
+    style={{
+      backgroundColor: 'initial',
+      transition: 'background-color 0.3s',
+    }}
+    onMouseOver={(e) => {
+      e.target.style.backgroundColor = 'orchid';
+    }}
+    onMouseLeave={(e) => {
+      e.target.style.backgroundColor = 'initial';
+    }}
+  >
+    Pickup
+  </Link>
+</li>
+
+              <li className="sidebar">
+                <Link
+                  to={"/contactAdmin"}
+                  className="nav-link link-dark"
+                  style={{
+                    backgroundColor: "initial",
+                    transition: "background-color 0.3s",
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.backgroundColor = "orchid";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "initial";
+                  }}
+                >
+                  Contact Admin
+                </Link>
+              </li>
+            </ul>
+            <hr />
+          </div>
+        </div>
+
+        <div style={{"marginLeft":"200px"}}> 
+    <iframe src="https://lottie.host/embed/ff362e95-fd45-4f0c-a1f1-e6395e93eb45/5Z9V7Skdww.json" width="500px" height="430px"></iframe>
+
+    </div>
+
+
+    </div>
+   
+
+
+
+
+
+    </div>
+  )
  }
 
   return (
